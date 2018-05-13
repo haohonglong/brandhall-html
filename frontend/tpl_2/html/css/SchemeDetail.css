@@ -1,0 +1,10 @@
+@charset "utf-8";
+/*方案详情*/
+html{background: #fff;}
+.sectionContainer-A1{overflow: hidden;}
+.sectionWrap-A1{background: #fff;}
+#schemeDetail .first{width: 500px;}
+#schemeDetail .first img{width: 500px;height: 325px;}
+#schemeDetail .img-room img{width: 280px;height: 210px;}
+#schemeDetail .img-hxt{width: 578px;height: 300px;}
+

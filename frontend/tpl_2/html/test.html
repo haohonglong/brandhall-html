@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>方案详情</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<script type="text/javascript" src="js/loadcommon.js"></script>
+<script type="text/javascript">
+    window.System.L.load({'js':[
+                                'jquery-1.7.1',
+                                'lib.class',
+                                'Tools.class']
+                        });
+    
+    
+    
+</script>
+<script type="text/javascript" src="js/use.js"></script>
+<link href="css/base.css" rel="stylesheet" type="text/css" />
+<link href="css/schemeDetail.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+	$(function(){
+        var first=document.getElementById("schemeDetail");
+        var $container=$(first);
+        var sport=new window.System.Sport();
+        var $sidebar=$('.js_sectionSidebar');
+        var window_w,window_h;
+        var arr_hx=[];
+        //改变窗口时重新获取容器外围的尺寸
+        var resetWrapSize=function(){
+            window_w=$(window).width();
+            var len=$('.js_hu_col').length;
+            window_h=$(window).height();
+            if(arr_hx.length){
+                for(var i=0,lent=arr_hx.length;i<lent;i++){
+                    arr_hx[i].window_h=window_h-200;
+                }
+            }
+            $container.width(len*663);
+            first.width=$container.width()-80;
+        };
+        resetWrapSize();
+        
+        
+        var F=new window.System.Drag_xy(first,{
+                                                        'coord':'x',
+                                                        'window_w':window_w,
+                                                        'sport':sport
+                                                        });
+        
+        $('.js_hx').each(function(){
+            this.height=$(this).height();
+            var hx=new window.System.Drag_xy(this,{
+                                                       'coord':'y',
+                                                       'that':F,
+                                                       'window_h':window_h-200,
+                                                       'arear':$sidebar[0],
+                                                       'sport':sport
+                                                     });
+            arr_hx.push(hx);
+           
+        });
+        
+        $(window).resize(function(){
+            resetWrapSize();
+            F.window_w=$(window).width();
+        });
+        
+        
+    });
+</script>
+
+<script type="text/javascript">
+	function test_load(n){
+        
+        var html='';
+        html=       '<li class="mb20"> \
+                        <div class="sectionFont sectionFont-grey mr20"> \
+                            <a href="###"> \
+                                <img class="mb10" src="images/imgs_LHH/pics/img_8.jpg" width="100%" height="" /> \
+                            </a> \
+                            <h6><a href="###"> \
+                                回归自然 用简单色彩营造田园风 \
+                            </a></h6> \
+                            <p>淡蓝的背景色，白色实木家具，打造清新田园风</p> \
+                        </div> \
+                    </li> \
+                    <li class="mb20"> \
+                        <div class="sectionFont sectionFont-grey"> \
+                            <a href="###"> \
+                                <img class="mb10" src="images/imgs_LHH/pics/img_8.jpg" width="100%" height="" /> \
+                            </a> \
+                            <h6><a href="###"> \
+                                回归自然 用简单色彩营造田园风 \
+                            </a></h6> \
+                            <p>淡蓝的背景色，白色实木家具，打造清新田园风</p> \
+                        </div> \
+                    </li>';
+        
+        
+        for(var i=1;i<n;i++){
+            html+=html;
+        }
+        if(n>0) return html;
+    }
+    
+    
+    $(function(){
+        $('.js_loadMore').bind('click',function(){
+            $(this).parent().prev('ul').append(test_load(1));
+            $('.js_hx').each(function(){this.height=$(this).height();});
+        });
+        
+        
+    });
+</script>
+
+<style type="text/css">
+	
+</style>
+
+
+</head>
+
+<body>
+<div class="sectionWrap-A2 p50 pb0 h-percent-of100 size1of1 clearfix p-rel" id="schemeDetail">
+    <div class="sectionBox first w-580 L js_hu_col">
+        <div class="sectionTitle-A sectionTitle-A2 mb20 sectionFont">
+            <h2>旭日上城</h2>
+            <div class="more"><a href="###" class="linkBlue">进入旭日上城社区</a></div>
+        </div>
+        <img class="mb20" src="images/imgs_LHH/pics/img_7.jpg" width="100%" height="" />
+        <div class="sectionFont sectionCms sectionCms-0 mb20">
+            弘阳旭日上城位于南京市大桥北岸，毗临长江，地处弘阳板块中心区内。数十条公交线路，过江通道，地铁等一应俱全。目前在售的旭日上城二区完美延续上城一区、三区经典的欧风欧蕴，在北南京住宅品质标杆的基础上再次提升。以”景观公园式居住“的规划理念，在小区内建造了“欢乐音符”主题广场，儿童活动场、运动场等多样休闲功能融入公共空间之中；近万平米中心大湖，近一公里滨河水岸公园，打造了桥北乃至南京市场罕有的双水岸品质美宅；九大产品价值点，Artdeco建筑风格，引领江北新一代绿色人居产品。83-230平米全系经典户型，可满足不同家庭的各类需求。
+        </div>
+        <div class="sectionFont sectionCms sectionCms-0 mb20">
+            双语幼儿园让孩子起步即与优越同步；弘阳旭日上城专属配套小学北京东路小学分校，为江苏省首批实验小学；引进南外先进办学理念的九年一贯制的特色名校——南京市浦口外国语学校，同时成为弘阳旭日上城的初中部施教区。
+        </div>
+        <div class="sectionFont sectionCms sectionCms-0 mb20">
+            <p>楼盘地址：浦口区大桥北路69号</p>
+            <p>物业类型：住宅</p>
+            <p>物业公司：南京弘阳物业管理服务有限公司</p>
+            
+        </div>
+        
+    </div>
+    <div class="sectionLine-col L"></div>
+    <div class="sectionBox L p-rel w-580 h-percent-of100 js_hu_col">
+        <div class="p-abs js_hx">
+            <div class="sectionTitle-A sectionTitle-A2 mb20 sectionFont">
+                <h2>富力尚悦居D1户型 131㎡</h2>
+            </div>
+            <img class="mb20 border img-hxt" src="images/imgs_LHH/pics/hxt_1.jpg" width="100%" height="" />
+            <ul class="sectionThumbnail img-room mb20 sectionFloat clearfix js_putMore">
+                <li class="mb20">
+                    <div class="sectionFont sectionFont-grey mr20">
+                        <a href="###">
+                            <img class="mb10" src="images/imgs_LHH/pics/img_8.jpg" width="100%" height="" />
+                        </a>
+                        <h6><a href="###">
+                            回归自然 用简单色彩营造田园风
+                        </a></h6>
+                        <p>淡蓝的背景色，白色实木家具，打造清新田园风</p>
+                    
+                    </div>
+                </li>
+                <li class="mb20">
+                    <div class="sectionFont sectionFont-grey">
+                        <a href="###">
+                            <img class="mb10" src="images/imgs_LHH/pics/img_8.jpg" width="100%" height="" />
+                        </a>
+                        <h6><a href="###">
+                            回归自然 用简单色彩营造田园风
+                        </a></h6>
+                        <p>淡蓝的背景色，白色实木家具，打造清新田园风</p>
+                    
+                    </div>
+                </li>
+                    
+                
+            </ul>
+            
+            
+            <div class="mt50">
+                <div class="sectionLine-row mb10"></div>
+                <a href="###" class="linkBlue js_loadMore">加载更多...</a>
+            </div>
+            
+            
+        </div>
+    </div>    
+    <div class="sectionLine-col L"></div>
+    <div class="sectionBox L p-rel w-580 h-percent-of100 js_hu_col">
+        <div class="p-abs js_hx">
+            <div class="sectionTitle-A sectionTitle-A2 mb20 sectionFont">
+                <h2>富力尚悦居D1户型 131㎡</h2>
+            </div>
+            <img class="mb20 border img-hxt" src="images/imgs_LHH/pics/hxt_1.jpg" width="100%" height="" />
+            <ul class="sectionThumbnail img-room mb20 sectionFloat clearfix js_putMore">
+                <li class="mb20">
+                    <div class="sectionFont sectionFont-grey mr20">
+                        <a href="###">
+                            <img class="mb10" src="images/imgs_LHH/pics/img_8.jpg" width="100%" height="" />
+                        </a>
+                        <h6><a href="###">
+                            回归自然 用简单色彩营造田园风
+                        </a></h6>
+                        <p>淡蓝的背景色，白色实木家具，打造清新田园风</p>
+                    
+                    </div>
+                </li>
+                <li class="mb20">
+                    <div class="sectionFont sectionFont-grey">
+                        <a href="###">
+                            <img class="mb10" src="images/imgs_LHH/pics/img_8.jpg" width="100%" height="" />
+                        </a>
+                        <h6><a href="###">
+                            回归自然 用简单色彩营造田园风
+                        </a></h6>
+                        <p>淡蓝的背景色，白色实木家具，打造清新田园风</p>
+                    
+                    </div>
+                </li>
+                    
+                
+            </ul>
+            
+            
+            <div class="mt50">
+                <div class="sectionLine-row mb10"></div>
+                <a href="###" class="linkBlue js_loadMore">加载更多...</a>
+            </div>
+            
+            
+        </div>
+    </div>    
+    <div class="sectionLine-col L"></div>
+    <div class="sectionBox L p-rel w-580 h-percent-of100 js_hu_col">
+        <div class="p-abs js_hx">
+            <div class="sectionTitle-A sectionTitle-A2 mb20 sectionFont">
+                <h2>富力尚悦居D1户型 131㎡</h2>
+            </div>
+            <img class="mb20 border img-hxt" src="images/imgs_LHH/pics/hxt_1.jpg" width="100%" height="" />
+            <ul class="sectionThumbnail img-room mb20 sectionFloat clearfix js_putMore">
+                <li class="mb20">
+                    <div class="sectionFont sectionFont-grey mr20">
+                        <a href="###">
+                            <img class="mb10" src="images/imgs_LHH/pics/img_8.jpg" width="100%" height="" />
+                        </a>
+                        <h6><a href="###">
+                            回归自然 用简单色彩营造田园风
+                        </a></h6>
+                        <p>淡蓝的背景色，白色实木家具，打造清新田园风</p>
+                    
+                    </div>
+                </li>
+                <li class="mb20">
+                    <div class="sectionFont sectionFont-grey">
+                        <a href="###">
+                            <img class="mb10" src="images/imgs_LHH/pics/img_8.jpg" width="100%" height="" />
+                        </a>
+                        <h6><a href="###">
+                            回归自然 用简单色彩营造田园风
+                        </a></h6>
+                        <p>淡蓝的背景色，白色实木家具，打造清新田园风</p>
+                    
+                    </div>
+                </li>
+                    
+                
+            </ul>
+            
+            
+            <div class="mt50">
+                <div class="sectionLine-row mb10"></div>
+                <a href="###" class="linkBlue js_loadMore">加载更多...</a>
+            </div>
+            
+            
+        </div>
+    </div>    
+    <div class="sectionLine-col L"></div>
+    
+    
+    
+    
+    
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>榧犳爣鎷栧姩</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript">
+var drag_=false
+var D=function(obj){
+    return document.getElementById(obj);
+};
+var oevent=function(e){
+    if (!e) e = window.event;
+    return e;
+};
+function Move_obj(obj){
+ var x,y;
+ D(obj).onmousedown=function(e){
+  drag_=true;
+  with(this){
+   style.position="absolute";var temp1=offsetLeft;var temp2=offsetTop;
+   x=oevent(e).clientX;y=oevent(e).clientY;
+   document.onmousemove=function(e){
+    if(!drag_)return false;
+    with(this){
+     style.left=temp1+oevent(e).clientX-x+"px";
+     style.top=temp2+oevent(e).clientY-y+"px";
+    }
+   }
+  }
+  document.onmouseup=function(){
+    drag_=false;
+  };
+  
+ }
+}
+</script>
+
+
+<body>
+<div id="drag" style="background-color:#0066CC;width:280px;height:160px;padding:20px;border:1px #003399 solid;font-size:10.5pt;color:white" onmouseover='Move_obj("drag")'>
+  <p>杩欎釜灞傛槸鍙互鎷栧姩鐨勶紝鑰屼笖杩樺彲浠ュ惛闄勯紶鏍囷紝璇曡瘯鐪嬶紒</p>
+  <p>/</p>
+</div>
+</body>
+</html>

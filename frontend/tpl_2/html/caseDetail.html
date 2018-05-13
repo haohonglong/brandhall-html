@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>案例详情</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<script type="text/javascript" src="js/loadcommon.js"></script>
+<script type="text/javascript">
+    window.System.L.load({'js':['jquery-1.7.1',
+                                'mousewheel',
+                                'easyscroll',
+                                'jquery.bxslider',
+                                'jquery.qqFace',
+                                'lib.class',
+                                'Tools.class'],
+                          'css':[
+                                'jquery.bxslider'
+                                ]
+                                
+                                });
+    
+    
+    
+</script>
+<link href="css/base.css" rel="stylesheet" type="text/css" />
+<link href="css/caseDetail.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/use.js"></script>
+<script type="text/javascript">
+	
+     
+     $(function(){
+        var $conment=$('#comment');
+        $('.js_comment').bind('click',function(){
+            $conment.show();
+            
+             
+        });
+        
+        $conment.bind('mouseleave',function(){
+            $(this).hide();
+            
+        });
+        
+        
+       
+       
+       
+      
+     });
+     
+</script>
+<script type="text/javascript">    
+    //表情
+    $(function(){
+        //查看结果
+        var replace_em=function(str){
+            str = str.replace(/\</g,'&lt;');
+            str = str.replace(/\>/g,'&gt;');
+            str = str.replace(/\n/g,'<br/>');
+            str = str.replace(/\[em_([0-9]*)\]/g,'<img src="'+window.System.L.path+'/arclist/$1.gif" border="0" />');
+            return str;
+        }; 
+        
+        $('.sectionEmotion').qqFace({
+            id : 'facebox', 
+            assign:'saytext', 
+            path:window.System.L.path+'/arclist/'	//表情存放的路径
+        });
+        $(".sub_btn").click(function(){
+            var str = $("#saytext").val();
+            $("#show").html(replace_em(str));
+        });
+ 
+
+    });
+        
+    
+</script>
+
+<script type="text/javascript">
+	$(function(){
+        var $imgDesc=$('#imgDesc'),
+            $cms=$('#imgDesc .sectionCms'),
+            desc_flag=true,
+            set_img_desc=function($slideElement){
+                var desc=$slideElement.find('img')[0].title.trim();
+                $cms.text(desc);
+                if(desc !='' && !desc_flag){
+                    $imgDesc.show();
+                    desc_flag=true;
+                }
+                if('' === desc && desc_flag){
+                    $imgDesc.hide();
+                    desc_flag=false;
+                }
+            };
+        
+        set_img_desc($($('.bxslider li')[0]));
+        $('.bxslider').bxSlider({
+                    'auto':true,
+                    'pager':false,
+                    'onSlideAfter':function($slideElement, oldIndex, newIndex){
+                        set_img_desc($slideElement);
+                    }
+                });
+                
+                
+        
+        
+        
+    });
+</script>
+
+</head>
+
+<body>
+<div class="sectionContainer-A1 sectionBox">
+    
+    <div class="clear sectionSidebar-wrap sectionFixed sectionFixed-top js_sectionSidebar">
+    	<div class="sectionSidebar-A1 L">
+            <div class="sectionMenu-A1 js_sectionMenuA1 js_sectionMenu_one">
+              <div id="WelcomeBack" class="none">&lt; 返回</div>
+              <div class="li cur" subId="45"><a href="#">成功实施案例1</a></div>
+              <div class="li" subId="46"><a href="#">家装潮流设计方案2</a></div>
+              <div class="li" subId="47"><a href="#">全国经销商3</a></div>
+              <div class="li" subId="48"><a href="#">专业服务与支持4</a></div>
+              <div class="li" subId="49"><a href="#">商品库5</a></div>
+              <div class="li" subId="50"><a href="#">喜鹊的故事6</a></div>
+              <div class="li" subId="51"><a href="#">联系喜鹊筑家7</a></div>
+            </div>
+            <div class="sectionMenu-A1 js_sectionMenuA1 sectionMenu-A1-sub js_sectionMenu_two" id="sub_45">
+              <div class="li cur"><a href="#">成功实施案例1</a></div>
+              <div class="li"><a href="#">家装潮流设计方案</a></div>
+            </div>
+            <div class="sectionMenu-A1 js_sectionMenuA1 sectionMenu-A1-sub js_sectionMenu_two" id="sub_50">
+              <div class="li cur"><a href="#">成功实施案例6</a></div>
+              <div class="li"><a href="#">家装潮流设计方案</a></div>
+            </div>
+            
+            
+            
+            <div class="sectionFoot-A1 sectionFixed sectionFixed-bottom pb10 pt10 js_sectionFoot">
+                <div class="sectionContact-A1 sectionFont-A1">
+                    <h3>喜鹊筑家湖南有限公司</h3>
+                    <ul>
+                        <li>雨花区万家丽中路一段318号西子商业中心B、C栋群楼一至三楼</li>
+                        <li class="sectionNumber-A1">4008639988</li>
+                    </ul>
+                </div>
+                <div class="setionCopyright-A1">© Copyright 2014 Gezlife.com.<br>
+                    All rights reserved.
+                    Powered By<br>
+                    <span>HUMAN CORPORATION</span>
+                </div>
+                <div class="sectionSocial-A1">
+                    <a href="#"><img src="images/imgs_LHH/facebook.svg" height="18px"><span class="notext">Facebook</span></a>
+                    <a href="#"><img src="images/imgs_LHH/twitter.svg" width="18px"><span class="notext">Twitter</span></a>
+                    <a href="#"><img src="images/imgs_LHH/pinterest.svg" height="18px"><span class="notext">Pinterest</span></a>
+                    <a href="#"><img src="images/imgs_LHH/instagram.svg" height="18px"><span class="notext">Instagram</span></a>
+                    <a href="#"><img src="images/imgs_LHH/tumblr.svg" height="16px"><span class="notext">Tumblr</span></a>
+                </div>
+            </div>
+            
+    	</div>
+    	<div class="sectionSidebar-A2">
+            <div class="p10">
+                <div class="sectionLogo-A1"><a href="###"><img src="http://img0.bdstatic.com/img/image/shouye/lysxwz-6645354418.jpg" width="100%" alt=""/></a></div>
+                <div class="sectionIcon-I-wrap js_sectionIcon-I">
+                	<div class="sectionIcon-I1-wrap js_sectionIconI1wrap">
+                		<ul class="sectionIcon-I1 auto js_sectionIconI1A">
+                		    <li class="mb5"></li>
+                		    <li class="mb5"></li>
+                		    <li></li>
+                		</ul>
+                	    <ul class="sectionIcon-I1 sectionIcon-I1-1 auto">
+                		    <li class="mb5"></li>
+                		    <li class="mb5"></li>
+                		    <li></li>
+                		</ul>
+                	</div>
+                    <div class="sectionIcon-close p-rel js_sectionIcon-close none">
+                        <a href="###"></a>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+    	</div>
+    </div>
+    <div class="sectionStretched sectionWrap-A1 js_sectionWrapA1">
+    	<!-- top menu -->
+        <ul class="sectionTop-A1 sectionFont-white" id="topMenu">
+            <li class="li-1"><a href="#" class="btn icons unfollow">取消关注</a></li>
+            <li class="li-1"><a href="#" class="btn icons follow">关注</a></li>
+            <li class="li-1">
+                <a href="#" class="btn icons login">登录</a>
+                <div class="sectionTop-A1-sub none">
+                	<ul>
+                	    <li><a href="#">喜鹊筑家旗舰店</a></li>
+                	    <li><a href="#">品牌馆1</a></li>
+                	    <li><a href="#">品牌馆1</a></li>
+                	    <li><a href="#">品牌馆1</a></li>
+                	    <li><a href="#">品牌馆1</a></li>
+                	</ul>
+                	<span class="sectionTop-A1-arrow"></span>
+                </div>
+            </li>
+            <li class="li-1"><a href="#" class="btn icons home"><span>GEZLIFE</span>首页</a></li>
+        </ul>
+        <!-- /top menu -->
+        <div class="sectionWrap-A2 p50" id="caseDetail">
+    		<div class="sectionBox mb20">
+    			<div class="sectionFont sectionFont-grey">
+    				<span>返回到：</span><a class="linkBlue" href="###">软装施工成功案例</a>
+    			</div>
+    		    <div class="more">
+    				<div class="sectionPageing-A4 clear">
+                        <a href="###" class="inactive"><</a>
+                        <a href="###" class="inactive">></a>
+                    </div>
+    			</div>
+    		</div>
+            
+            <div class="sectionAutoTwoLayer sectionAutoTwoLayer-f sectionAutoTwoLayer-fr p-rel clear">
+                <div class="secondary">
+                    <div class="sectionBox mb10">
+                        <h2>玫瑰公馆92平米三居美式风格</h2>
+                    </div>
+                    <div class="sectionFont sectionFont-grey mb25">
+                        <span class="mr15">风格：<a class="linkBlue" href="###">美式</a></span>
+                        <span class="mr15">户型：<a class="linkBlue" href="###">三居</a></span>
+                        <span class="mr15">面积：<a class="linkBlue" href="###">92.0平米</a></span>
+                        <span class="mr15">预算：<a class="linkBlue" href="###">26.0万元</a></span>
+                    </div>
+                    <div class="sectionFont sectionCms sectionCms-0 sectionBorder-b pb10 mb10">
+                        本案设计风格以现代为主时尚前卫做依托打造了一套清爽淡雅柔和的家。木纹护墙板、白钢收边、镜片、壁纸，欧式配饰及挂件为基础，展开一整套的设计，宽敞的客厅增加一个具有浪漫休闲空间更具有一定实用性，整个空间深沉大气更具有神秘的气息。在吊顶方面以边棚简洁流线做装饰同时给人耳目一新的感觉，在大面积的墙面壁纸上，选择的是素雅的颜色，给人以置身轻松舒适氛围之中。家具的摆放讲究，选择现代时尚奢华的家具做装饰，让你的家复古奢华和更加的时尚。
+                    </div>
+                    <div class="sectionFont sectionFont-grey sectionBorder-b pb10 mb20" id="imgDesc">
+                        <h6 class="mb10">图片描述</h6>
+                        <div class="sectionCms sectionCms-0"></div>
+                    </div>
+                    
+                    <div class="sectionBorder-b pb10 mb20">
+                        <div class="sectionShare mb10">
+                            <a href="###" class="I I-1 mr5"></a>
+                            <a href="###" class="I I-2 mr5"></a>
+                            <a href="###" class="I I-3 mr5"></a>
+                            <a href="###" class="I I-4 mr5"></a>
+                            <a href="###" class="I I-5 mr5"></a>
+                            <a href="###" class="I I-6 mr5"></a>
+                        </div>
+                        <div class="sectionFont sectionFont-grey">
+                            <span class="mr15">标签：</span>
+                            <a class="linkBlue mr15" href="###">美式家具</a>
+                            <a class="linkBlue mr15" href="###">家具设计周</a>
+                            <a class="linkBlue mr15" href="###">条纹修饰</a>
+                            <a class="linkBlue mr15" href="###">巴洛克风格</a>
+                            <a class="linkBlue mr15" href="###">卧室架子床</a>
+                        </div>
+                    </div>
+                    <div class="sectionFont sectionFont-grey p-rel" id="comment_wrap">
+                        <span class="mr15">共有<a class="linkBlue js_comment" href="javascript:void(0);">37条评论</a></span>
+                        <a class="linkBlue js_comment" href="javascript:void(0);">我要评论</a>
+                        <!-- conment  -->
+                        <div class="sectionComment none" id="comment">
+                            <i class="arrow"></i>
+                            <div class="border sectionShadow-A3">
+                                <div class="sectionForm sectionForm-A1 mb5">
+                                    <input type="text" class="text" value="" id="saytext" name="saytext">
+                                </div>
+                                
+                                <div class="sectionButton clear mb10 p-rel">
+                                    <a href="javascript:void(0);" class="sectionEmotion L"></a>
+                                    <button type="submit" class="btn R">评论</button>
+                                </div>
+                                
+                                <div class="sectionBorder-b pb10 mb20">
+                                    <div class="clear">
+                                        <div class="L mr12"><img src="" width="40" height="40" alt=""></div>
+                                        <div class="content sectionFont sectionFont-grey sectionCms sectionCms-0 L">
+                                            <a href="###" class="linkBlue">李瑾</a>:
+                                            这就算高档啦？来中国随随便便一个商场，哪有低于这价位的男装？来来来，赶紧的。。。。 (今天 13:52)
+                                            <a href="###" class="linkBlue ml10">回复</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sectionBorder-b pb10 mb20">
+                                    <div class="clear">
+                                        <div class="L mr12"><img src="" width="40" height="40" alt=""></div>
+                                        <div class="content sectionFont sectionFont-grey sectionCms sectionCms-0 L">
+                                            <a href="###" class="linkBlue">李瑾</a>:
+                                            <a href="###" class="linkBlue">@卢_乐乐家的魏先生</a>
+                                            我也喜欢，所以在设计的时候就把我喜欢的好些元素设计进去了！确实效果很好
+                                            <a href="###" class="linkBlue ml10">回复</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sectionBorder-b pb10 mb20">
+                                    <div class="clear">
+                                        <div class="L mr12"><img src="" width="40" height="40" alt=""></div>
+                                        <div class="content sectionFont sectionFont-grey sectionCms sectionCms-0 L">
+                                            <a href="###" class="linkBlue">李瑾</a>:
+                                            <a href="###" class="linkBlue">@卢_乐乐家的魏先生</a>
+                                            我也喜欢，所以在设计的时候就把我喜欢的好些元素设计进去了！确实效果很好
+                                            <a href="###" class="linkBlue ml10">回复</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                        
+                        <!-- /conment  -->
+                    </div>
+                    
+                </div>
+                <div class="primary sectionStretched">
+                    <div class="slider js_sectionSliderA2">
+                        <ul class="bxslider">
+                            <li><a href="###"><img src="images/imgs_LHH/pics/img_5.jpg" title="这里放图片描述1" /></a></li>
+                            <li><a href="###"><img src="http://img0.bdstatic.com/img/image/shouye/mxab-9621059738.jpg" title="这里放图片描述2" /></a></li>
+                            <li><a href="###"><img src="http://img0.bdstatic.com/img/image/5460823dd54564e92588bcffb889e82d158cdbf4ed8.jpg" title="这里放图片描述3" /></a></li>
+                            <li><a href="###"><img src="images/imgs_LHH/pics/img_5.jpg" title="这里放图片描述4" /></a></li>
+                            <li><a href="###"><img src="images/imgs_LHH/pics/img_5.jpg" title="" /></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    	
+    </div>
+    
+    
+</div>
+
+
+</body>
+</html>

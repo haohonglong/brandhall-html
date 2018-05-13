@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>房价列表</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript">
+    window.System.L.load({
+                        'path':path,
+                        'js':[
+                              'jquery-1.7.1',
+                              'mousewheel',
+                              'easyscroll',
+                              'lib.class',
+                              'Tools.class'
+                            ]
+    });
+</script>
+<script type="text/javascript" src="js/use.js"></script>
+<link href="css/base.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+    
+    $(function(){
+        
+        $('.js_allcheckbok').bind('click',function(){
+            var list=$('.sectionTable-loft input[type="checkbox"]');
+            tools.checkboxSelectAll(list,this);
+        });
+        
+
+        //tips pop
+        var tips=new System.PopupLayer('.js_popup_tips','.js_sectionTransparent','0');
+        tips.$dom=$(tips.popLayout);
+        tips.$mask=$(tips.mask);
+        tips.close=function(){
+            this.$mask.hide();
+            this.$dom.hide();
+        };
+        tips.setCenter().closed($('.js_popup_close_tips'),function(){
+            tips.close();
+        });
+        $('.js_showTips').bind('click',function(){
+            tips.$dom.show();
+            tips.$mask.show();
+        });
+
+        //rebate pop
+        var rebate=new System.PopupLayer('.js_popup_rebate',null,'0');
+        rebate.$dom=$(rebate.popLayout);
+        rebate.$mask=tips.$mask;
+        rebate.close=function(){
+            this.$mask.hide();
+            this.$dom.hide();
+        };
+        rebate.setCenter().closed($('.js_popup_close_rebate'),function(){
+            rebate.close();
+        });
+        $('.js_showRebate').bind('click',function(){
+            rebate.$dom.show();
+            rebate.$mask.show();
+        });
+
+        $('.js_button_Rebate').bind('click',function(){
+            rebate.close();
+        });
+
+
+
+
+        
+        
+        
+        
+    });
+</script>
+
+</head>
+
+<body class="h-percent-of100">
+<div id="hidden_bnt" class="sectionBtn-A2 sectionFixed-A1">
+    <span class="mb3"></span>
+    <span class="mb3"></span>
+    <span></span>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 sectionSidebar-A1">
+            <div class="sectionBox sectionTitle-A2"><h2>喜鹊筑家旗舰店</h2></div>
+            <div class="sectionScroll sectionList-A2 sectionIcon-B1 sectionFont-A1">
+            	<dl>
+            		<dd class="hover">
+                        <div class="title">
+                        	<i class="I1 a-1"></i><a href="###">我购买的服务</a>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="title">
+                        	<i class="I1 a-2"></i><a href="###">交易管理</a>
+                        </div>
+                        <div class="sectionList-A1 sectionList-A1-3 none">
+                            <ul>
+                                <li><a href="###">卖家地图</a></li>
+                                <li><a href="###">我家要装修</a></li>
+                                <li><a href="###">格致商城</a></li>
+                                <li><a href="###">格致社区</a></li>
+                            </ul>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="title">
+                        	<i class="I1 a-3"></i><a href="###">宝贝管理</a>
+                        </div>
+                         <div class="sectionList-A1 sectionList-A1-3 none">
+                            <ul>
+                                <li><a href="###">卖家地图</a></li>
+                                <li><a href="###">我家要装修</a></li>
+                                <li><a href="###">格致商城</a></li>
+                                <li><a href="###">格致社区</a></li>
+                            </ul>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="title">
+                        	<i class="I1 a-4"></i><a href="###">样板间管理</a>
+                        </div>
+                        <div class="sectionList-A1 sectionList-A1-3 none">
+                            <ul>
+                                <li><a href="###">卖家地图</a></li>
+                                <li><a href="###">我家要装修</a></li>
+                                <li><a href="###">格致商城</a></li>
+                                <li><a href="###">格致社区</a></li>
+                            </ul>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="title">
+                        	<i class="I1 a-5"></i><a href="###">店铺管理</a>
+                        </div>
+                         <div class="sectionList-A1 sectionList-A1-3 none">
+                            <ul>
+                                <li><a href="###">卖家地图</a></li>
+                                <li><a href="###">我家要装修</a></li>
+                                <li><a href="###">格致商城</a></li>
+                                <li><a href="###">格致社区</a></li>
+                            </ul>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="title">
+                        	<i class="I1 a-6"></i><a href="###">消息中心</a>
+                        </div>
+                         <div class="sectionList-A1 sectionList-A1-3 none">
+                            <ul>
+                                <li><a href="###">卖家地图</a></li>
+                                <li><a href="###">我家要装修</a></li>
+                                <li><a href="###">格致商城</a></li>
+                                <li><a href="###">格致社区</a></li>
+                            </ul>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="title">
+                        	<i class="I1 a-7"></i><a href="###">品牌经销商</a>
+                        </div>
+                        <div class="sectionList-A1 sectionList-A1-3 none">
+                            <ul>
+                                <li><a href="###">卖家地图</a></li>
+                                <li><a href="###">我家要装修</a></li>
+                                <li><a href="###">格致商城</a></li>
+                                <li><a href="###">格致社区</a></li>
+                            </ul>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="title">
+                        	<i class="I1 a-8"></i><a href="###">营销中心</a>
+                        </div>
+                        <div class="sectionList-A1 sectionList-A1-3 none">
+                            <ul>
+                                <li><a href="###">卖家地图</a></li>
+                                <li><a href="###">我家要装修</a></li>
+                                <li><a href="###">格致商城</a></li>
+                                <li><a href="###">格致社区</a></li>
+                            </ul>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="title">
+                        	<i class="I1 a-9"></i><a href="###">软件服务</a>
+                        </div>
+                        <div class="sectionList-A1 sectionList-A1-3 none">
+                            <ul>
+                                <li><a href="###">卖家地图</a></li>
+                                <li><a href="###">我家要装修</a></li>
+                                <li><a href="###">格致商城</a></li>
+                                <li><a href="###">格致社区</a></li>
+                            </ul>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="title">
+                        	<i class="I1 a-10"></i><a href="###">客户服务</a>
+                        </div>
+                        <div class="sectionList-A1 sectionList-A1-3 none">
+                            <ul>
+                                <li><a href="###">卖家地图</a></li>
+                                <li><a href="###">我家要装修</a></li>
+                                <li><a href="###">格致商城</a></li>
+                                <li><a href="###">格致社区</a></li>
+                            </ul>
+                        </div>
+                    </dd>
+            		<dd class="last">
+                        <div class="title">
+                        	<i class="I1 a-11"></i><a href="###">友情链接</a>
+                        </div>
+                        <div class="sectionList-A1 sectionList-A1-3">
+                            <ul>
+                                <li><a href="###">卖家地图</a></li>
+                                <li><a href="###">我家要装修</a></li>
+                                <li><a href="###">格致商城</a></li>
+                                <li><a href="###">格致社区</a></li>
+                            </ul>
+                        </div>
+                    </dd>
+            	</dl>
+            </div>
+        </div>
+        <div class="col-md-10 sectionWrap-A4">
+            <div class="p20">
+                <div class="sectionPhoneTop-A1 clear none mb20">
+                    <img class="L logo" src="images/imgs_LHH/logo.png" width="130" height="54" alt="">
+                    <div class="sectionBtn-A2 R mt20 mr15">
+                        <span class="mb3"></span>
+                        <span class="mb3"></span>
+                        <span></span>
+                    </div>
+                    <img class="R img" src="images/imgs_LHH/pics/img_01.gif" width="20" height="20" alt="">
+                </div>
+                <div class="sectionTop-A2 clear mb10 p-rel">
+                    <div class="L">
+                        <div class="sectionNav-A1 sectionFloat-A1 top8 pl5 sectionFont-A2">
+                            <ul class="clear">
+                            	<li class="A I1 b-1 mr20">
+                                    <i>3</i>
+                                </li>
+                            	<li class="B I1 b-2 mr20">
+                                    <div class="sectionShowBox-A1 none">
+                                        <div class="sectionArrow-A1 sectionArrow-double-A1 sectionArrow-double-A1-1"><i class="A"></i><i class="B"></i></div>
+                                        <div class="sectionBox sectionTitle-A sectionTitle-A1 sectionTitle-A1-1 sectionTitle-A1-5">
+                                            <span class="mr10 ml10 cur myli">收件箱</span>
+                                            <span class="myli">其他（2）</span>
+                                            <div class="more">
+                                                <a href="###" class="linkBlue">发送新信息</a>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="js_Block_A1">
+                                        	<div class="sectionBorder-A1 sectionBorder-pb0">
+                                        	    <div class="sectionBox-A3 sectionBox-A3-1">
+                                        	        <div class="p10 clear">
+                                        	            <div class="L mr12"><img src="" width="50" height="50" alt=""></div>
+                                        	            <div class="sectionBox-A2">
+                                        	                <div class="sectionBox sectionTitle-A sectionTitle-A1 sectionTitle-A1-3">
+                                        	                    <h2>乌鸦-lucian</h2>
+                                        	                    <div class="more sectionIcon-A1 sectionIcon-A2">
+                                        	                        <i></i>
+                                        	                    </div>
+                                        	                    <div class="sectionMessage-A2 none">
+                                        	                        <div class="sectionArrow-A1 sectionArrow-A1-2"><i class="down"></i></div>
+                                        	                        <p>标记为未读</p>
+                                        	                    </div>
+                                        	                </div>
+                                        	                <p>恭喜你获得免费洗20张照片的机会...</p>
+                                        	                <p class="date">2014-06-20 17:25</p>
+                                        	            </div>
+                                        	        </div>
+                                        	    </div>
+                                        	</div>
+                                            <div class="sectionBorder-A1 sectionBorder-pb0">
+                                        	    <div class="sectionBox-A3 sectionBox-A3-1">
+                                        	        <div class="p10 clear">
+                                        	            <div class="L mr12"><img src="" width="50" height="50" alt=""></div>
+                                        	            <div class="sectionBox-A2">
+                                        	                <div class="sectionBox sectionTitle-A sectionTitle-A1 sectionTitle-A1-3">
+                                        	                    <h2>乌鸦-lucian</h2>
+                                        	                    <div class="more sectionIcon-A1 sectionIcon-A2">
+                                        	                        <i></i>
+                                        	                    </div>
+                                        	                    <div class="sectionMessage-A2 none">
+                                        	                        <div class="sectionArrow-A1 sectionArrow-A1-2"><i class="down"></i></div>
+                                        	                        <p>标记为未读</p>
+                                        	                    </div>
+                                        	                </div>
+                                        	                <p>恭喜你获得免费洗20张照片的机会...</p>
+                                        	                <p class="date">2014-06-20 17:25</p>
+                                        	            </div>
+                                        	        </div>
+                                        	    </div>
+                                        	</div>
+                                            <div class="sectionBorder-A1 sectionBorder-pb0">
+                                        	    <div class="sectionBox-A3 sectionBox-A3-1">
+                                        	        <div class="p10 clear">
+                                        	            <div class="L mr12"><img src="" width="50" height="50" alt=""></div>
+                                        	            <div class="sectionBox-A2">
+                                        	                <div class="sectionBox sectionTitle-A sectionTitle-A1 sectionTitle-A1-3">
+                                        	                    <h2>乌鸦-lucian</h2>
+                                        	                    <div class="more sectionIcon-A1 sectionIcon-A2">
+                                        	                        <i></i>
+                                        	                    </div>
+                                        	                    <div class="sectionMessage-A2 none">
+                                        	                        <div class="sectionArrow-A1 sectionArrow-A1-2"><i class="down"></i></div>
+                                        	                        <p>标记为未读</p>
+                                        	                    </div>
+                                        	                </div>
+                                        	                <p>恭喜你获得免费洗20张照片的机会...</p>
+                                        	                <p class="date">2014-06-20 17:25</p>
+                                        	            </div>
+                                        	        </div>
+                                        	    </div>
+                                        	</div>
+                                            
+                                        </div>
+                                        <div class="js_Block_A1 none">
+                                        	<div class="sectionBorder-A1 sectionBorder-pb0">
+                                        	    <div class="sectionBox-A3 sectionBox-A3-1">
+                                        	        <div class="p10 clear">
+                                        	            <div class="L mr12"><img src="" width="50" height="50" alt=""></div>
+                                        	            <div class="sectionBox-A2">
+                                        	                <div class="sectionBox sectionTitle-A sectionTitle-A1 sectionTitle-A1-3">
+                                        	                    <h2>乌鸦-lucian</h2>
+                                        	                    <div class="more sectionIcon-A1 sectionIcon-A2">
+                                        	                        <i></i>
+                                        	                    </div>
+                                        	                    <div class="sectionMessage-A2 none">
+                                        	                        <div class="sectionArrow-A1 sectionArrow-A1-2"><i class="down"></i></div>
+                                        	                        <p>标记为未读</p>
+                                        	                    </div>
+                                        	                </div>
+                                        	                <p>恭喜你获得免费洗20张照片的机会...</p>
+                                        	                <p class="date">2014-06-20 17:25</p>
+                                        	            </div>
+                                        	        </div>
+                                        	    </div>
+                                        	</div>
+                                        </div>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        <div class="sectionBorder-A1 sectionBorder-A1-1 sectionText-A2 sectionText-A2-1">
+                                            <a href="###" class="linkGrey">没有新信息</a>
+                                        </div>
+                                        <div class="sectionText-A2 bg-grey">
+                                        	<a href="###" class="linkBlue">查看全部信息</a>
+                                        </div>
+                                        
+                                    </div>
+                                </li>
+                            	<li class="C I1 b-3">
+                                    <div class="sectionShowBox-A1 none">
+                                        <div class="sectionArrow-A1 sectionArrow-double-A1 sectionArrow-double-A1-1"><i class="A"></i><i class="B"></i></div>
+                                        <div class="sectionBox sectionTitle-A sectionTitle-A1 sectionTitle-A1-1">
+                                            <h2>通知</h2>
+                                            <div class="more">
+                                                <a href="###" class="linkBlue mr10">设置</a>
+                                                <a href="###" class="linkBlue">清除全部通知</a>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="sectionBorder-A1">
+                                            <div class="p10">
+                                            	<div class="sectionBox sectionTitle-A sectionTitle-A1 sectionTitle-A1-2">
+                                            	    <h2>店铺公告</h2>
+                                            	    <div class="more sectionIcon-A1 sectionIcon-A1-4">
+                                            	        <a href="###" class="icon"></a>
+                                            	    </div>
+                                            	</div>
+                                            	<div class="sectionCms sectionCms-0 sectionCms-A2">
+                                            	    新旺铺新功能，店铺实验室上线通知！ 通过A/B测试、定投的功能帮助卖家进行旺铺装修展示，帮助卖家决策、提升转化率。 只要你是旺铺专业版并且你使用了新模板，
+                                            	那么亲，还等什么，快来研究一下吧。
+                                            	2014-06-20 17:25
+                                            	</div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="sectionBorder-A1 sectionBorder-A1-1 sectionText-A2 sectionText-A2-1">
+                                            <a href="###" class="linkGrey">没有新信息</a>
+                                        </div>
+                                        <div class="sectionText-A2 bg-grey">
+                                        	<a href="###" class="linkBlue">所有通知</a>
+                                        </div>
+                                        
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="R">
+                        <div class="sectionSearch-A1 sectionForm-A2">
+                            <input type="text" class="text bg none pl35" placeholder="">
+                            <i title="click here"></i>
+                        </div>
+                        <div class="L sectionBox-A1 mr10 p-rel z1 js_showBoxA1">
+                        	<div class="p5">
+                        		<img class="mr5" src="images/imgs_LHH/pics/img_01.gif" width="20" height="20" alt=""><span>刘关张</span>
+                        	</div>
+                            <div class="sectionShowBox-A1 sectionShowBox-A1-1 none">
+                                <div class="sectionArrow-A1 sectionArrow-double-A1 sectionArrow-double-A1-1 sectionArrow-double-A1-1-1"><i class="A"></i><i class="B"></i></div>
+                                <div class="sectionBox sectionTitle-A sectionTitle-A3">
+                                    <h2>更改登录帐号：</h2>
+                                </div>
+                                <div class="sectionBox-A4 clear mb2">
+                                    <div class="L mr12"><img src="" width="18" height="18" alt=""></div>
+                                    <div class="sectionBox-A2 over-h">
+                                        <p>喜鹊筑家旗舰店</p>
+                                    </div>
+                                </div>
+                                <div class="sectionBox-A4 clear mb2">
+                                    <div class="L mr12"><img src="" width="18" height="18" alt=""></div>
+                                    <div class="sectionBox-A2 over-h">
+                                        <p>喜鹊筑家旗舰店</p>
+                                    </div>
+                                </div>
+                                <div class="sectionBox-A4 clear mb2">
+                                    <div class="L mr12"><img src="" width="18" height="18" alt=""></div>
+                                    <div class="sectionBox-A2 over-h">
+                                        <p>喜鹊筑家旗舰店</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="sectionList-A1 sectionList-A1-1">
+                                    <div class="p10">
+                                    	<ul class="mb5">
+                                    		<li><a href="###">创建新店铺</a></li>
+                                    		<li><a href="###">管理店铺</a></li>
+                                    	</ul>
+                                        <ul class="mb5">
+                                    		<li><a href="###">个人中心</a></li>
+                                    		<li><a href="###">设置</a></li>
+                                    		<li><a href="###">退出</a></li>
+                                    	</ul>
+                                        <ul class="mb5">
+                                    		<li><a href="###">帮助中心</a></li>
+                                    		<li><a href="###">报告问题</a></li>
+                                    	</ul>
+                                        
+                                    </div>
+                                </div>
+                                
+                                
+                                
+                            </div>
+                        </div>
+                        <div class="L sectionText-A1 sectionText-A1-1">
+                        	<a href="###">浏览我的店铺</a>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="sectionCrumb-A1 mb20">
+                	<ul class="clear">
+                		<li><a title="" href="" class="linkBlue">喜鹊筑家旗舰店</a>&nbsp;&gt;&nbsp;</li>
+                		<li><a title="" href="" class="linkBlue">店铺管理</a>&nbsp;&gt;&nbsp;</li>
+                        <li><strong>店铺基本设置</strong></li>
+                	</ul>
+                </div>
+                
+               
+                
+                <div id="loftPriceList">
+                    <div class="sectionBorder-A3 mb15">
+                        <div class="sectionBox-A9 sectionBorder-b">
+                            <div class="p50">
+                                <div class="sectionForm-A1 sectionForm-A1-1 sectionForm-A1-2 sectionFloat-A1 mb5">
+                                    <ul class="clear">
+                                        <li>
+                                            <label class="L">所属楼座：</label>
+                                            <select class="L">
+                                                <option value=""></option>
+                                            </select>
+                                        </li>
+                                        <li>
+                                            <label class="L">单元号：</label>
+                                            <select class="L">
+                                                <option value=""></option>
+                                            </select>
+                                        </li>
+                                        <li>
+                                            <label class="L">楼层：</label>
+                                            <select class="L">
+                                                <option value=""></option>
+                                            </select>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                                <div class="sectionForm-A1 sectionForm-A1-1 sectionForm-A1-2 sectionFloat-A1 mb5 clear">
+                                    <ul class="L w-670 mr30">
+                                        <li>
+                                            <label class="L">房间号：</label>
+                                            <select class="L">
+                                                <option value=""></option>
+                                            </select>
+                                        </li>
+                                        <li>
+                                            <label class="L">销售状态：</label>
+                                            <select class="L">
+                                                <option value=""></option>
+                                            </select>
+                                        </li>
+                                        
+
+                                    </ul>
+                                    <div class="L sectionForm-A1 sectionForm-A2">
+                                        <button type="submit" class="btn save L mr25 js_showTips">查询</button>
+                                        <a class="linkBlue L lh-30 mr10" href="###">添加新房间</a>
+                                        <a class="linkBlue L lh-30 mr10" href="###">批量上传楼盘销控表</a>
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="">
+                            
+                            <div class="sectionTitle-A5 clear">
+                                <div class="L">
+                                    <span class="mr5"><input class="v-negative3 js_allcheckbok" type="checkbox"></span>
+                                    <strong class="mr25">当前页全选</strong>
+                                    <a href="###" class="linkBlue mr23">修改</a>
+                                    <a href="###" class="linkBlue mr23 js_showRebate">修改销售状态</a>
+                                    <a href="###" class="linkBlue">删除</a>
+                                </div>
+                                <div class="R">
+                                    <span class="L mr20">共有 <strong>0</strong> 条记录</span>
+                                    <div class="sectionPageing-A1 sectionFloat-A1 R">
+                                        <ul class="clear">
+                                            <li class="cur first"><a href="###">上一页</a></li>
+                                            <li class=""><a href="###">下一页</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sectionTable-loft">
+                                <table width="100%">
+                                    <tr>
+                                        <th class="t1 col-1 text-right" width="130">户型</th>
+                                        <th class="t1 col-2" width="">面积</th>
+                                        <th class="t1 col-3" width="">项目特色</th>
+                                        <th class="t1 col-4" width="">楼座</th>
+                                        <th class="t1 col-5" width="">单元</th>
+                                        <th class="t1 col-6" width="">楼层</th>
+                                        <th class="t1 col-7" width="">楼房号</th>
+                                        <th class="t1 col-8" width="">房间朝向</th>
+                                        <th class="t1 col-9" width="">房价</th>
+                                        <th class="t1 col-10" width="">房价更新时间</th>
+                                        <th class="t1 col-11 no-border text-left" width="10%">销售状态</th>
+                                    </tr>
+                                    <tr>
+                                        <td class="t1 col-1 pb0">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="10"><input class="v-negative3" type="checkbox"></td>
+                                                    <td>3室2厅2卫</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td class="t1 pb0 col-2">624.32m2</td>
+                                        <td class="t1 pb0 col-3">高层</td>
+                                        <td class="t1 pb0 col-4">1幢</td>
+                                        <td class="t1 pb0 col-5">2单元</td>
+                                        <td class="t1 pb0 col-6">20</td>
+                                        <td class="t1 pb0 col-7">2001</td>
+                                        <td class="t1 pb0 col-8">南北朝向</td>
+                                        <td class="t1 pb0 col-9">5300元/平方米</td>
+                                        <td class="t1 pb0 col-10">2014-03-10 12:50:30</td>
+                                        <td class="t1  col-11 text-left">
+                                            <a href="###" class="sectionButton-B2 sectionButton-B2-red linkWhite font-unline-none L">售完</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="t1 col-1">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="10"><input class="v-negative3" type="checkbox"></td>
+                                                    <td>3室2厅2卫</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td class="t1 pb0 col-2">624.32m2</td>
+                                        <td class="t1 pb0 col-3">高层</td>
+                                        <td class="t1 pb0 col-4">1幢</td>
+                                        <td class="t1 pb0 col-5">2单元</td>
+                                        <td class="t1 pb0 col-6">20</td>
+                                        <td class="t1 pb0 col-7">2001</td>
+                                        <td class="t1 pb0 col-8">南北朝向</td>
+                                        <td class="t1 pb0 col-9">5300元/平方米</td>
+                                        <td class="t1 pb0 col-10">2014-03-10 12:50:30</td>
+                                        <td class="t1 col-11 text-left">
+                                            <a href="###" class="sectionButton-B2 sectionButton-B2-blue linkWhite font-unline-none L">已预订</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="t1 col-1">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="10"><input class="v-negative3" type="checkbox"></td>
+                                                    <td>3室2厅2卫</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td class="t1 pb0 col-2">624.32m2</td>
+                                        <td class="t1 pb0 col-3">高层</td>
+                                        <td class="t1 pb0 col-4">1幢</td>
+                                        <td class="t1 pb0 col-5">2单元</td>
+                                        <td class="t1 pb0 col-6">20</td>
+                                        <td class="t1 pb0 col-7">2001</td>
+                                        <td class="t1 pb0 col-8">南北朝向</td>
+                                        <td class="t1 pb0 col-9">5300元/平方米</td>
+                                        <td class="t1 pb0 col-10">2014-03-10 12:50:30</td>
+                                        <td class="t1 col-11 text-left">
+                                            <a href="###" class="sectionButton-B2 sectionButton-B2-green linkWhite font-unline-none L">待售</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="t1 col-1">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="10"><input class="v-negative3" type="checkbox"></td>
+                                                    <td>3室2厅2卫</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td class="t1 pb0 col-2">624.32m2</td>
+                                        <td class="t1 pb0 col-3">高层</td>
+                                        <td class="t1 pb0 col-4">1幢</td>
+                                        <td class="t1 pb0 col-5">2单元</td>
+                                        <td class="t1 pb0 col-6">20</td>
+                                        <td class="t1 pb0 col-7">2001</td>
+                                        <td class="t1 pb0 col-8">南北朝向</td>
+                                        <td class="t1 pb0 col-9">5300元/平方米</td>
+                                        <td class="t1 pb0 col-10">2014-03-10 12:50:30</td>
+                                        <td class="t1 col-11 text-left">
+                                            <a href="###" class="sectionButton-B2 sectionButton-B2-grey linkWhite font-unline-none L">不可售</a>
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                                </table>
+                            </div>
+
+                        </div>
+                        <!-- 没有信息时显示的提示 -->
+                        <!--div class="sectionContext-A1">
+                            <div class="p10">没有找到符合条件的宝贝！</div>
+                        </div-->
+                        
+                    </div>
+                    
+                    
+                    <div class="sectionPageing-A2 clear">
+                        <div class="R">
+                            <span class="mr10">共1页</span>到第<span class="sectionForm-A2 mr5 ml5"><input type="text" class="text w-38"></span>页
+                            <span class="sectionForm-A3 ml5"><input class="" type="submit" value="确定"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!--popupLayer  begin-->
+                <!-- ============================================================================ -->
+                <!-- tips -->
+                <div id="loftPriceList-tips" class="sectionPopupLayer-A1 border sectionShadow-A4 none js_popup_tips">
+                    <div class="sectionBox sectionTitle-A sectionTitle-A15">
+                        <h2></h2>
+                        <div class="more sectionIcon-A4">
+                            <i class="myclose js_popup_close_tips"></i>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>请您先选择您要操作的商品</p>
+                    </div>
+                </div>
+                <!-- rebate -->
+                <div id="loftPriceList-rebate" class="sectionPopupLayer-A1 sectionPopupLayer-A1-3 border sectionShadow-A4 none js_popup_rebate">
+                    <div class="sectionBox sectionTitle-A sectionTitle-A15">
+                        <h2></h2>
+                        <div class="more sectionIcon-A4">
+                            <i class="myclose js_popup_close_rebate"></i>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="p30">
+                            <div class="sectionWrap-A13 sectionText-A3">
+                                <div class="sectionForm-A1 sectionForm-A1-1 mb30">
+                                    <p class="H2 mb25">批量修改户型销售状态：</p>
+                                    <span class="myradio mr5"><input type="radio" name="1"> 售完</span>
+                                    <span class="myradio mr5"><input type="radio" name="1"> 已预订</span>
+                                    <span class="myradio mr5"><input type="radio" name="1"> 待售</span>
+                                    <span class="myradio mr5"><input type="radio" name="1"> 不可售</span>
+                                </div>
+
+                                <div class="sectionForm-A1 sectionForm-A1-1 sectionForm-A2 mb15">
+                                    <button type="submit" class="btn save L mr15 js_button_Rebate">确定</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+
+                <div class="sectionTransparent-A1 js_sectionTransparent none"></div>
+                <!-- ============================================================================ -->
+                <!--popupLayer end-->
+                
+                
+                
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+
+    <title></title>
+    <script type="text/javascript" src="config.js"></script>
+    <script type="text/javascript">
+        LAM.run(function(){
+            'use strict';
+            var System = this;
+
+            System.Loader
+
+                .load({
+                    'baseUrl':System.COMMON,
+                    'suffix':'.css',
+                    'rel':'stylesheet',
+                    'css':[
+                         '/css/bootstrap'
+                        ,'/css/global'
+                    ]
+                })
+                .load({
+                    'baseUrl':System.CSS,
+                    'suffix':'.css',
+                    'rel':'stylesheet',
+                    'css':[
+                        '/lib'
+                    ]
+                })
+
+                .print();
+
+            System
+                .import([
+                        '/use'
+                    ],System.SCRIPT,'.js?t='+System.app.t);
+        });
+    </script>
+
+
+
+</head>
+
+<body class="h-percent-of100">
+<div id="hidden_bnt" class="sectionBtn-A2 sectionFixed-A1">
+    <span class="mb3"></span>
+    <span class="mb3"></span>
+    <span></span>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 sectionSidebar-A1">
+            <include file="{{LAM.BACKEND}}/views/inc_menu.html"></include>
+        </div>
+        <div class="col-md-10 sectionWrap-A4">
+            <div class="p20">
+                <div class="sectionPhoneTop-A1 clear none mb20">
+                    <img class="L logo" data-var="tpl" src="{{LAM.IMAGE}}/imgs_LHH/logo.png" width="130" height="54" alt="">
+                    <div class="sectionBtn-A2 R mt20 mr15">
+                        <span class="mb3"></span>
+                        <span class="mb3"></span>
+                        <span></span>
+                    </div>
+                    <img class="R img" data-var="tpl" src="{{LAM.IMAGE}}/imgs_LHH/pics/img_01.gif" width="20" height="20" alt="">
+                </div>
+                <include file="{{LAM.BACKEND}}/views/inc_header.html"></include>
+                <include file="{{LAM.BACKEND}}/views/{{LAM.VNAME}}.html" file_404="_404.html"></include>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    LAM.run([jQuery],function($){
+        'use strict';
+        var System = this;
+        System.use();
+        System.VNAME = System.get('r') || 'room/list';
+        System.Html.include($('include'));
+        System.Html.analysisTpl();
+
+        for(var i =0;i < 2;i++){
+            System.run(function () {
+                var i=0,total=10;
+                this.listen(function () {
+                    i++;
+                    if(i>total){return true;}
+                    console.log(i);
+                });
+            });
+        }
+
+        var DATE={
+            'b_width':0,
+            'b_height':0,
+            '$hidden_bnt':null
+        };
+
+        var setSize=function(n){
+            n=n || 0;
+            var height=$(window).height();
+            var width=$(window).width();
+            DATE.b_width=width;
+            DATE.b_height=height;
+            $('.sectionSidebar-A1').height(height);
+            $('.sectionList-A2').height($(window).height()-116);
+
+
+        };
+
+        System.setMenuSelectedStatus=function(href){
+            $('.sectionList-A1-3 li a[href*="'+href+'"]')
+                .closest('li').addClass('cur')
+                .closest('.sectionList-A1-3').show()
+                .closest('dd').addClass('hover');
+        };
+
+        $(function(){
+
+            System.setMenuSelectedStatus(System.VNAME);
+
+
+            $('title').text(System.TITLE || 'title');
+
+            $('.sectionList-A2 dd').on('click',function(){
+                $(this).find('.sectionList-A1').toggle();
+            });
+
+            setSize();
+            $(window).resize(function() {
+                setSize();
+            });
+            $(window).scroll(function() {
+                setSize($(window).scrollTop());
+            });
+            var $sectionWrapA4=$('.sectionWrap-A4');
+            var $hidden_bnt=$('#hidden_bnt');
+
+            $('#hidden_bnt').on('click',function(){
+                if(!this.flag){
+                    $sectionWrapA4.animate({"left":"47px"});
+                    $hidden_bnt.animate({"left":"20px"});
+
+                    this.flag = true;
+                }else{
+
+                    $sectionWrapA4.animate({"left":"220px"});
+                    $hidden_bnt.animate({"left":"192px"});
+                    this.flag = false;
+                }
+
+
+            });
+        });
+
+
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>郑和国际广场</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<script type="text/javascript" src="js/loadcommon.js"></script>
+<script type="text/javascript">
+    window.System.L.load({
+        'js':['jquery-1.7.1','lib.class','Tools.class']
+    });
+</script>
+<script type="text/javascript" src="js/use.js"></script>
+
+<link href="css/base.css" rel="stylesheet" type="text/css" />
+<link href="css/siteNav.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+	$(function(){
+		
+        var  M={
+            '$ulMenuWrap':$('.js_ulMenuWrap'),
+            '$menu':$('.js_ulMenu'),
+            '$menuLi':$('.js_ulMenu li'),
+            'menuLiW':$($('.js_ulMenu li')[0]).outerWidth(),
+            'Img':{
+                '$imgs':$('.js_sectionThumbnailA2 li'),
+                'show':function(){
+                   var enlargeNum=150;
+                   var size;
+                   var flag = true;
+                   var IMG_WIDTH = 260,
+                        IMG_HEIGHT = 200;
+               
+                   this.$imgs.hover(function(){
+                        if(!flag) return;
+                             size=$(this).find('.sectionThumbnail-A2').width(); 
+                            $(this).find('.sectionThumbnail-A2').show().animate({
+                                                                               width: size+enlargeNum,
+                                                                               height:size+enlargeNum,
+                                                                               top: '-'+enlargeNum/2+'px',
+                                                                               left: '-'+enlargeNum/2+'px'
+                                                                             },function(){
+                                                                                flag = false;
+                                                                             });
+                            
+                            
+                        
+                        
+                       
+                        
+                    },function(){
+                       
+                        $(this).find('.sectionThumbnail-A2').stop();
+                 
+                        $(this).find('.sectionThumbnail-A2').css({
+                                               width: IMG_WIDTH,
+                                               height:IMG_HEIGHT,
+                                               top: 0,
+                                               left: 0
+                                             }).css('display','none');
+                               flag = true;              
+                            
+                       
+                    });
+                        
+                    
+                }
+            }
+        };
+        
+        M.$menu.width($(window).width()*M.$menuLi.length);
+        
+        //M.$ulMenuWrap.width((M.menuLiW-30)*3);
+        
+        
+        
+        var T=new window.System.Slider( {
+                                 '$pre':$('.ipre'), 
+                                 '$next':$('.inext'),
+                                 'event':'click',
+                                 '$elem':M.$menu,
+                                 'size':M.menuLiW,//移动图片的宽度
+                                 'imglen':M.$menuLi.length,
+                                 'number':3,//显示多少个
+                                 'flag':0,
+                                 'noLoop':true,
+                                 'position':'left',
+                                 'move_time':50,
+                                 'sport':new window.System.Sport()
+                                }).run();
+            
+                    
+                    
+       
+        M.Img.show();
+        
+        
+        myTab.run({
+                'list':$('.js_sectionTitleA7 li'),
+                'event':'click',
+                'class':'cur',
+                'block':$('.sectionBlock-A'),
+                'fn':function(obj){
+                    obj.current.block.each(function(i){
+                        if(obj.this_index==i){
+                            $(this).show();
+                        }else{
+                            $(this).hide();
+                        }
+                    });
+                    
+                }
+            });
+        
+	});
+</script>
+
+</head>
+
+<body>
+<div class="sectionContainer-A1 clear sectionBox">
+    <div class="sectionHeader-A1">
+        <!--div class="notice"></div-->
+        <div class="header">       
+            <div class="headerWrap clearfix">
+                <div class="logoCon">
+                    <div class="logo"></div>
+                </div>
+                <div class="nav">
+                    <ul class="clearfix">
+                        <li><a href="#">室内设计方案</a></li>
+                        <li><a href="#">我家要装修</a></li>
+                        <li><a href="#">商城</a></li>
+                        <li><a href="#">商家<span class="new">新品</span></a></li>
+                        <li><a href="#">社区</a></li>
+                        <li class="register"><a href="#"><i></i><b>注册</b></a></li>
+                    </ul>
+                </div>
+                <div class="login">
+                    <div class="icon1"><div class="icon1Wrap"><a href="#"></a></div></div>
+                    <div class="icon2"><i></i><a href="#">3件商品</a></div>
+                    <div class="enter"><a href="#"><b>登录</b></a></div>
+                    <div class="icon3"><i></i><a href="">自由而..</a></div>
+                    <div class="icon4">
+                        <a href="#" class="setIcon"></a>
+                        <div class="set">
+                            <ul>
+                                <li><a href="#">个人账号设置</a></li>
+                                <li><a href="#">邀请好友</a></li>
+                                <li><a href="#">展示给您的</a></li>
+                                <li class="select"><a href="#">Affiliate Dashboard</a></li>
+                                <li><a href="#">退出</a></li>
+                            </ul>
+                        </div>
+                    </div> 
+                    <div class="search"> <input type="text" placeholder="搜索" size="22"/><i></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sectionSidebar-A1 sectionFixed-A1"  id="sectionSidebar">
+        <div class="p40">
+        	<div class="sectionLogo-A1 mb65"><a href="###"><img class="img" src="images/imgs_LHH/logo.gif" width="105" height="105" alt=""/></a></div>
+        	<div class="sectionMenu-A1 sectionList-A2 mb50 js_sectionMenuA1">
+        		<ul>
+        			<li class="cur li-1"><a href="###">首页</a></li>
+        			<li class="li-1"><a href="###">新品上线</a></li>
+        			<li class="li-1"><a href="###">整家方案</a></li>
+        			<li class="li-1">
+        				<a href="###">精品案例</a>
+        				<ul class="ul-2 none">
+		        			<li class="li-2"><a href="###">二级导航</a></li>
+		        			<li class="li-2"><a href="###">二级导航</a></li>
+		        			<li class="li-2"><a href="###">二级导航</a></li>
+		        		</ul>
+        			</li>
+        			<li class="li-1">
+        				<a href="###">商品构成</a>
+        				<ul class="ul-2 none">
+		        			<li class="li-2"><a href="###">二级导航</a></li>
+		        			<li class="li-2"><a href="###">二级导航</a></li>
+		        			<li class="li-2"><a href="###">二级导航</a></li>
+		        		</ul>
+        			</li>
+        			<li class="li-1"><a href="###">更多城市</a></li>
+        			<li class="li-1"><a href="###">品牌故事</a></li>
+        		</ul>
+        	</div>
+            
+            <div class="sectionCompanyInfo-A1 mb45">
+                <h2 class="mb15">苏雅装饰工程（北京）有限公司</h2>
+                <p class="sectionIcon-A1 sectionIcon-A1-position mb10">
+                    <i></i>
+                    北京市朝阳区万家丽中路一段318号西子商业中心B、C栋群楼一至三楼
+                </p>
+                <p class="sectionIcon-A1 sectionIcon-A1-tel"><i></i>400-863-9988</p>
+            </div>
+            
+            <div class="sectionShare-A1 sectionFloat">
+                <ul class="clear">
+                    <li class="A mr15"><a href="###"></a></li>
+                    <li class="B mr15"><a href="###"></a></li>
+                    <li class="C mr15"><a href="###"></a></li>
+                    <li class="D mr15"><a href="###"></a></li>
+                    <li class="E mr15"><a href="###"></a></li>
+                    <li class="F"><a href="###"></a></li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+    <div class="sectionContainer-A3" id="sectionContent">
+        
+        <div class="p40 mb65">
+        	<div class="sectionWrap-houseD">
+            	<div class="w-920">
+                    <div class="sectionBox sectionTitle-A3 sectionTitle-A3-3 mb50">
+                        <h2>郑和国际广场</h2>
+                    </div>
+                    <div class="clear mb30">
+                        <div class="L w-360">
+                            <img src="images/imgs_LHH/pics/pic_5.jpg" width="360" height="245" alt=""/>
+                        </div>
+                        <div class="sectionBox-A4 sectionText-A3 sectionCms-A1 sectionCms-A2 clear">
+                            
+                                <p class="">参 考 价  ：10000 元/平米</p>
+                                <p class="">楼盘地址：庐阳区北一环（濉溪路）与亳州路交口东北角</p>
+                                <p class="">物业类型：住宅、写字楼、商业</p>
+                                <p class="">开 发 商  ：祥源房地产集团有限公司</p>
+                                <div class=" size1of1 mb20">    
+                                    <p class="L">项目介绍：</p>
+                                    <p class="ml70">中海万锦熙岸位于珠江镇团结路与珠泉西路交汇处，未来的浦口新城规划CLD区。总建筑面积约40万平米。规
+            划26栋住宅，约2800户。中海万锦熙岸物业形态涵盖11层小高层、18层中高层及26层高层。中海万锦熙岸于
+            2011年6月24日被海润房地产开发有限公司（中海地产）竞得，成交价格135000万元，楼面地价4010元/平方米。</p>
+                                </div>
+                                
+                                <div class="unline">
+                                    <a href="###" class="mr15 ">进入郑和国际广场</a>
+                                    <a href="###">选择其他楼盘</a>
+                                </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="sectionTitle-A7 js_sectionTitleA7 mb50 clear">
+                        <a class="i i-l ipre" href="###"></a>
+                        <div class="ul-wrap auto js_ulMenuWrap">
+                            <ul class="sectionFloat clear js_ulMenu">
+                                <li class="cur"><span>130㎡A户型</span></li>
+                                <li class=""><span>120.4㎡B户型</span></li>
+                                <li class=""><span>98㎡C户型</span></li>
+                                <li class=""><span>98㎡C户型</span></li>
+                                <li class=""><span>98㎡C户型</span></li>
+                                <li class=""><span>98㎡C户型</span></li>
+                                <li class=""><span>98㎡C户型</span></li>
+                                <li class=""><span>98㎡C户型</span></li>
+                            </ul>
+                        </div>
+                        <a class="i i-r inext" href="###"></a>
+                    </div>
+                    <div class="sectionBlock-A">
+                        <div class="sectionAutoTwoLayer-fl p-rel clear sectionBox-A7 mb50">
+                            <div class="secondary L w-500">
+                                <div class="mb20">
+                                    <img src="images/imgs_LHH/pics/pic_19.jpg" width="500" height="500" alt=""/>
+                                </div>
+                                <p class="desc">威尼斯水城12街区  120.4㎡B户型  三室两厅两卫1</p>
+                            </div>
+                            <div class="primary">
+                                <div class="sectionBox-A8 js_sectionThumbnailA2">
+                                    <ul>
+                                        <li class="mb20">
+                                            <img src="images/imgs_LHH/pics/pic_20.jpg" width="391" height="170" alt=""/>
+                                            <div class="sectionThumbnail-A2 none">
+                                                <a href="###"><img src="images/imgs_LHH/pics/pic_22.jpg" width="100%" height="100%" alt=""/></a>
+                                                <div class="sectionMask-A4">
+                                                    <div class="wrap">
+                                                        <div class="bg"></div>
+                                                        <div class="desc clear">
+                                                            混搭美宅  多彩的生活味道
+                                                            <a class="sectionButton-A3 R mt15" href="###">立即体验</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="mb20">
+                                            <img src="images/imgs_LHH/pics/pic_20.jpg" width="391" height="170" alt=""/>
+                                            <div class="sectionThumbnail-A2 none">
+                                                <a href="###"><img src="images/imgs_LHH/pics/pic_22.jpg" width="100%" height="100%" alt=""/></a>
+                                                <div class="sectionMask-A4">
+                                                    <div class="wrap">
+                                                        <div class="bg"></div>
+                                                        <div class="desc clear">
+                                                            混搭美宅  多彩的生活味道
+                                                            <a class="sectionButton-A3 R mt15" href="###">立即体验</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <img src="images/imgs_LHH/pics/pic_20.jpg" width="391" height="170" alt=""/>
+                                            <div class="sectionThumbnail-A2 none">
+                                                <a href="###"><img src="images/imgs_LHH/pics/pic_22.jpg" width="100%" height="100%" alt=""/></a>
+                                                <div class="sectionMask-A4">
+                                                    <div class="wrap">
+                                                        <div class="bg"></div>
+                                                        <div class="desc clear">
+                                                            混搭美宅  多彩的生活味道
+                                                            <a class="sectionButton-A3 R mt15" href="###">立即体验</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sectionBox sectionTitle-A3 sectionTitle-A3-4 mb10">
+                            <h2>你可能会喜欢的其他风格</h2>
+                            <div class="more">
+                                <a class="sectionButton-A3" href="###">浏览更多风格</a>
+                            </div>
+                        </div>
+                        
+                        <div class="sectionFloat sectionImgList-A1">
+                            <ul class="clear">
+                                <li>
+                                    <div class="mr10 mb20">
+                                        <a href="###"><img src="images/imgs_LHH/pics/pic_21.jpg" width="296" height="222" alt=""/></a>
+                                        
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="mr10 mb20">
+                                        <a href="###"><img src="images/imgs_LHH/pics/pic_21.jpg" width="296" height="222" alt=""/></a>
+                                        
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="mr10 mb20">
+                                        <a href="###"><img src="images/imgs_LHH/pics/pic_21.jpg" width="296" height="222" alt=""/></a>
+                                        
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="mr10 mb20">
+                                        <a href="###"><img src="images/imgs_LHH/pics/pic_21.jpg" width="296" height="222" alt=""/></a>
+                                        
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="mr10 mb20">
+                                        <a href="###"><img src="images/imgs_LHH/pics/pic_21.jpg" width="296" height="222" alt=""/></a>
+                                        
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="mr10 mb20">
+                                        <a href="###"><img src="images/imgs_LHH/pics/pic_21.jpg" width="296" height="222" alt=""/></a>
+                                        
+                                    </div>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sectionBlock-A none">
+                        <div class="sectionAutoTwoLayer-fl p-rel clear sectionBox-A7 mb50">
+                            <div class="secondary L w-500">
+                                <div class="mb20">
+                                    <img src="images/imgs_LHH/pics/pic_19.jpg" width="500" height="500" alt=""/>
+                                </div>
+                                <p class="desc">威尼斯水城12街区  120.4㎡B户型  三室两厅两卫2</p>
+                            </div>
+                            <div class="primary">
+                                <div class="sectionBox-A8 js_sectionThumbnailA2">
+                                    <ul>
+                                        <li class="mb20">
+                                            <img src="images/imgs_LHH/pics/pic_20.jpg" width="391" height="170" alt=""/>
+                                            <div class="sectionThumbnail-A2 none">
+                                                <a href="###"><img src="images/imgs_LHH/pics/pic_22.jpg" width="100%" height="100%" alt=""/></a>
+                                                <div class="sectionMask-A4">
+                                                    <div class="wrap">
+                                                        <div class="bg"></div>
+                                                        <div class="desc clear">
+                                                            混搭美宅  多彩的生活味道
+                                                            <a class="sectionButton-A3 R mt15" href="###">立即体验</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="mb20">
+                                            <img src="images/imgs_LHH/pics/pic_20.jpg" width="391" height="170" alt=""/>
+                                            <div class="sectionThumbnail-A2 none">
+                                                <a href="###"><img src="images/imgs_LHH/pics/pic_22.jpg" width="100%" height="100%" alt=""/></a>
+                                                <div class="sectionMask-A4">
+                                                    <div class="wrap">
+                                                        <div class="bg"></div>
+                                                        <div class="desc clear">
+                                                            混搭美宅  多彩的生活味道
+                                                            <a class="sectionButton-A3 R mt15" href="###">立即体验</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="">
+                                            <img src="images/imgs_LHH/pics/pic_20.jpg" width="391" height="170" alt=""/>
+                                            <div class="sectionThumbnail-A2 none">
+                                                <a href="###"><img src="images/imgs_LHH/pics/pic_22.jpg" width="100%" height="100%" alt=""/></a>
+                                                <div class="sectionMask-A4">
+                                                    <div class="wrap">
+                                                        <div class="bg"></div>
+                                                        <div class="desc clear">
+                                                            混搭美宅  多彩的生活味道
+                                                            <a class="sectionButton-A3 R mt15" href="###">立即体验</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sectionBox sectionTitle-A3 sectionTitle-A3-4 mb10">
+                            <h2>你可能会喜欢的其他风格</h2>
+                            <div class="more">
+                                <a class="sectionButton-A3" href="###">浏览更多风格</a>
+                            </div>
+                        </div>
+                        
+                        <div class="sectionFloat sectionImgList-A1">
+                            <ul class="clear">
+                                <li>
+                                    <div class="mr10 mb20">
+                                        <a href="###"><img src="images/imgs_LHH/pics/pic_21.jpg" width="296" height="222" alt=""/></a>
+                                        
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="mr10 mb20">
+                                        <a href="###"><img src="images/imgs_LHH/pics/pic_21.jpg" width="296" height="222" alt=""/></a>
+                                        
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="mr10 mb20">
+                                        <a href="###"><img src="images/imgs_LHH/pics/pic_21.jpg" width="296" height="222" alt=""/></a>
+                                        
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="mr10 mb20">
+                                        <a href="###"><img src="images/imgs_LHH/pics/pic_21.jpg" width="296" height="222" alt=""/></a>
+                                        
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="mr10 mb20">
+                                        <a href="###"><img src="images/imgs_LHH/pics/pic_21.jpg" width="296" height="222" alt=""/></a>
+                                        
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="mr10 mb20">
+                                        <a href="###"><img src="images/imgs_LHH/pics/pic_21.jpg" width="296" height="222" alt=""/></a>
+                                        
+                                    </div>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        </div>
+        
+        
+        
+        
+        
+        
+    </div>
+</div>
+
+</body>
+</html>
+
+

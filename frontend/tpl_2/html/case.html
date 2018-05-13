@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>施工案例</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<script type="text/javascript" src="js/loadcommon.js"></script>
+<script type="text/javascript">
+    window.System.L.load({'js':[
+                                'jquery-1.7.1',
+                                'mousewheel',
+                                'easyscroll',
+                                'waterfall-1/jquery.queryloader2',
+                                'waterfall-1/jquery.prettyphoto',
+                                'waterfall-1/jquery.stellar',
+                                'waterfall-1/jquery.isotope',
+                                //'waterfall-1/jquery.grid-a-licious',
+                                'waterfall-1/scripts',
+                                'lib.class',
+                                'Tools.class']});
+    
+</script>
+<link href="css/base.css" rel="stylesheet" type="text/css" />
+<link href="css/prettyphoto_.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/use.js"></script>
+
+<link rel='stylesheet' href='css/waterfall.css' type='text/css' media='all' />
+<script type="text/javascript">    
+    $(function(){
+		myTab.run({
+                'list':$('.js_sectionNavA1 .li-1'),
+                'event':'hover',
+                'or':true,
+                'class':'cur',
+                'showBox':null,
+                'fn':function(obj){
+                    
+                    
+                }
+                
+            });
+    });
+    
+    $(function(){//瀑布流
+        //定位信息的位置
+        $('#waterfall li').each(function(){
+            var $info=$(this).find('.th-info');
+            var info_h=$info.height()+40;
+            $info[0].h=info_h;
+            $info.css({'bottom':'-'+info_h+'px'});
+            
+            
+        });
+        
+        var time=600,
+            hover_even=function(info){
+                var $img=info.img;
+                $(this).hover(function(){
+                    info.$info.stop();
+                    $img.stop();
+                    info.$info.animate({ 
+                        'bottom': 0
+                      }, time);
+                    $img.animate({ 
+                        'margin-top': '-'+info.$info[0].h+'px'
+                      }, time);
+                    
+                    
+                },function(){
+                    info.$info.stop();
+                    $img.stop();
+                    info.$info.animate({ 
+                        'bottom': '-'+info.$info[0].h+'px'
+                      }, time);
+                      
+                    $img.animate({ 
+                        'margin-top': 0
+                      }, time);
+                });
+            },setSize=function(){
+                $('#waterfall li').each(function(){
+                    var $info=$(this).find('.th-info');
+                    var $img=$(this).find('img');
+                    hover_even.call(this,{'img':$img,'$info':$info});
+                    
+                    
+                });
+                
+            };
+        
+        $(window).resize(function () {
+            setSize();
+        });
+        
+        setSize();
+     
+    });
+</script>
+
+
+<style type="text/css">
+	body{background:#fff;}
+    .galcolumn{padding-left:5px!important;padding-bottom:5px!important;}
+    .item{margin-bottom:5px!important;}
+</style>
+
+</head>
+
+<body>
+<div class="sectionContainer-A1 sectionBox">
+    
+    <div class="clear sectionSidebar-wrap sectionFixed sectionFixed-top js_sectionSidebar">
+    	<div class="sectionSidebar-A1 L">
+            <div class="sectionMenu-A1 js_sectionMenuA1 js_sectionMenu_one">
+              <div id="WelcomeBack" class="none">&lt; 返回</div>
+              <div class="li cur" subId="45"><a href="#">成功实施案例1</a></div>
+              <div class="li" subId="46"><a href="#">家装潮流设计方案2</a></div>
+              <div class="li" subId="47"><a href="#">全国经销商3</a></div>
+              <div class="li" subId="48"><a href="#">专业服务与支持4</a></div>
+              <div class="li" subId="49"><a href="#">商品库5</a></div>
+              <div class="li" subId="50"><a href="#">喜鹊的故事6</a></div>
+              <div class="li" subId="51"><a href="#">联系喜鹊筑家7</a></div>
+            </div>
+            <div class="sectionMenu-A1 js_sectionMenuA1 sectionMenu-A1-sub js_sectionMenu_two" id="sub_45">
+              <div class="li cur"><a href="#">成功实施案例1</a></div>
+              <div class="li"><a href="#">家装潮流设计方案</a></div>
+            </div>
+            <div class="sectionMenu-A1 js_sectionMenuA1 sectionMenu-A1-sub js_sectionMenu_two" id="sub_50">
+              <div class="li cur"><a href="#">成功实施案例6</a></div>
+              <div class="li"><a href="#">家装潮流设计方案</a></div>
+            </div>
+            
+            
+            
+            <div class="sectionFoot-A1 sectionFixed sectionFixed-bottom pb10 pt10 js_sectionFoot">
+                <div class="sectionContact-A1 sectionFont-A1">
+                    <h3>喜鹊筑家湖南有限公司</h3>
+                    <ul>
+                        <li>雨花区万家丽中路一段318号西子商业中心B、C栋群楼一至三楼</li>
+                        <li class="sectionNumber-A1">4008639988</li>
+                    </ul>
+                </div>
+                <div class="setionCopyright-A1">© Copyright 2014 Gezlife.com.<br>
+                    All rights reserved.
+                    Powered By<br>
+                    <span>HUMAN CORPORATION</span>
+                </div>
+                <div class="sectionSocial-A1">
+                    <a href="#"><img src="images/imgs_LHH/facebook.svg" height="18px"><span class="notext">Facebook</span></a>
+                    <a href="#"><img src="images/imgs_LHH/twitter.svg" width="18px"><span class="notext">Twitter</span></a>
+                    <a href="#"><img src="images/imgs_LHH/pinterest.svg" height="18px"><span class="notext">Pinterest</span></a>
+                    <a href="#"><img src="images/imgs_LHH/instagram.svg" height="18px"><span class="notext">Instagram</span></a>
+                    <a href="#"><img src="images/imgs_LHH/tumblr.svg" height="16px"><span class="notext">Tumblr</span></a>
+                </div>
+            </div>
+            
+    	</div>
+    	<div class="sectionSidebar-A2">
+            <div class="p10">
+                <div class="sectionLogo-A1"><a href="###"><img src="http://img0.bdstatic.com/img/image/shouye/lysxwz-6645354418.jpg" width="100%" alt=""/></a></div>
+                <div class="sectionIcon-I-wrap js_sectionIcon-I">
+                	<div class="sectionIcon-I1-wrap js_sectionIconI1wrap">
+                		<ul class="sectionIcon-I1 auto js_sectionIconI1A">
+                		    <li class="mb5"></li>
+                		    <li class="mb5"></li>
+                		    <li></li>
+                		</ul>
+                	    <ul class="sectionIcon-I1 sectionIcon-I1-1 auto">
+                		    <li class="mb5"></li>
+                		    <li class="mb5"></li>
+                		    <li></li>
+                		</ul>
+                	</div>
+                    <div class="sectionIcon-close p-rel js_sectionIcon-close none">
+                        <a href="###"></a>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+    	</div>
+    </div>
+    <div class="sectionStretched sectionWrap-A1 js_sectionWrapA1 sectionBg-fff">
+    	<!-- top menu -->
+        <ul class="sectionTop-A1 sectionFont-white" id="topMenu">
+            <li class="li-1"><a href="#" class="btn icons unfollow">取消关注</a></li>
+            <li class="li-1"><a href="#" class="btn icons follow">关注</a></li>
+            <li class="li-1">
+                <a href="#" class="btn icons login">登录</a>
+                <div class="sectionTop-A1-sub none">
+                	<ul>
+                	    <li><a href="#">喜鹊筑家旗舰店</a></li>
+                	    <li><a href="#">品牌馆1</a></li>
+                	    <li><a href="#">品牌馆1</a></li>
+                	    <li><a href="#">品牌馆1</a></li>
+                	    <li><a href="#">品牌馆1</a></li>
+                	</ul>
+                	<span class="sectionTop-A1-arrow"></span>
+                </div>
+            </li>
+            <li class="li-1"><a href="#" class="btn icons home"><span>GEZLIFE</span>首页</a></li>
+        </ul>
+        <!-- /top menu -->
+        <div class="sectionScroll">
+        	<table align="center">
+        		<tr>
+        			<td>
+        				<div class="sectionHeader-caseh">
+        	                <div class="sectionBox sectionTitle-A1 mb15">
+        	                    <h1>联系我们/全部案例</h1>
+        	                </div>
+        	                <div class="sectionNav-A1">
+        	                    <ul class="clear sectionFloat js_sectionNavA1">
+        	                        <li class="mr10 li-1"><a class="a" href="###">全部案例</a></li>
+        	                        <li class="mr10 li-1"><a class="a" href="###">选择生活空间</a></li>
+        	                        <li class="mr10 li-1">
+        	                            <a class="a" href="###">选择风格</a>
+        	                            <ul class="sectionShoBox-A1 clear sectionFloat sectionShadow-A3 none">
+        	                                <li class="linkRed"><a href="###">全部</a></li>
+        	                                <li class=""><a href="###">现代</a></li>
+        	                                <li class=""><a href="###">简约</a></li>
+        	                                <li class=""><a href="###">日式</a></li>
+        	                                <li class=""><a href="###">中式新古典</a></li>
+        	                                <li class=""><a href="###">中式新古典</a></li>
+        	                                <li class=""><a href="###">中式新古典</a></li>
+        	                                <li class=""><a href="###">中式新古典</a></li>
+        	                                <li class=""><a href="###">中式新古典</a></li>
+        	                                <li class=""><a href="###">中式新古典</a></li>
+        	                                
+        	                            </ul>
+        	                        </li>
+        	                        <li class="mr10 li-1"><a class="a" href="###">选择颜色</a></li>
+        	                        <li class="mr10 li-1"><a class="a" href="###">选择面积</a></li>
+        	                        <li class="mr10 li-1"><a class="a" href="###">选择总价</a></li>
+        	                        
+        	                    </ul>
+        	                </div>
+        	            </div>
+        			</td>
+        		</tr>
+        	</table>
+        	
+        	
+        	<div id="wrapper">
+        		<div class="sectionBox portfolio sectionWaterfall-A1 clear" id="waterfall">
+        			<ul class="isotope portfolio-items clearfix sectionThumbnail">
+        	            <!-- 1 -->
+        	            <li class="element size1 surfing web" data-category="surfing web">
+        	                <div class="sectionBox sectionFont js_ThumbnailA1">
+        	                    <a href="###" class="th-wrap">
+        	                        <img src="http://e.hiphotos.baidu.com/image/w%3D310/sign=e58c5eb7c0cec3fd8b3ea174e689d4b6/4afbfbedab64034f246e617dacc379310a551d2d.jpg" width="450" height="450" alt="" class="attachment-square wp-post-image"/>
+        	                    </a>
+        	                    <div class="th-info sectionFont-grey">
+        	                        <span class="mr5">09月12日</span>
+        	                        <span class="mr10">10:31</span>
+        	                        <span>评论(125)</span>
+        	                        <h6 class="mt5">时尚典雅简约时尚</h6>
+        	                    </div>
+        	                </div>
+        	            </li>
+        	            <!-- 2 -->
+        	            <li class="element size1 photography surfing" data-category="photography surfing">
+        	                <div class="sectionBox sectionFont js_ThumbnailA1">
+        	                    <a href="###" class="th-wrap">
+        	                        <img src="http://img0.bdstatic.com/img/image/shouye/dmhzwlufei.jpg" width="450" height="450" alt="" class="attachment-square wp-post-image"/>
+        	                    </a>
+        	                    <div class="th-info sectionFont-grey">
+        	                        <span class="mr5">09月12日</span>
+        	                        <span class="mr10">10:31</span>
+        	                        <span>评论(125)</span>
+        	                        <h6 class="mt5">时尚典雅简约时尚</h6>
+        	                    </div>
+        	                </div>
+        	            </li>
+        	            <!-- 3 -->
+        	            <li class="element size2 wordpress-theme" data-category="wordpress-theme">
+        	                <div class="sectionBox sectionFont js_ThumbnailA1">
+        	                    <a href="###" class="th-wrap">
+        	                        <img src="http://img0.bdstatic.com/img/image/shouye/bzhczw-9421487114.jpg" width="450" height="450" alt="" class="attachment-square wp-post-image"/>
+        	                    </a>
+        	                    <div class="th-info sectionFont-grey">
+        	                        <span class="mr5">09月12日</span>
+        	                        <span class="mr10">10:31</span>
+        	                        <span>评论(125)</span>
+        	                        <h6 class="mt5">时尚典雅简约时尚</h6>
+        	                    </div>
+        	                </div>
+        	            </li>
+        	            <!-- 4 -->
+        	            <li class="element landscape waves" data-category="waves">
+        	                <div class="sectionBox sectionFont js_ThumbnailA1">
+        	                    <a href="###" class="th-wrap">
+        	                        <img src="images/imgs_LHH/pics/img_2.jpg" width="450" height="285" alt="" class="attachment-square wp-post-image"/>
+        	                    </a>
+        	                    <div class="th-info sectionFont-grey">
+        	                        <span class="mr5">09月12日</span>
+        	                        <span class="mr10">10:31</span>
+        	                        <span>评论(125)</span>
+        	                        <h6 class="mt5">时尚典雅简约时尚</h6>
+        	                    </div>
+        	                </div>
+        	            </li>
+        	            
+        	            <!-- 5 -->
+        	            <li class="element size1 beards web" data-category="beards web">
+        	                <div class="sectionBox sectionFont js_ThumbnailA1">
+        	                    <a href="###" class="th-wrap">
+        	                        <img src="images/imgs_LHH/pics/img_1.jpg" width="450" height="450" alt="" class="attachment-square wp-post-image"/>
+        	                        
+        	                    </a>
+        	                    <div class="th-info sectionFont-grey">
+        	                        <span class="mr5">09月12日</span>
+        	                        <span class="mr10">10:31</span>
+        	                        <span>评论(125)</span>
+        	                        <h6 class="mt5">时尚典雅简约时尚</h6>
+        	                    </div>
+        	                </div>
+        	            </li>
+        	            <!-- 6 -->
+        	            <li class="element size1 photography surfing waves" data-category="photography surfing waves">
+        	                <div class="sectionBox sectionFont js_ThumbnailA1">
+        	                    <a href="###" class="th-wrap">
+        	                        <img src="images/imgs_LHH/pics/img_1.jpg" width="450" height="450" alt="" class="attachment-square wp-post-image"/>
+        	                        
+        	                    </a>
+        	                    <div class="th-info sectionFont-grey">
+        	                        <span class="mr5">09月12日</span>
+        	                        <span class="mr10">10:31</span>
+        	                        <span>评论(125)</span>
+        	                        <h6 class="mt5">时尚典雅简约时尚</h6>
+        	                    </div>
+        	                </div>
+        	            </li>
+        	            <!-- 7 -->
+        	            <li class="element size1 surfing web" data-category="surfing web">
+        	                <div class="sectionBox sectionFont js_ThumbnailA1">
+        	                    <a href="###" class="th-wrap">
+        	                        <img src="images/imgs_LHH/pics/img_1.jpg" width="450" height="450" alt="" class="attachment-square wp-post-image"/>
+        	                    </a>
+        	                    <div class="th-info sectionFont-grey">
+        	                        <span class="mr5">09月12日</span>
+        	                        <span class="mr10">10:31</span>
+        	                        <span>评论(125)</span>
+        	                        <h6 class="mt5">时尚典雅简约时尚</h6>
+        	                    </div>
+        	                </div>
+        	            </li>
+        	            <!-- 1 -->
+        	            <li class="element size1 surfing web" data-category="surfing web">
+        	                <div class="sectionBox sectionFont js_ThumbnailA1">
+        	                    <a href="###" class="th-wrap">
+        	                        <img src="images/imgs_LHH/pics/img_1.jpg" width="450" height="450" alt="" class="attachment-square wp-post-image"/>
+        	                        
+        	                        
+        	                    </a>
+        	                    <div class="th-info sectionFont-grey">
+        	                        <span class="mr5">09月12日</span>
+        	                        <span class="mr10">10:31</span>
+        	                        <span>评论(125)</span>
+        	                        <h6 class="mt5">时尚典雅简约时尚</h6>
+        	                    </div>
+        	                </div>
+        	            </li>
+        	            <!-- 2 -->
+        	            <li class="element size1 photography surfing" data-category="photography surfing">
+        	                <div class="sectionBox sectionFont js_ThumbnailA1">
+        	                    <a href="###" class="th-wrap">
+        	                        <img src="images/imgs_LHH/pics/img_1.jpg" width="450" height="450" alt="" class="attachment-square wp-post-image"/>
+        	                    </a>
+        	                    <div class="th-info sectionFont-grey">
+        	                        <span class="mr5">09月12日</span>
+        	                        <span class="mr10">10:31</span>
+        	                        <span>评论(125)</span>
+        	                        <h6 class="mt5">时尚典雅简约时尚</h6>
+        	                    </div>
+        	                </div>
+        	            </li>
+        	            <!-- 3 -->
+        	            <li class="element size2 wordpress-theme" data-category="wordpress-theme">
+        	                <div class="sectionBox sectionFont js_ThumbnailA1">
+        	                    <a href="###" class="th-wrap">
+        	                        <img src="images/imgs_LHH/pics/img_4.jpg" width="450" height="450" alt="" class="attachment-square wp-post-image"/>
+        	                    </a>
+        	                    <div class="th-info sectionFont-grey">
+        	                        <span class="mr5">09月12日</span>
+        	                        <span class="mr10">10:31</span>
+        	                        <span>评论(125)</span>
+        	                        <h6 class="mt5">时尚典雅简约时尚</h6>
+        	                    </div>
+        	                </div>
+        	            </li>
+        	            <!-- 4 -->
+        	            <li class="element landscape waves" data-category="waves">
+        	                <div class="sectionBox sectionFont js_ThumbnailA1">
+        	                    <a href="###" class="th-wrap">
+        	                        <img src="images/imgs_LHH/pics/img_2.jpg" width="450" height="285" alt="" class="attachment-square wp-post-image"/>
+        	                    </a>
+        	                    <div class="th-info sectionFont-grey">
+        	                        <span class="mr5">09月12日</span>
+        	                        <span class="mr10">10:31</span>
+        	                        <span>评论(125)</span>
+        	                        <h6 class="mt5">时尚典雅简约时尚</h6>
+        	                    </div>
+        	                </div>
+        	            </li>
+        	            
+        	            <!-- 5 -->
+        	            <li class="element size1 beards web" data-category="beards web">
+        	                <div class="sectionBox sectionFont js_ThumbnailA1">
+        	                    <a href="###" class="th-wrap">
+        	                        <img src="images/imgs_LHH/pics/img_1.jpg" width="450" height="450" alt="" class="attachment-square wp-post-image"/>
+        	                        
+        	                    </a>
+        	                    <div class="th-info sectionFont-grey">
+        	                        <span class="mr5">09月12日</span>
+        	                        <span class="mr10">10:31</span>
+        	                        <span>评论(125)</span>
+        	                        <h6 class="mt5">时尚典雅简约时尚</h6>
+        	                    </div>
+        	                </div>
+        	            </li>
+        	            <!-- 6 -->
+        	            <li class="element size1 photography surfing waves" data-category="photography surfing waves">
+        	                <div class="sectionBox sectionFont js_ThumbnailA1">
+        	                    <a href="###" class="th-wrap">
+        	                        <img src="images/imgs_LHH/pics/img_1.jpg" width="450" height="450" alt="" class="attachment-square wp-post-image"/>
+        	                        
+        	                    </a>
+        	                    <div class="th-info sectionFont-grey">
+        	                        <span class="mr5">09月12日</span>
+        	                        <span class="mr10">10:31</span>
+        	                        <span>评论(125)</span>
+        	                        <h6 class="mt5">时尚典雅简约时尚</h6>
+        	                    </div>
+        	                </div>
+        	            </li>
+        	            <!-- 7 -->
+        	            <li class="element size1 surfing web" data-category="surfing web">
+        	                <div class="sectionBox sectionFont js_ThumbnailA1">
+        	                    <a href="###" class="th-wrap">
+        	                        <img src="images/imgs_LHH/pics/img_1.jpg" width="450" height="450" alt="" class="attachment-square wp-post-image"/>
+        	                    </a>
+        	                    <div class="th-info sectionFont-grey">
+        	                        <span class="mr5">09月12日</span>
+        	                        <span class="mr10">10:31</span>
+        	                        <span>评论(125)</span>
+        	                        <h6 class="mt5">时尚典雅简约时尚</h6>
+        	                    </div>
+        	                </div>
+        	            </li>
+        	            
+        	            
+        	            
+        	        </ul>
+        		    
+        		    <div class="gutter"></div>
+        		</div>
+        	</div>
+        </div>
+        
+    	
+    </div>
+    
+    
+</div>
+
+
+</body>
+</html>

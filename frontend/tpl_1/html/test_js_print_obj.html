@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>首页</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<script type="text/javascript" src="js/loadcommon.js"></script>
+<script type="text/javascript">
+    window.System.L.load({
+        'js':['jquery-1.7.1','jquery.SuperSlide','lib.class','Tools.class']
+    });
+</script>
+<script type="text/javascript" src="js/use.js"></script>
+<link href="css/base.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+	var tools=new window.System.Tools();
+    $(function(){
+		$('.js_sectionBoxA2').hover(function(){
+			$(this).find('.sectionMask-A1').show();
+		},function(){
+			$(this).find('.sectionMask-A1').hide();
+		});
+        
+        var setSize=function(){
+                var height=$(window).height();
+                //var width=$(window).width();
+                var $li=$(".sectionSlider-A1 li");
+                $(".sectionSlider-A1").height(height);
+                $li.height(height);
+                
+            };
+        
+       setSize();
+       $(window).resize(function() {
+          setSize();
+        });
+        $(window).scroll(function() {
+          setSize();
+        });
+
+        var data={ mainCell:".bd ul", effect:"left", autoPlay:true,easing:"swing",delayTime:700,playStateCell:'.playState','mouseOverStop':false ,
+        'endFun':function(){
+            data.autoPlay=false;
+            
+        }
+        };
+        var obj=$(".sectionSlider-A1").slide(data);
+        var info=[];
+        var $content=$('#info');
+        
+        for(var k in obj){
+            info.push(k+'='+obj[k]+';');
+            
+        
+        }
+        
+        
+        for(var i=0;i<info.length;i++){
+            var html=$('<div class="mb30">第'+i+'段:<br>'+info[i]+'</div>');
+            
+            $content.append(html);
+        }
+        
+        
+        //$content.append($('<div class="mb30">'+$(".sectionSlider-A1").slide+'</div>'));
+        
+        //jQuery(".fullSlide").slide({ mainCell:"ul", effect:"fold",  autoPlay:true, });	
+        
+        
+        
+        
+	});
+</script>
+
+</head>
+
+<body>
+<div class="sectionContainer-A1 clear sectionBox">
+    
+    <div class="sectionContainer-A3 mb30" id="sectionContent">
+        <div class="sectionSlider-A1 sectionFloat">
+            <div class="bd">
+            	<ul class="clear">
+            		<li>
+            	        <img src="images/imgs_LHH/pics/pic_3.jpg" width="100%" height="100%" alt=""/>
+            	        <div class="content">
+            	            <div class="sectionMask-A2 mb3">
+            	                <div class="bg"></div>
+            	                <div class="desc"> <p class="p10">智生活&nbsp;&nbsp;智家居</p></div>
+            	            </div>
+            	            <div class="sectionMask-A2 sectionMask-A2-1">
+            	                <div class="bg"></div>
+            	                <div class="desc"> <p class="p10">简单的设计，大方的款式，不时透漏着一股浓浓的书香气息。一种和谐、大气而不失温馨浪漫的居室环境，让置身其中的人能感受到高雅舒适。</p></div>
+            	            </div>
+            	        </div>
+            	        
+            	    </li>
+            	    <li>
+            	        <img src="images/imgs_LHH/pics/pic_3.jpg" width="100%" height="100%" alt=""/>
+            	        <div class="content">
+            	            <div class="sectionMask-A2 mb3">
+            	                <div class="bg"></div>
+            	                <div class="desc"> <p class="p10">智生活&nbsp;&nbsp;智家居</p></div>
+            	            </div>
+            	            <div class="sectionMask-A2 sectionMask-A2-1">
+            	                <div class="bg"></div>
+            	                <div class="desc"> <p class="p10">简单的设计，大方的款式，不时透漏着一股浓浓的书香气息。一种和谐、大气而不失温馨浪漫的居室环境，让置身其中的人能感受到高雅舒适。</p></div>
+            	            </div>
+            	        </div>
+            	        
+            	    </li>
+            	    <li>
+            	        <img src="images/imgs_LHH/pics/pic_3.jpg" width="100%" height="100%" alt=""/>
+            	        <div class="content">
+            	            <div class="sectionMask-A2 mb3">
+            	                <div class="bg"></div>
+            	                <div class="desc"> <p class="p10">智生活&nbsp;&nbsp;智家居</p></div>
+            	            </div>
+            	            <div class="sectionMask-A2 sectionMask-A2-1">
+            	                <div class="bg"></div>
+            	                <div class="desc"> <p class="p10">简单的设计，大方的款式，不时透漏着一股浓浓的书香气息。一种和谐、大气而不失温馨浪漫的居室环境，让置身其中的人能感受到高雅舒适。</p></div>
+            	            </div>
+            	        </div>
+            	        
+            	    </li>
+            	    <li>
+            	        <img src="images/imgs_LHH/pics/pic_3.jpg" width="100%" height="100%" alt=""/>
+            	        <div class="content">
+            	            <div class="sectionMask-A2 mb3">
+            	                <div class="bg"></div>
+            	                <div class="desc"> <p class="p10">智生活&nbsp;&nbsp;智家居</p></div>
+            	            </div>
+            	            <div class="sectionMask-A2 sectionMask-A2-1">
+            	                <div class="bg"></div>
+            	                <div class="desc"> <p class="p10">简单的设计，大方的款式，不时透漏着一股浓浓的书香气息。一种和谐、大气而不失温馨浪漫的居室环境，让置身其中的人能感受到高雅舒适。</p></div>
+            	            </div>
+            	        </div>
+            	        
+            	    </li>
+            	    
+            	    
+            	    
+            	</ul>
+            </div>
+            <div class="buttons sectionButton-A2">
+                <span class="bunt mr2 playState"><a href="###"></a></span>
+                <span class="bunt mr2 prev"><a href="###"></a></span>
+                <span class="bunt next"><a href="###"></a></span>
+            </div>
+        </div>
+        
+        
+    </div>
+    
+    
+    <div id="info" class="p20 w-page sectionCms sectionCms-0"></div>
+</div>
+
+
+</body>
+</html>

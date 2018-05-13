@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>商品列表</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<script type="text/javascript" src="js/loadcommon.js"></script>
+<script type="text/javascript">
+    window.System.L.load({
+        'js':['jquery-1.7.1','lib.class','Tools.class']
+    });
+</script>
+<script type="text/javascript" src="js/use.js"></script>
+<!--link href="../../common/css/bootstrap.css" rel="stylesheet" type="text/css" /-->
+<link href="css/base.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(function(){
+        var myData={
+            '$styleUl':$('.js_style_contentUl'),
+            'flag':true,
+            '$brandMore':$('.js_more'),
+            '$series':$('.js_series'),//系列
+            'showMore':function($more){
+                var $ul=$more.parents('.sectionText-list').find('.js_contentUl');
+                    if($ul.hasClass('h-40')){
+                        $ul.removeClass('h-40');
+                        if('更多' == $more.text()){
+                            $more.text('收起');
+                            
+                        }
+                        $more.addClass('myIcon-hover');
+                    }else{
+                        $ul.addClass('h-40');
+                        if('收起' == $more.text()){
+                            $more.text('更多');
+                            
+                        }
+                        $more.removeClass('myIcon-hover');
+                    }
+            }
+        };
+        
+        
+        
+        $('.js_contentUl_brand a').bind('click',function(){
+            if(myData.flag){
+                myData.$series.show();
+                myData.flag=false;
+            }
+        });
+        
+        myData.$brandMore.bind('click',function(){
+            myData.showMore($(this));
+        });
+        
+        myData.$styleUl.hover(function(){
+            var $a=$(this).find('.myIcon');
+            myData.showMore($a);
+        },function(){
+            var $a=$(this).find('.myIcon');
+            myData.showMore($a);
+        }); 
+        
+        $('.sectionListTable-A1').each(function(){
+            myTab.run({
+                'list':$(this).find('li'),
+                'event':'click',
+                'class':'cur',
+                'or':true
+
+                
+            });
+        });
+        
+        
+        
+    });
+</script>
+
+</head>
+
+<body>
+<div class="sectionContainer-A1 clear sectionBox">
+    <div class="sectionSidebar-A1 sectionFixed-A1"  id="sectionSidebar">
+        <div class="p40">
+            <div class="sectionLogo-A1 mb65"><a href="###"><img class="img" src="images/imgs_LHH/logo.gif" width="105" height="105" alt=""/></a></div>
+            <div class="sectionMenu-A1 sectionList-A2 mb50 js_sectionMenuA1">
+                <ul>
+                    <li class="cur li-1"><a href="###">首页</a></li>
+                    <li class="li-1"><a href="###">新品上线</a></li>
+                    <li class="li-1"><a href="###">整家方案</a></li>
+                    <li class="li-1">
+                        <a href="###">精品案例</a>
+                        <ul class="ul-2 none">
+                                <li class="li-2"><a href="###">二级导航</a></li>
+                                <li class="li-2"><a href="###">二级导航</a></li>
+                                <li class="li-2"><a href="###">二级导航</a></li>
+                            </ul>
+                    </li>
+                    <li class="li-1">
+                        <a href="###">商品构成</a>
+                        <ul class="ul-2 none">
+                                <li class="li-2"><a href="###">二级导航</a></li>
+                                <li class="li-2"><a href="###">二级导航</a></li>
+                                <li class="li-2"><a href="###">二级导航</a></li>
+                            </ul>
+                    </li>
+                    <li class="li-1"><a href="###">更多城市</a></li>
+                    <li class="li-1"><a href="###">品牌故事</a></li>
+                </ul>
+            </div>
+            
+            <div class="sectionCompanyInfo-A1 mb45">
+                <h2 class="mb15">苏雅装饰工程（北京）有限公司</h2>
+                <p class="sectionIcon-A1 sectionIcon-A1-position mb10">
+                    <i></i>
+                    北京市朝阳区万家丽中路一段318号西子商业中心B、C栋群楼一至三楼
+                </p>
+                <p class="sectionIcon-A1 sectionIcon-A1-tel"><i></i>400-863-9988</p>
+            </div>
+            
+            <div class="sectionShare-A1 sectionFloat">
+                <ul class="clear">
+                    <li class="A mr15"><a href="###"></a></li>
+                    <li class="B mr15"><a href="###"></a></li>
+                    <li class="C mr15"><a href="###"></a></li>
+                    <li class="D mr15"><a href="###"></a></li>
+                    <li class="E mr15"><a href="###"></a></li>
+                    <li class="F"><a href="###"></a></li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+    <div class="sectionContainer-A3" id="sectionContent">
+        <div class="p40">
+            <div class="sectionBox mb20 pt20">
+                <div class="sectionListTable-A1">
+                    <div class="border clear">
+                        <div class="col-1 L">
+                            <div class="sectionIcon-A1 sectionIcon-A1-1 L"><i></i></div>
+                            <div class="ml25">品牌</div>
+                        </div>
+                        <div class="sectionBox col-2 sectionFloat sectionText-list">
+                            <ul class="p10 clear js_contentUl js_contentUl_brand h-40">
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                
+                                
+                            </ul>
+                            <div class="more sectionMore-A1 clear">
+                                <span class="myIcon js_more L">更多</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="sectionListTable-A1 js_series none">
+                    <div class="border border-t0 clear">
+                        <div class="col-1 L">
+                            <div class="sectionIcon-A1 sectionIcon-A1-1 L"><i></i></div>
+                            <div class="ml25">系列</div>
+                        </div>
+                        <div class="sectionBox col-2 sectionFloat sectionText-list">
+                            <ul class="p10 clear js_contentUl h-40">
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                
+                                
+                            </ul>
+                            <div class="more sectionMore-A1 clear">
+                                <span class="myIcon js_more L">更多</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="sectionListTable-A1">
+                    <div class="border border-t0 clear">
+                        <div class="col-1 L">
+                            <div class="sectionIcon-A1 sectionIcon-A1-1 L"><i></i></div>
+                            <div class="ml25">房间</div>
+                        </div>
+                        <div class="sectionBox col-2 sectionFloat sectionText-list">
+                            <ul class="p10 clear">
+                                <li class="mr30"><a href="###">客厅</a></li>
+                                <li class="mr30"><a href="###">卧室</a></li>
+                                <li class="mr30"><a href="###">厨房</a></li>
+                                <li class="mr30"><a href="###">卫生间 </a></li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="clear">
+                    <div class="sectionListTable-A1 L size1of2">
+                        <div class="border border-t0 border-r0 clear">
+                            <div class="col-1 L">
+                                <div class="ml25">风格</div>
+                            </div>
+                            <div class="sectionBox col-2 sectionFloat sectionText-list p-rel">
+                                <div class="p-abs js_style_contentUl">
+                                    <ul class="p10 clear js_contentUl h-40">
+                                        <li class="mr30"><a href="###">现代</a></li>
+                                        <li class="mr30"><a href="###">简约</a></li>
+                                        <li class="mr30"><a href="###">中式</a></li>
+                                        <li class="mr30"><a href="###">欧式</a></li>
+                                        <li class="mr30"><a href="###">美式</a></li>
+                                        <li class="mr30"><a href="###">田园</a></li>
+                                        <li class="mr30"><a href="###">地中海</a></li>
+                                        <li class="mr30"><a href="###">古典</a></li>
+                                    </ul>
+                                    <div class="more sectionMore-A1 clear">
+                                        <span class="myIcon L">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="sectionListTable-A1 L size1of2">
+                        <div class="border border-t0 border-L0 clear">
+                            <div class="col-1 L">
+                                <div class="ml25">价格</div>
+                            </div>
+                            <div class="sectionBox col-2 sectionFloat sectionText-list p-rel">
+                                <div class="p-abs js_style_contentUl">
+                                    <ul class="p10 clear js_contentUl h-40">
+                                        <li class="mr30"><a href="###">0 - 1000</a></li>
+                                        <li class="mr30"><a href="###">1000 - 2000</a></li>
+                                        <li class="mr30"><a href="###">2000 - 3000</a></li>
+                                        <li class="mr30"><a href="###">3000 - 4000</a></li>
+                                        <li class="mr30"><a href="###">4000 - 5000</a></li>
+                                    </ul>
+                                    <div class="more sectionMore-A1 clear">
+                                        <span class="myIcon L">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="sectionListTable-A1-foot"></div>
+                
+            </div>
+            
+            <div class="sectionFloat mb20 shopList-A1">
+                <ul class="clear">
+                    <li class="size1of5">
+                        <div class="sectionBox sectionThumbnail-A sectionThumbnail-A1 mr20">
+                            <div class="p10">
+                                <div class="img mb5">
+                                    <a href="###"><img src="images/imgs_LHH/pics/pic_16.jpg" width="100%" height="100%" alt=""></a>
+                                </div>
+                                <div class="descWrap">
+                                    <p class="desc mb5">梳妆台套装</p>
+                                    <div class="price">
+                                        <span class="">RMB</span>
+                                        <span class="red">4000.00</span>
+                                        <span class="del">市场价：5000.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </li>
+                    <li class="size1of5">
+                        <div class="sectionBox sectionThumbnail-A sectionThumbnail-A1 mr20">
+                            <div class="p10">
+                                <div class="img mb5">
+                                    <a href="###"><img src="images/imgs_LHH/pics/pic_16.jpg" width="100%" height="100%" alt=""></a>
+                                </div>
+                                <div class="descWrap">
+                                    <p class="desc mb5">梳妆台套装</p>
+                                    <div class="price">
+                                        <span class="">RMB</span>
+                                        <span class="red">4000.00</span>
+                                        <span class="del">市场价：5000.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </li>
+                    <li class="size1of5">
+                        <div class="sectionBox sectionThumbnail-A sectionThumbnail-A1 mr20">
+                            <div class="p10">
+                                <div class="img mb5">
+                                    <a href="###"><img src="images/imgs_LHH/pics/pic_16.jpg" width="100%" height="100%" alt=""></a>
+                                </div>
+                                <div class="descWrap">
+                                    <p class="desc mb5">梳妆台套装</p>
+                                    <div class="price">
+                                        <span class="">RMB</span>
+                                        <span class="red">4000.00</span>
+                                        <span class="del">市场价：5000.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </li>
+                    <li class="size1of5">
+                        <div class="sectionBox sectionThumbnail-A sectionThumbnail-A1 mr20">
+                            <div class="p10">
+                                <div class="img mb5">
+                                    <a href="###"><img src="images/imgs_LHH/pics/pic_16.jpg" width="100%" height="100%" alt=""></a>
+                                </div>
+                                <div class="descWrap">
+                                    <p class="desc mb5">梳妆台套装</p>
+                                    <div class="price">
+                                        <span class="">RMB</span>
+                                        <span class="red">4000.00</span>
+                                        <span class="del">市场价：5000.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </li>
+                    <li class="size1of5">
+                        <div class="sectionBox sectionThumbnail-A sectionThumbnail-A1 mr20">
+                            <div class="p10">
+                                <div class="img mb5">
+                                    <a href="###"><img src="images/imgs_LHH/pics/pic_16.jpg" width="100%" height="100%" alt=""></a>
+                                </div>
+                                <div class="descWrap">
+                                    <p class="desc mb5">梳妆台套装</p>
+                                    <div class="price">
+                                        <span class="">RMB</span>
+                                        <span class="red">4000.00</span>
+                                        <span class="del">市场价：5000.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </li>
+                    <li class="size1of5">
+                        <div class="sectionBox sectionThumbnail-A sectionThumbnail-A1 mr20">
+                            <div class="p10">
+                                <div class="img mb5">
+                                    <a href="###"><img src="images/imgs_LHH/pics/pic_16.jpg" width="100%" height="100%" alt=""></a>
+                                </div>
+                                <div class="descWrap">
+                                    <p class="desc mb5">梳妆台套装</p>
+                                    <div class="price">
+                                        <span class="">RMB</span>
+                                        <span class="red">4000.00</span>
+                                        <span class="del">市场价：5000.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </li>
+                    
+                    
+                     
+                    
+                </ul>
+            </div>
+            
+            <div class="sectionPageing-A1 sectionFloat clear">
+                <ul class="R">
+                    <li class="li"><a href="###">上一页</a></li>
+                    <li class="selected li"><a href="###">1</a></li>
+                    <li class="li"><a href="###">2</a></li>
+                    <li class="li"><a href="###">3</a></li>
+                    <li><a href="###">下一页</a></li>
+                </ul>
+            </div>
+            
+            <p class="sectionCopyright mt20">乐居网络家居有限公司</p>
+            
+            
+        </div>
+         
+        
+        
+    </div>
+
+</div>
+
+
+</body>
+</html>

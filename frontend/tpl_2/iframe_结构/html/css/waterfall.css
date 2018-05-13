@@ -1,0 +1,219 @@
+/* 
+Theme Name:  RED:FOLIO
+Description: Wordpress Theme
+Tags: responsive-layout, theme-options
+Author: red_sun (Gerda Gimpl)
+Author URI: http://www.red-sun-design.com
+Theme URI: http://themes.red-sun-design.com/redfolio
+License: GNU General Public License version 3.0
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Version: 2.00
+ 
+-------------------------------------------
+	INDEX 
+-------------------------------------------
+	0. CSS RESET
+	1. MISC
+	2. TYPOGRAPHY
+	3. LAYOUT
+	4. NAVIGATION
+	5. FOOTER
+	6. WIDGETS
+	7. IMAGES
+	8. BUTTONS
+	9. PAGINATION
+	10. COMMENTS
+	11. FORMS
+	
+-------------------------------------------
+*/
+
+#wrapper {
+        margin: 24px 24px 0 24px;
+        }
+
+
+#content-wrap{
+	max-width: 100%;
+	margin: 48px 0 0 0;
+	height: 100%;
+	}
+
+
+.single #content-wrap,
+.page-template-default #content-wrap,
+.page-template-template-fullwidth-php #content-wrap {
+	max-width: 1056px;
+	margin: 48px auto 0 auto;
+	}
+
+
+/* sections general */ 
+
+
+
+.container{
+        overflow: hidden;
+	padding: 120px 0 120px 0;     
+        }
+
+
+/* slider section */
+.slider-section.slide {     
+	width: 100%;
+	height: 100%;
+	background-attachment: fixed;
+	margin-bottom: 24px;
+	}
+
+/* video section */
+
+
+/* home section */
+
+
+	
+.isotope,
+.fade0,
+.fade1,
+.fade2,
+.fade3 {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";/* IE 8 */
+        filter: alpha(opacity=0);/* IE 5-7 */
+        -moz-opacity: 0;/* Netscape */
+        -khtml-opacity: 0;/* Safari 1.x */
+        opacity: 0;  /* Good browsers */   
+	}
+
+
+
+
+/* portfolio section */
+.portfolio {
+        margin-left: 2px;
+        }
+
+.portfolio-items {
+        margin: 0 -2px;
+        margin-bottom: 24px !important;
+        }
+
+.gutter {
+        height: 1px;
+        width: 2px;
+        }
+
+.isotope .element {
+	float: left;
+	margin: 0 2px 4px;
+        }
+
+.isotope .element img {
+        -webkit-transform: translatez(0);
+        -moz-transform: translatez(0);
+        -ms-transform: translatez(0);
+        -o-transform: translatez(0);
+        transform: translatez(0);
+        }
+
+
+.element {
+	margin: 0;
+	padding: 0;
+  	margin-right: 6px;
+  	margin-bottom: 6px;
+  	float: left;
+  	overflow: hidden;
+  	position: relative;
+	}
+
+.element img {
+	display: inline;
+    vertical-align: middle;
+	}
+
+.element.size1,
+.element.portrait1,
+.element.portrait2 {
+  	max-width: 225px;
+	}
+
+.element.size2,
+.element.video,
+.element.portrait3,
+.element.landscape {
+	max-width: 450px;
+	}
+        
+.portfolio2_thumblink {
+	float: left;
+	width: 100%;
+	}
+
+
+
+/* Isotope Filtering */
+
+
+/* Isotope CSS3 transitions */
+
+
+/* Isotope Filtering */
+.isotope-item {
+    z-index: 2;
+    }
+
+.isotope-hidden.isotope-item {
+    pointer-events: none;
+    z-index: 1;
+    }
+
+/* Isotope CSS3 transitions */
+.isotope,
+.isotope .isotope-item {
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    -ms-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    }
+
+.isotope {
+    -webkit-transition-property: height, width;
+    -moz-transition-property: height, width;
+    -ms-transition-property: height, width;
+    -o-transition-property: height, width;
+    transition-property: height, width;
+    }
+
+.isotope .isotope-item {
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property: -moz-transform, opacity;
+    -ms-transition-property: -ms-transform, opacity;
+    -o-transition-property: -o-transform, opacity;
+    transition-property: transform, opacity;
+    }
+
+/* disabling Isotope CSS3 transitions */
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+    -webkit-transition-duration: 0s;
+    -moz-transition-duration: 0s;
+    -ms-transition-duration: 0s;
+    -o-transition-duration: 0s;
+        transition-duration: 0s;
+    }
+
+
+  
+/*  END LAYOUT -------------------------------------------------------------- */
+
+
+
+
+img     {
+        max-width: 100%;
+        height: auto;
+        }
+

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>楼盘地图</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<script type="text/javascript" src="js/loadcommon.js"></script>
+<script type="text/javascript">
+    window.System.L.load({'js':['jquery-1.7.1',
+                                 'lib.class',
+                                 'Tools.class']});
+    
+    
+    
+</script>
+<link href="css/base.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/use.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+
+
+
+</head>
+
+<body>
+<div class="sectionContainer-A1 sectionBox">
+    
+    <div class="clear sectionSidebar-wrap sectionFixed sectionFixed-top js_sectionSidebar">
+    	<div class="sectionSidebar-A1 L">
+            <div class="sectionMenu-A1 js_sectionMenuA1 js_sectionMenu_one">
+              <div id="WelcomeBack" class="none">&lt; 返回</div>
+              <div class="li cur" subId="45"><a href="#">成功实施案例1</a></div>
+              <div class="li" subId="46"><a href="#">家装潮流设计方案2</a></div>
+              <div class="li" subId="47"><a href="#">全国经销商3</a></div>
+              <div class="li" subId="48"><a href="#">专业服务与支持4</a></div>
+              <div class="li" subId="49"><a href="#">商品库5</a></div>
+              <div class="li" subId="50"><a href="#">喜鹊的故事6</a></div>
+              <div class="li" subId="51"><a href="#">联系喜鹊筑家7</a></div>
+            </div>
+            <div class="sectionMenu-A1 js_sectionMenuA1 sectionMenu-A1-sub js_sectionMenu_two" id="sub_45">
+              <div class="li cur"><a href="#">成功实施案例1</a></div>
+              <div class="li"><a href="#">家装潮流设计方案</a></div>
+            </div>
+            <div class="sectionMenu-A1 js_sectionMenuA1 sectionMenu-A1-sub js_sectionMenu_two" id="sub_50">
+              <div class="li cur"><a href="#">成功实施案例6</a></div>
+              <div class="li"><a href="#">家装潮流设计方案</a></div>
+            </div>
+            
+            
+            
+            <div class="sectionFoot-A1 sectionFixed sectionFixed-bottom pb10 pt10 js_sectionFoot">
+                <div class="sectionContact-A1 sectionFont-A1">
+                    <h3>喜鹊筑家湖南有限公司</h3>
+                    <ul>
+                        <li>雨花区万家丽中路一段318号西子商业中心B、C栋群楼一至三楼</li>
+                        <li class="sectionNumber-A1">4008639988</li>
+                    </ul>
+                </div>
+                <div class="setionCopyright-A1">© Copyright 2014 Gezlife.com.<br>
+                    All rights reserved.
+                    Powered By<br>
+                    <span>HUMAN CORPORATION</span>
+                </div>
+                <div class="sectionSocial-A1">
+                    <a href="#"><img src="images/imgs_LHH/facebook.svg" height="18px"><span class="notext">Facebook</span></a>
+                    <a href="#"><img src="images/imgs_LHH/twitter.svg" width="18px"><span class="notext">Twitter</span></a>
+                    <a href="#"><img src="images/imgs_LHH/pinterest.svg" height="18px"><span class="notext">Pinterest</span></a>
+                    <a href="#"><img src="images/imgs_LHH/instagram.svg" height="18px"><span class="notext">Instagram</span></a>
+                    <a href="#"><img src="images/imgs_LHH/tumblr.svg" height="16px"><span class="notext">Tumblr</span></a>
+                </div>
+            </div>
+            
+    	</div>
+    	<div class="sectionSidebar-A2">
+            <div class="p10">
+                <div class="sectionLogo-A1"><a href="###"><img src="http://img0.bdstatic.com/img/image/shouye/lysxwz-6645354418.jpg" width="100%" alt=""/></a></div>
+                <div class="sectionIcon-I-wrap js_sectionIcon-I">
+                	<div class="sectionIcon-I1-wrap js_sectionIconI1wrap">
+                		<ul class="sectionIcon-I1 auto js_sectionIconI1A">
+                		    <li class="mb5"></li>
+                		    <li class="mb5"></li>
+                		    <li></li>
+                		</ul>
+                	    <ul class="sectionIcon-I1 sectionIcon-I1-1 auto">
+                		    <li class="mb5"></li>
+                		    <li class="mb5"></li>
+                		    <li></li>
+                		</ul>
+                	</div>
+                    <div class="sectionIcon-close p-rel js_sectionIcon-close none">
+                        <a href="###"></a>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+    	</div>
+    </div>
+    <div class="sectionStretched sectionWrap-A1 js_sectionWrapA1 sectionBg-fff">
+    	<!-- top menu -->
+        <ul class="sectionTop-A1 sectionFont-white" id="topMenu">
+            <li class="li-1"><a href="#" class="btn icons unfollow">取消关注</a></li>
+            <li class="li-1"><a href="#" class="btn icons follow">关注</a></li>
+            <li class="li-1">
+                <a href="#" class="btn icons login">登录</a>
+                <div class="sectionTop-A1-sub none">
+                	<ul>
+                	    <li><a href="#">喜鹊筑家旗舰店</a></li>
+                	    <li><a href="#">品牌馆1</a></li>
+                	    <li><a href="#">品牌馆1</a></li>
+                	    <li><a href="#">品牌馆1</a></li>
+                	    <li><a href="#">品牌馆1</a></li>
+                	</ul>
+                	<span class="sectionTop-A1-arrow"></span>
+                </div>
+            </li>
+            <li class="li-1"><a href="#" class="btn icons home"><span>GEZLIFE</span>首页</a></li>
+        </ul>
+        <!-- /top menu -->
+        <div class="loftMap">
+    		<div class="js_mapWrap" id="container">
+    			
+    		</div>
+            
+            <div class="sectionSearchBox-A1 mt20">
+    			<div class="border">
+    				<div class="sectionTitle-icon sectionFont pr10 mb20">
+                        <i class="icon"></i>
+                        <h2 class="pt15"> 找到我家楼盘和户型 免费获得<span class="linkRed">现有的</span>装修案例</h2>
+                    </div>
+                    <div class="m15 sectionForm sectionForm-A2 sectionFont">
+                    	<div class="mb10">
+                        	<select class="size1of1 sectionFont-grey border-box">
+                                <option value="">请选择您所在的省</option>
+                            </select>
+                        </div>
+                        <div class="mb10">
+                        	<select class="size1of1 sectionFont-grey border-box">
+                                <option value="">请选择您所在的城市</option>
+                            </select>
+                        </div>
+                        <div class="mb10">
+                        	<input type="text" class="text size1of1 sectionFont-grey border-box" value="" placeholder="请输入您的楼盘名称" >
+                        </div>
+                        <div class="sectionButton sectionButton-1 clear mb20">
+                            <button type="submit" class="btn L">搜索楼盘</button>
+                        </div>
+                        
+                        <p class="sectionFont-grey mb15">同楼盘/同户型， 不同楼盘/相似户型，<br />看看邻居是怎么装自己家的</p>
+                    </div>
+    			</div>
+    		</div>
+            
+        </div>
+        
+        
+        
+    </div>
+    
+    
+</div>
+<script type="text/javascript">
+    $(function(){
+        function getMap(dom){
+            var map = new BMap.Map(dom);           // 创建Map实例
+            var point = new BMap.Point(118.798771,32.062867);    // 创建点坐标
+            var marker = new BMap.Marker(point);
+            map.centerAndZoom(point, 13);
+            map.addOverlay(marker);
+        }
+        getMap("container");
+    });
+</script>
+
+</body>
+</html>

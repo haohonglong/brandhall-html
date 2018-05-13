@@ -1,0 +1,21 @@
+@charset "utf-8";
+body{background: #fff;}
+/*案例详情*/
+#caseDetail,
+#caseDetail .secondary,
+#caseDetail .primary{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+#caseDetail .primary{margin-left: -530px;padding-left: 530px;width: 100%;height: 100%;}
+#caseDetail .secondary{width: 500px;float: right;}
+#caseDetail .secondary h6{color: #999;font-family: "SimSun";}
+
+/*幻灯*/
+#caseDetail .bx-viewport{border: none;left:0; box-shadow:none;}
+#caseDetail .slider{height: 860px;overflow: hidden;}
+#caseDetail .bx-wrapper{}
+#caseDetail .bx-wrapper img{width: 100%;}
+#caseDetail .bx-controls-direction a{width: 48px;height: 48px;left: auto;right: auto; display: inline-block;background:url(../images/imgs_LHH/sliderIcon.png) no-repeat 0 0;}
+#caseDetail .bx-controls-direction a:hover{filter:alpha(opacity=50);opacity:0.5;}
+#caseDetail .slider a.bx-prev,
+#caseDetail .slider a.bx-prev:hover{left: 20px;background-position: 0 0;}
+#caseDetail .slider a.bx-next,
+#caseDetail .slider a.bx-next:hover{background-position: right 0;right: 20px;}

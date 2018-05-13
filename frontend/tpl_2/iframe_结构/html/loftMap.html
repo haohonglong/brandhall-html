@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>楼盘地图</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<script type="text/javascript" src="js/loadcommon.js"></script>
+<script type="text/javascript">
+    window.System.L.load({'js':['jquery-1.7.1',
+                                 'lib.class',
+                                 'Tools.class'
+                                ]});
+    
+    
+    
+</script>
+<link href="css/base.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+
+<script type="text/javascript">
+     var tools=new window.System.Tools(new window.System.Browser());
+	$(function(){
+        //地图
+        tools.set_whole_screen_size({
+               '$div':$('.js_mapWrap'),
+               'h':true,
+               'hSize':0
+            });
+    });
+</script>
+
+</head>
+
+<body>
+<div class="loftMap">
+    <div class="js_mapWrap" id="container">
+        
+    </div>
+    
+    <div class="sectionSearchBox-A1 mt20">
+        <div class="border">
+            <div class="sectionTitle-icon sectionFont pr10 mb20">
+                <i class="icon"></i>
+                <h2 class="pt15"> 找到我家楼盘和户型 免费获得<span class="linkRed">现有的</span>装修案例</h2>
+            </div>
+            <div class="m15 sectionForm sectionForm-A2 sectionFont">
+                <div class="mb10">
+                    <select class="size1of1 sectionFont-grey border-box">
+                        <option value="">请选择您所在的省</option>
+                    </select>
+                </div>
+                <div class="mb10">
+                    <select class="size1of1 sectionFont-grey border-box">
+                        <option value="">请选择您所在的城市</option>
+                    </select>
+                </div>
+                <div class="mb10">
+                    <input type="text" class="text size1of1 sectionFont-grey border-box" value="" placeholder="请输入您的楼盘名称" >
+                </div>
+                <div class="sectionButton sectionButton-1 clear mb20">
+                    <button type="submit" class="btn L">搜索楼盘</button>
+                </div>
+                
+                <p class="sectionFont-grey mb15">同楼盘/同户型， 不同楼盘/相似户型，<br />看看邻居是怎么装自己家的</p>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<script type="text/javascript">
+    $(function(){
+        function getMap(dom){
+            var map = new BMap.Map(dom);           // 创建Map实例
+            var point = new BMap.Point(118.798771,32.062867);    // 创建点坐标
+            var marker = new BMap.Marker(point);
+            map.centerAndZoom(point, 13);
+            map.addOverlay(marker);
+        }
+        getMap("container");
+    });
+</script>
+
+</body>
+</html>

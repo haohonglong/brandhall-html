@@ -1,0 +1,11 @@
+@charset "utf-8";
+.sectionSlider-A1 .bx-wrapper .bx-viewport{border: none;left:0; box-shadow:none;}
+.sectionSlider-A1{overflow: hidden;}
+.sectionSlider-A1 .bx-wrapper{height: 100%;}
+.sectionSlider-A1 .bx-wrapper img{width: 100%;}
+.sectionSlider-A1 .bx-controls-direction a{width: 40px;height: 40px;left: auto;right: auto; display: inline-block;background:url(../images/imgs_LHH/buttons_1.png) no-repeat 0 0;}
+.sectionSlider-A1 .bx-controls-direction a:hover{filter:alpha(opacity=50);opacity:0.5;}
+.sectionSlider-A1 a.bx-prev,
+.sectionSlider-A1 a.bx-prev:hover{left: 0;background-position: -40px 0;}
+.sectionSlider-A1 a.bx-next,
+.sectionSlider-A1 a.bx-next:hover{background-position: -80px 0;right: 0;}

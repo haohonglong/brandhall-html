@@ -1,0 +1,459 @@
+@charset "utf-8";
+/* CSS Document */
+/*init*/
+/*=======================bootstrap===============================================================================================================*/
+
+
+input,select{vertical-align: middle;}
+label{font-weight: normal;}
+textarea{resize:vertical;overflow: auto;vertical-align: top;}
+/*======================================================================================================================================*/
+
+/*去掉文字*/
+.notext{font-size:0;line-height:0;text-indent:-9999px}
+
+/*clear*/
+.clear{min-height:1%;*zoom: 1;}
+.clear:before,
+.clear:after{content:".";display:block;width:0;height:0;line-height: 0;visibility:hidden;display: table;content: "";}
+.clear:after {clear: both;}
+* html .clear{height:1%}
+
+
+
+
+.L,.R,.fl,.fr{_display: inline;}
+.L,.fl{float:left;}
+.R,.fr{float: right;}
+.f-none{float: none;}
+.p-rel{position: relative;}
+.p-abs{position: absolute;}
+.t0{top: 0;}
+.L0{left: 0;}
+.r0{right: 0;}
+.b0{bottom: 0;}
+.z-10{z-index: 10;}
+.t-C{text-align:center;}
+.t-L{text-align:left;}
+.t-R{text-align:right;}
+.v-t{vertical-align:top;}
+.v-m{vertical-align:middle;}
+.v-b{vertical-align: bottom;}
+.v-negative3{vertical-align: -3px;}
+.over-h{overflow:hidden;}
+.p1{padding:1px;}
+.m5{margin:5px;}
+.m10{margin:10px;}
+.m15{margin:15px;}
+.m20{margin:20px;}
+.m25{margin:25px;}
+.mb0{margin-bottom:0;}
+.mt0{margin-top:0px;}
+.mt1{margin-top:1px;}
+.mt5{margin-top:5px;}
+.mt10{margin-top:10px;}
+.mt20{margin-top:20px;}
+.mt15{margin-top:15px;}
+.mt20{margin-top:20px;}
+.mt30{margin-top:30px;}
+.mb1{margin-bottom:1px;}
+.mb2{margin-bottom:2px;}
+.mb3{margin-bottom:3px;}
+.mb5{margin-bottom:5px;}
+.mb10{margin-bottom:10px;}
+.mb15{margin-bottom:15px;}
+.mb20{margin-bottom:20px;}
+.mb25{margin-bottom:25px;}
+.mb30{margin-bottom:30px;}
+.mb40{margin-bottom:40px;}
+.mr1{margin-right:1px;}
+.mr2{margin-right:2px;}
+.mr5{margin-right:5px;}
+.mr10{margin-right:10px;}
+.mr12{margin-right:12px;}
+.mr15{margin-right:15px;}
+.mr20{margin-right:20px;}
+.mr23{margin-right:23px;}
+.mr25{margin-right:25px;}
+.mr30{margin-right:30px;}
+.ml2{margin-left: 2px;}
+.ml5{margin-left: 5px;}
+.ml10{margin-left:10px}
+.ml15{margin-left:15px}
+.ml20{margin-left: 20px;}
+.ml30{margin-left: 30px;}
+.mr0{margin-right: 0;}
+.ml0{margin-left: 0;}
+.mt0{margin-top: 0;}
+.mb0{margin-bottom: 0;}
+.pb5{padding-bottom:5px;}
+.pb10{padding-bottom:10px;}
+.pb15{padding-bottom:15px;}
+.p0{padding:0;}
+.p2{padding:2px;}
+.p5{padding:5px;}
+.p10{padding: 10px;}
+.p15{padding: 15px;}
+.p20{padding: 20px;}
+.p25{padding: 25px;}
+.p30{padding: 30px;}
+.p135{padding: 35px;}
+.pt5{padding-top:5px;}
+.pt10{padding-top:10px;}
+.pt15{padding-top: 15px;}
+.pt20{padding-top:20px;}
+.pt30{padding-top:30px;}
+.pl5{padding-left: 5px;}
+.pl10{padding-left: 10px;}
+.pl15{padding-left: 15px;}
+.pl20{padding-left: 20px;}
+.pl25{padding-left: 25px;}
+.pl35{padding-left: 35px;}
+.pr5{padding-right: 5px;}
+.pr10{padding-right: 10px;}
+.pr20{padding-right: 20px;}
+.pr0{padding-right: 0;}
+.pt0{padding-top:0;}
+.auto{margin-right: auto;margin-left: auto;}
+
+/*display*/
+.none,.hidden{display: none;}
+.block{display: block;}
+.inline-b{display: inline-block;}
+
+
+
+
+
+label,
+select,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+input[type="radio"],
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+
+/*浮动*/
+.sectionFloat{position:relative;}
+.sectionFloat li{float:left;_display: inline;}
+.sectionFloat .R{float:right;}
+.sectionFloat .N{float:none;}
+
+/*绝对定位在页面中居中垂直*/
+.loft-sectionAutoCent{position: absolute; margin: -280px 0 0 -250px; top: 50%; left: 50%;}
+
+
+/*自适应两列布局*/
+/*=================================================================================================================*/
+/*自适应两列布局结构原型*/
+.loft-sectionAutoTwoLayer{position: relative;}
+.loft-sectionAutoTwoLayer .primary{position: absolute;}
+.loft-sectionAutoTwoLayer .secondary{}
+
+/*固定宽度左浮动自适应两列布局*/
+/*example
+  <div class="loft-sectionAutoTwoLayer loft-sectionAutoTwoLayer-f loft-sectionAutoTwoLayer-fl p-rel clear">
+    <div class="secondary L"></div>
+    <div class="primary loft-sectionStretched"></div>
+  </div>
+*/
+.loft-sectionAutoTwoLayer-f{}
+.loft-sectionAutoTwoLayer-f .primary{position: absolute;}
+.loft-sectionAutoTwoLayer-f .secondary{_display: inline;}
+
+/*固定宽度右浮动自适应两列布局*/
+/*example
+  <div class="loft-sectionAutoTwoLayer loft-sectionAutoTwoLayer-f loft-sectionAutoTwoLayer-fr p-rel clear">
+    <div class="secondary"></div>
+    <div class="primary loft-sectionStretched"></div>
+  </div>
+*/
+.loft-sectionAutoTwoLayer-fr{}
+.loft-sectionAutoTwoLayer-fr .primary{margin-left: -200px;padding-left: 200px;width: 100%;height: 100%;}
+.loft-sectionAutoTwoLayer-fr .secondary{width: 200px;float: right;}
+
+
+
+/*link*/
+.linkBlue,.linkBlue a:link,.linkBlue a:visited,.linkBlue:link,.linkBlue a:visited,.linkBlue:visited{color:#55aadd!important;}
+.linkBlue a:hover,.linkBlue:hover{color:#55aadd!important;}
+.linkBlack,.linkBlack a:link,.linkBlack a:visited,.linkBlack:link,.linkBlack:visited{color:#000!important;}
+.linkBlack a:hover.linkBlack:hover{color:#000!important;}
+.linkRed,.linkRed a:link,.linkRed a:visited,a.linkRed:link,a.linkRed:visited{color:#e74c3c!important;}
+.linkRed a:hover,.linkRed:hover{color:#e74c3c!important;}
+.linkWhite,.linkWhite a:link,.linkWhite a:visited,.linkWhite:link,.linkWhite:visited{color:#ffffff!important;}
+.linkWhite a:hover,.linkWhite:hover{color:#ffffff!important;}
+.linkGreen,.linkGreen a:link,.linkGreen a:visited,.linkGreen:link,.linkGreen:visited{color:#008000 !important;}
+.linkGreen a:hover.linkGreen:hover{color:#008000!important;}
+.linkYellow,.linkYellow a:link,.linkYellow a:visited,.linkYellow:link,.linkYellow:visited{color:#fb4410!important;}
+.linkYellow a:hover,.linkYellow:hover{color:#fb4410!important;}
+.linkGrey,.linkGrey a:link,.linkGrey a:visited,.linkGrey:link,.linkGrey:visited{color:#b5b5b5!important;}
+.linkGrey a:hover.linkGrey:hover{color:#b5b5b5!important;}
+.linkOrange,.linkOrange a:link,.linkOrange a:visited,.linkOrange:link,.linkOrange:visited{color:#f60!important;}
+.linkOrange a:hover.linkOrange:hover{color:#f60!important;}
+.linkRose,.linkRose a:link,.linkRose a:visited,.linkRose:link,.linkRose:visited{color:#e80274!important;}
+.linkRose a:hover.linkRose:hover{color:#e80274!important;}
+
+
+
+/*模块通用样式*/
+/*============================================================================================================================*/
+/*公用*/
+.loft-sectionBox{position: relative;font-family: 'Microsoft YaHei';font-size: 13px;}
+.loft-sectionBox h1,.loft-sectionBox h2,.loft-sectionBox h3,.loft-sectionBox h4,.loft-sectionBox h5,.loft-sectionBox h6{font-family:"Microsoft Yahei";font-weight: bold;color: #000;letter-spacing:normal;text-transform:uppercase;}
+.loft-sectionBox h1{font-size: 35px;}
+.loft-sectionBox h2{font-size: 30px;}
+.loft-sectionBox h3{font-size: 18px;}
+.loft-sectionBox h4{}
+.loft-sectionBox h5{}
+.loft-sectionBox h6{font-size: 14px;}
+.loft-sectionBox .more{ position:absolute;top: 0;right: 0;}
+.loft-sectionBox .price{color: #e30000;font-size: 16px;font-weight: normal;}
+.loft-sectionBox .price .nu{color: #e30000;}
+.loft-sectionBox .price .symbol{font-size: 16px;color: #e30000;}
+.loft-sectionBox .price .word{font-size: 16px;margin-left: -3px;}
+.loft-sectionBox .price .call{ font-size:14px;font-weight: normal;}
+.loft-sectionBox .del{text-decoration: line-through;}
+
+
+/*弹出层*/
+.loft-sectionPopupLayer{width: 1100px;position: fixed;background: #fff;z-index:10000000000;}
+.loft-sectionPopupLayer .popup-content{}
+
+/*整屏遮罩*/
+.loft-sectionTransparent{width: 100%;height: 100%;position: fixed; z-index:1000000000;left:0px;top:0px;opacity:0.3;filter:Alpha(opacity=30);background:#000}
+
+
+/*三角箭头*/
+/*==============================================================================================================================================*/
+.loft-sectionArrow       {position: relative;}
+.loft-sectionArrow i     {width: 0;height: 0;position: absolute;overflow: hidden;border-width: 5px;font-size:0;line-height: 0; margin: 0;}
+.loft-sectionArrow i.up  {border-style: dashed dashed solid; border-color:transparent transparent #b8b8b8;  }
+.loft-sectionArrow i.down{border-style: solid dashed dashed; border-color: #b8b8b8 transparent transparent;bottom: -10px; }
+.loft-sectionArrow i.i-L {border-style: dashed solid dashed dashed; border-color:transparent #b8b8b8 transparent transparent;}
+.loft-sectionArrow i.i-R {border-style: dashed dashed dashed solid; border-color:transparent transparent transparent #b8b8b8;}
+
+/*上下*/
+.loft-sectionArrow-A1 i{left: 5%;bottom: 0;border-width: 7px;border-style: dashed dashed solid;}
+.loft-sectionArrow-A1 i.A{z-index: 10; bottom: -1px;border-color:transparent transparent #fff;}/*填充颜色*/
+.loft-sectionArrow-A1 i.B{border-color:transparent transparent #e5e5e5;}/*边线颜色*/
+
+.loft-sectionArrow-A1-1{top: -10px;left: 100px;}
+
+
+/*热门标签*/
+.loft-sectionLabel-A1{}
+.loft-sectionLabel-A1 li{width:auto;color:#04639d;padding: 10px;margin-right: 10px;margin-bottom: 10px;background: #f8f8f8;}
+.loft-sectionLabel-A1 a{width:auto;}
+
+
+/*borders*/
+.border{border:1px solid #e5e5e5;}
+.loft-sectionBorder-b{border-bottom:1px solid #e5e5e5; }
+.loft-sectionBorder-tb{border-left: none;border-right: none; }
+
+
+/*文字*/
+/*=================================================================================================================================*/
+
+/*cms 规定的格式*/
+.loft-sectionCms,
+.loft-sectionCms p{line-height: 24px;text-indent: 25px; font-size: 13px;word-break: break-all;word-wrap: break-word;}
+.loft-sectionCms-0,
+.loft-sectionCms-0 p{text-indent: 0;}
+
+/*文字样式*/
+.loft-sectionFont,.loft-sectionFont a{color: #000;font-size: 13px;}
+.loft-sectionFont-grey,.loft-sectionFont-grey a{color: #999;}
+.loft-sectionFont-red,.loft-sectionFont-red a{color: #e74c3c;}
+
+/*=================================================================================================================================*/
+
+/*forms*/
+.loft-sectionForm{font-family:"SimSun";}
+.loft-sectionForm ul{*margin-bottom: 10px;}
+.loft-sectionForm li{position: relative;line-height: 25px;}
+.loft-sectionForm label{font-size: 12px;text-align: right;margin-right: 5px;}
+.loft-sectionForm label .warning{color: #f00;margin: 0;}
+.loft-sectionForm .text{width: auto; height: 25px;line-height: 25px;padding: 0 5px;color: #333; vertical-align:middle;font-size:12px;border: 1px solid #ccc;}
+.loft-sectionForm .radio{}
+.loft-sectionForm .radio span{margin-right: 5px;color: #333;font-size: 12px;}
+.loft-sectionForm textarea{width: 490px;border: 1px solid #ccc;font-size: 12px;padding: 10px;color: #999;}
+.loft-sectionForm select{width: auto;padding: 3px 2px; font-size:12px;border: 1px solid #ccc;}
+.loft-sectionForm .warning{color: #cc0000;margin:0 5px;}
+.loft-sectionForm .message{color: #888;}
+.loft-sectionForm .date{}
+.loft-sectionForm .date span{margin: 0 5px;}
+.loft-sectionForm .yzm .text{width: 45px; }
+.loft-sectionForm .yzm img{margin-top: 2px;}
+.loft-sectionForm .size1of1{width: 100%;}
+.loft-sectionForm .long{width: 370px;}
+.loft-sectionForm .short{width: 60px;}
+
+.loft-sectionForm-A1 .text{
+  display: block;
+  width: 100%;
+  height: 30px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+
+/*缩略图*/
+.loft-sectionThumbnail{position: relative;}
+.loft-sectionThumbnail img{text-align: center;}
+
+/*方案详情相关图册*/
+.loft-sectionThumbnail-A2 li{
+  -webkit-box-sizing:content-box;
+  -moz-box-sizing:content-box;
+  box-sizing:content-box;
+  border:3px solid #fff;
+  margin: 0;
+}
+.loft-sectionThumbnail-A2 ul{
+  -webkit-box-sizing:content-box;
+  -moz-box-sizing:content-box;
+  box-sizing:content-box;
+  width: 240px;margin-left: -2px;
+}
+.loft-sectionThumbnail-A2 .cur{border-color:#e74c3c;}
+
+/*分享按钮*/
+.loft-sectionButton-share-wrap{position: absolute;top: 10px;right: 10px;z-index: 10000000;}
+.loft-sectionButton-share{height: 25px; line-height: 25px;padding-right: 10px;overflow: hidden;background: #fff;cursor: pointer;display: block;}
+.loft-sectionButton-share a:hover{color: #e74c3c!important;}
+.loft-sectionButton-share .icon{width: 27px;height: 25px;display:inline-block; border-right: 1px solid #e5e5e5;background:url(../images/imgs_LHH/icon_share.png) no-repeat 0 0; }
+.loft-sectionButton-share .share{background-position: 0 0;}
+.loft-sectionButton-share .collection{background-position: -27px 0;}
+#bdsharebuttonbox .bds_more{
+    padding:0;
+    line-height: 25px;
+    font-size: 12px;
+    height: auto;
+    background:none;
+    margin: 0;
+}
+
+#containerBox .bdshare_popup_box{z-index: 100000000000000000000;}
+
+
+/*自适应圆角按钮*/
+/*======================================================================================================================*/
+/**
+*note:
+*Example:
+*
+<span class="loft-sectionAutoButton loft-sectionAutoButton-A1 clear">
+  <span class="L button">
+    <input class="L" type="button" value="" />
+  </span>
+</span>
+*/
+/*
+图片切法
+
+(|||
+    ||||||||||||||||||||||||||||||||||||||||)
+
+*/
+/*这块内容不要修改!!!*/
+/*-----------------------------------------------------------------------------------------------------------------------------------------*/
+.loft-sectionAutoButton,
+.loft-sectionAutoButton span{cursor:pointer;display: inline-block;font-size:14px;background:url(../images/imgs_LHH/autoButton.png) no-repeat 0 0;outline:0;overflow:hidden;}
+.loft-sectionAutoButton{padding: 0;}
+.loft-sectionAutoButton span{padding: 0 5px;color: #fff;margin: 0;}
+.loft-sectionAutoButton input,
+.loft-sectionAutoButton a{border: none;background: none;color: #fff;padding-top: 5px;font-size: 12px;}
+.loft-sectionAutoButton a{text-decoration: none;}
+/*-----------------------------------------------------------------------------------------------------------------------------------------*/
+
+.loft-sectionAutoButton-A1,
+.loft-sectionAutoButton-A1 .button{height:41px;line-height: 15px; font-size:16px;padding-top: 0;}
+.loft-sectionAutoButton-A1{background-position:0 0;position: relative;top: 1px;}
+.loft-sectionAutoButton-A1 span{background-position:right -41px;padding: 0 30px;padding-left: 22px; margin-left: 8px;}
+/*========================================================================================================================*/
+
+/*comment*/
+.loft-sectionComment{width: auto;position: static;background: #fff;}
+.loft-sectionComment .content{width:170px;}
+.loft-sectionComment .qqFace{margin-top:4px;background:#fff;padding:2px;border:1px #dfe6f6 solid;top: 30px!important;left: -15px!important;}
+.loft-sectionComment .qqFace table td{padding:0px;}
+.loft-sectionComment .qqFace table td img{cursor:pointer;border:1px #fff solid;}
+.loft-sectionComment .qqFace table td img:hover{border:1px #0066cc solid;}
+
+.loft-sectionEmotion{width: 15px; height:16px; background:url(../images/imgs_LHH/face.png) no-repeat 0 0; cursor:pointer;position: relative;top: 6px; }
+.loft-sectionEmotion:hover{background-position: -15px 0;}
+
+
+
+/*楼房评论幻灯 */
+.loft-sectionSlider-A2{overflow: hidden;position: relative;}
+.loft-sectionSlider-A2 .prev,
+.loft-sectionSlider-A2 .next{width: 44px;height: 60px;position: absolute;z-index: 100000; top: 50%; background: url(../images/imgs_LHH/sliderIcon_2.png) no-repeat 0 0;cursor: pointer;}
+.loft-sectionSlider-A2 .prev:hover,
+.loft-sectionSlider-A2 .next:hover{filter:alpha(opacity=50);opacity:0.5;}
+.loft-sectionSlider-A2 .prev{background-position: 0 0;left: 0;}
+.loft-sectionSlider-A2 .next{background-position: right 0;right: 0;}
+
+
+/*消息*/
+.loft-sectionMessage-A1{ width: auto; background: #fff; padding: 10px;border: 1px solid #e5e5e5;border-radius: 3px;position: absolute;z-index: 100;line-height: 18px;}
+.loft-sectionMessage-A1-1{width: 228px;top: 30px;left: -100px;}
+
+
+
+
+/*pageing*/
+.loft-sectionPageing-A5{text-align: center;}
+.loft-sectionPageing-A5 li{display: inline-block; margin-right: 5px;}
+.loft-sectionPageing-A5 .selected,.loft-sectionPageing-A5 a:hover{font-weight: bold;color: #434343;}
+
+
+/*button*/
+.loft-sectionButton .btn{border: none;border-radius: 2px; background: #e74c3c;width: auto;height: 30px;line-height: 30px;padding: 0 20px;color: #fff;font-size: 14px; font-weight: normal;}
+.loft-sectionButton-1 .btn{padding: 0 30px;height: 35px;line-height: 35px;font-family:"Microsoft Yahei";font-size: 16px;}
+
+
+/*楼盘评论*/
+.loft-comment{width: 98%;height: 98%; background:#f1f1f1;padding: 20px;}
+.loft-comment .primary,
+.loft-comment .secondary{height: 860px;}
+.loft-comment .primary{margin-left: -300px;padding-left: 300px;}
+.loft-comment .secondary{width: 280px;overflow: hidden; overflow-y: auto;}
+.loft-comment .popup-close{width: 20px;height: 20px;background: url(../images/imgs_LHH/pop_close.png) no-repeat 0 0;  position: absolute;right: -20px;top: -20px;}
+.loft-comment .popup-content{background: #fff;height: 100%;}
+.loft-comment .p20{background: #fff;}
+
+
+
+.bx-wrapper .bx-viewport{border: none;left:0; box-shadow:none;}
+.loft-sectionSlider{height: 860px;overflow: hidden;}
+.loft-sectionSlider .bx-wrapper{height: 100%;}
+.loft-sectionSlider .bx-wrapper img{width: 100%;}
+.loft-sectionSlider .bx-controls-direction a{width: 44px;height: 60px;left: auto;right: auto; display: inline-block;background:url(../images/imgs_LHH/sliderIcon_2.png) no-repeat 0 0;}
+.loft-sectionSlider .bx-controls-direction a:hover{filter:alpha(opacity=50);opacity:0.5;}
+.loft-sectionSlider a.bx-prev,
+.loft-sectionSlider a.bx-prev:hover{left: 0;background-position: 0 0;}
+.loft-sectionSlider a.bx-next,
+.loft-sectionSlider a.bx-next:hover{background-position: right 0;right: 0;}
+
+.w-280{width: 280px;}
+
+
+

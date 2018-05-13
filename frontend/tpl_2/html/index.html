@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>首页</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<script type="text/javascript" src="js/loadcommon.js"></script>
+<script type="text/javascript">
+    window.System.L.load({'js':[
+                                'jquery-1.7.1',
+                                'mousewheel',
+                                'easyscroll',
+                                'lib.class',
+                                'Tools.class'
+                                ]});
+</script>
+<link href="css/base.css" rel="stylesheet" type="text/css" />
+<link href="css/homepage.css" rel="stylesheet" type="text/css" />
+<link href="css/accordion.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/use.js"></script>
+<script type="text/javascript" src="js/accordion.js"></script>
+
+<script type="text/javascript">
+	$(function(){
+		
+
+		var $slide=$('.slide');
+		var $slider=$('#slider');
+
+		var run=function(){
+        	var h=window.System.Basis.getBodySize('h');
+        	$slider.height(h);
+        	$slide.height(h);
+    	};
+
+		$(window).resize(function() {
+			run();
+		});
+		run();
+		slider.init();
+	});
+</script>
+
+</head>
+
+<body>
+<div class="sectionContainer-A1 sectionBox">
+    
+    <div class="clear sectionSidebar-wrap sectionFixed sectionFixed-top js_sectionSidebar">
+    	<div class="sectionSidebar-A1 L">
+            <div class="sectionMenu-A1 js_sectionMenuA1 js_sectionMenu_one">
+              <div id="WelcomeBack" class="none">&lt; 返回</div>
+              <div class="li cur" subId="45"><a href="#">成功实施案例1</a></div>
+              <div class="li" subId="46"><a href="#">家装潮流设计方案2</a></div>
+              <div class="li" subId="47"><a href="#">全国经销商3</a></div>
+              <div class="li" subId="48"><a href="#">专业服务与支持4</a></div>
+              <div class="li" subId="49"><a href="#">商品库5</a></div>
+              <div class="li" subId="50"><a href="#">喜鹊的故事6</a></div>
+              <div class="li" subId="51"><a href="#">联系喜鹊筑家7</a></div>
+            </div>
+            <div class="sectionMenu-A1 js_sectionMenuA1 sectionMenu-A1-sub js_sectionMenu_two" id="sub_45">
+              <div class="li cur"><a href="#">成功实施案例1</a></div>
+              <div class="li"><a href="#">家装潮流设计方案</a></div>
+            </div>
+            <div class="sectionMenu-A1 js_sectionMenuA1 sectionMenu-A1-sub js_sectionMenu_two" id="sub_50">
+              <div class="li cur"><a href="#">成功实施案例6</a></div>
+              <div class="li"><a href="#">家装潮流设计方案</a></div>
+            </div>
+            
+            
+            
+            <div class="sectionFoot-A1 sectionFixed sectionFixed-bottom pb10 pt10 js_sectionFoot">
+                <div class="sectionContact-A1 sectionFont-A1">
+                    <h3>喜鹊筑家湖南有限公司</h3>
+                    <ul>
+                        <li>雨花区万家丽中路一段318号西子商业中心B、C栋群楼一至三楼</li>
+                        <li class="sectionNumber-A1">4008639988</li>
+                    </ul>
+                </div>
+                <div class="setionCopyright-A1">© Copyright 2014 Gezlife.com.<br>
+                    All rights reserved.
+                    Powered By<br>
+                    <span>HUMAN CORPORATION</span>
+                </div>
+                <div class="sectionSocial-A1">
+                    <a href="#"><img src="images/imgs_LHH/facebook.svg" height="18px"><span class="notext">Facebook</span></a>
+                    <a href="#"><img src="images/imgs_LHH/twitter.svg" width="18px"><span class="notext">Twitter</span></a>
+                    <a href="#"><img src="images/imgs_LHH/pinterest.svg" height="18px"><span class="notext">Pinterest</span></a>
+                    <a href="#"><img src="images/imgs_LHH/instagram.svg" height="18px"><span class="notext">Instagram</span></a>
+                    <a href="#"><img src="images/imgs_LHH/tumblr.svg" height="16px"><span class="notext">Tumblr</span></a>
+                </div>
+            </div>
+            
+    	</div>
+    	<div class="sectionSidebar-A2">
+            <div class="p10">
+                <div class="sectionLogo-A1"><a href="###"><img src="http://img0.bdstatic.com/img/image/shouye/lysxwz-6645354418.jpg" width="100%" alt=""/></a></div>
+                <div class="sectionIcon-I-wrap js_sectionIcon-I">
+                	<div class="sectionIcon-I1-wrap js_sectionIconI1wrap">
+                		<ul class="sectionIcon-I1 auto js_sectionIconI1A">
+                		    <li class="mb5"></li>
+                		    <li class="mb5"></li>
+                		    <li></li>
+                		</ul>
+                	    <ul class="sectionIcon-I1 sectionIcon-I1-1 auto">
+                		    <li class="mb5"></li>
+                		    <li class="mb5"></li>
+                		    <li></li>
+                		</ul>
+                	</div>
+                    <div class="sectionIcon-close p-rel js_sectionIcon-close none">
+                        <a href="###"></a>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+    	</div>
+    </div>
+    <div class="sectionStretched sectionWrap-A1 js_sectionWrapA1">
+    	<!-- top menu -->
+        <ul class="sectionTop-A1 sectionFont-white" id="topMenu">
+            <li class="li-1"><a href="#" class="btn icons unfollow">取消关注</a></li>
+            <li class="li-1"><a href="#" class="btn icons follow">关注</a></li>
+            <li class="li-1">
+                <a href="#" class="btn icons login">登录</a>
+                <div class="sectionTop-A1-sub none">
+                	<ul>
+                	    <li><a href="#">喜鹊筑家旗舰店</a></li>
+                	    <li><a href="#">品牌馆1</a></li>
+                	    <li><a href="#">品牌馆1</a></li>
+                	    <li><a href="#">品牌馆1</a></li>
+                	    <li><a href="#">品牌馆1</a></li>
+                	</ul>
+                	<span class="sectionTop-A1-arrow"></span>
+                </div>
+            </li>
+            <li class="li-1"><a href="#" class="btn icons home"><span>GEZLIFE</span>首页</a></li>
+        </ul>
+        <!-- /top menu -->
+        <div class="sectionSlider-A1 js_sectionSlider">
+    	    <div id="slider">
+    	        <div class="slide">
+    	            <a href="http://www.baidu.com">
+    	            	<img class="diapo" src="images/imgs_LHH/pics/sf10.jpg" alt="">
+    	            </a>
+    	            <div class="text">
+    	                  <span class="title">The best</span>
+    	                  The offspring of a customized orbiter, O飇ostem arose as the best balanced
+    	                  home for our plans. So we submitted to its conditions.
+    	            </div>
+    	        </div>
+    	        <div class="slide">
+    	            <a href="http://www.baidu.com">
+    	            	<img class="diapo" src="images/imgs_LHH/pics/sf14.jpg" alt="">
+    	            </a>
+    	            <div class="text">
+    	                <span class="title">Prototype</span>
+    	                O飇ostem's deep impulse flow is selectively regulated by a molecule
+    	                originated in the prototype model, that creates its own variational
+    	                principles, as oriented by the first local generation of terminable androids.
+    	            </div>
+    	        </div>
+    	        <div class="slide">
+    	            <a href="http://www.baidu.com">
+    	            	<img class="diapo" src="images/imgs_LHH/pics/sf24.jpg" alt="">
+    	            </a>
+    	            <div class="text">
+    	                  <span class="title">Has been reduced</span>
+    	                  Paired hosts come out nicely after only two cycles now. Their size has been
+    	                  reduced to a half the original as planned, and indeed they show an
+    	                  evolutionary advantage in the process of fixing self-generated instructions.
+    	                  Plus, they are beautiful.
+    	            </div>
+    	        </div>
+    	        <div class="slide">
+    	            <a href="http://www.baidu.com">
+    	            	<img class="diapo" src="images/imgs_LHH/pics/sf04.jpg" alt="">
+    	            </a>
+    	            <div class="text">
+    	                <span class="title">By close-alikes</span>
+    	                Now I have regained hopes in someday finding myself surrounded by
+    	                close-alikes to us. However, they will not be audible, at least not in my
+    	                life span. We resolved the low freq vibration a superior solution for our
+    	                communicational goals ...
+    	            </div>
+    	        </div>
+    	        <div class="slide">
+    	            <a href="http://www.baidu.com">
+    	            	<img class="diapo" src="images/imgs_LHH/pics/sf01.jpg" alt="">
+    	            </a>
+    	            <div class="text">
+    	                  <span class="title">To bear</span>
+    	                  We did not expect their surface to produce such a carbon powder coat, though
+    	                  this is the best model so far. I shall have to bear with the inconveniences.
+    	                  They seem to establish a parallel communication through that carbon coat and
+    	                  I find myself unable to decodify the signal into anything meaningful.
+    	            </div>
+    	        </div>
+    	        
+    	    </div>
+    	</div>
+    	
+    </div>
+    
+    
+</div>
+
+
+</body>
+</html>

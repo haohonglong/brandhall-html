@@ -1,0 +1,38 @@
+html{height: 100%;overflow: auto;}
+body{background: #F6F6F6;}
+.sectionContainer-A1{height:100%}
+.fNav{background: #fff;}
+.rightBox{margin-left:250px;height: 100%;min-width:550px;}
+.dTitle{font-size: 50px;font-family: "microsoft yahei";color: #000;padding:55px 0 30px 0px}
+.mb{margin-bottom: 10px;border-bottom: 1px solid #E6E6E6;}
+
+.proBox{margin:0 40px;}
+.proBox a{text-decoration: none;}
+.proL,.proR{position:relative;float:left;}
+.proL{width:75%;}
+.proR{width:25%;}
+
+.line{margin-bottom:30px;border-bottom: 1px solid #e6e6e6;}
+.proL .proImg{padding:0 90px;background: url(../images/bg.jpg) repeat;}
+.proL .desc{margin-top:20px;color:#333;line-height: 25px;font-size: 14px;}
+
+.smImgBox{min-width: 260px;max-height: 500px;overflow-y: auto; margin-left:25px;}
+.smImgBox ul li{margin:8px;float:left;}
+.smImgBox ul li img{opacity: 0.5;filter:alpha(opacity=50)}
+.smImgBox ul li.curr img{opacity:1;filter:alpha(opacity=100)}
+.smImgBox .r,.smImgBox .l{float:left;margin-right:2px;border:1px solid #000;color:#fff;width:30px;height:30px;text-align: center;line-height: 28px;cursor:pointer;background: #000;}
+.smImgBox .l{margin-left: 8px;}
+.smImgBox .op{float:right;margin:5px 8px 0 0;}
+.smImgBox .markThis,.smImgBox .shareThis{color:#333;padding-left:20px;margin-left:10px;background: url(../images/icon.png) no-repeat;}
+.smImgBox .shareThis{background-position: -52px top;}
+.smImgBox .markThis:hover{background-position:0 bottom;color:#6a6a6a;}
+.smImgBox .shareThis:hover{background-position: -52px bottom;color:#6a6a6a;}
+.smImgBox .hadMark{background-position:0 bottom;color:#6a6a6a;}
+
+#smUl{margin-left:auto;margin-right:auto;}
+
+
+.opr{text-align: center;padding-top:20px}
+.opr .pre,.opr .nxt{width:28px;height:30px;line-height: 28px;border: 1px solid #E7E7E7;cursor: pointer;}
+.opr .pre{float:left;}
+.opr .nxt{float:right}

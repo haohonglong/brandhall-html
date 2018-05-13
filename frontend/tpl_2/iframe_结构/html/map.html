@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>楼盘地图</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<script type="text/javascript" src="js/loadcommon.js"></script>
+<script type="text/javascript">
+    window.System.L.load({'js':['jquery-1.7.1']});
+</script>
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+
+<style type="text/css">
+	body{margin:0;padding:0;}
+    html,body,#container{height:100%;}
+    
+</style>
+
+</head>
+
+<body>
+<div class="js_mapWrap" id="container"></div>
+<script type="text/javascript">
+    $(function(){
+        function getMap(dom){
+            var map = new BMap.Map(dom);           // 创建Map实例
+            var point = new BMap.Point(118.798771,32.062867);    // 创建点坐标
+            var marker = new BMap.Marker(point);
+            map.centerAndZoom(point, 13);
+            map.addOverlay(marker);
+        }
+        getMap("container");
+    });
+</script>
+
+</body>
+</html>

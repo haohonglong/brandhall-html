@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>幻灯</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<script type="text/javascript" src="js/loadcommon.js"></script>
+<script type="text/javascript">
+    window.System.L.load({'js':[
+                                'jquery-1.7.1',
+                                'lib.class'
+                                ]});
+</script>
+<link href="css/base.css" rel="stylesheet" type="text/css" />
+<link href="css/accordion.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/accordion.js"></script>
+
+<script type="text/javascript">
+	$(function(){
+		
+
+		var $slide=$('.slide');
+		var $slider=$('#slider');
+
+		var run=function(){
+        	var h=window.System.Basis.getBodySize('h');
+        	$slider.height(h);
+        	$slide.height(h);
+    	};
+
+		$(window).resize(function() {
+			run();
+		});
+		run();
+		slider.init();
+	});
+</script>
+
+</head>
+
+<body>
+<div class="sectionSlider-A1 js_sectionSlider">
+    <div id="slider">
+        <div class="slide">
+            <a href="http://www.baidu.com">
+                <img class="diapo" src="images/imgs_LHH/pics/sf10.jpg" alt="">
+            </a>
+            <div class="text">
+                  <span class="title">The best</span>
+                  The offspring of a customized orbiter, O飇ostem arose as the best balanced
+                  home for our plans. So we submitted to its conditions.
+            </div>
+        </div>
+        <div class="slide">
+            <a href="http://www.baidu.com">
+                <img class="diapo" src="images/imgs_LHH/pics/sf14.jpg" alt="">
+            </a>
+            <div class="text">
+                <span class="title">Prototype</span>
+                O飇ostem's deep impulse flow is selectively regulated by a molecule
+                originated in the prototype model, that creates its own variational
+                principles, as oriented by the first local generation of terminable androids.
+            </div>
+        </div>
+        <div class="slide">
+            <a href="http://www.baidu.com">
+                <img class="diapo" src="images/imgs_LHH/pics/sf24.jpg" alt="">
+            </a>
+            <div class="text">
+                  <span class="title">Has been reduced</span>
+                  Paired hosts come out nicely after only two cycles now. Their size has been
+                  reduced to a half the original as planned, and indeed they show an
+                  evolutionary advantage in the process of fixing self-generated instructions.
+                  Plus, they are beautiful.
+            </div>
+        </div>
+        <div class="slide">
+            <a href="http://www.baidu.com">
+                <img class="diapo" src="images/imgs_LHH/pics/sf04.jpg" alt="">
+            </a>
+            <div class="text">
+                <span class="title">By close-alikes</span>
+                Now I have regained hopes in someday finding myself surrounded by
+                close-alikes to us. However, they will not be audible, at least not in my
+                life span. We resolved the low freq vibration a superior solution for our
+                communicational goals ...
+            </div>
+        </div>
+        <div class="slide">
+            <a href="http://www.baidu.com">
+                <img class="diapo" src="images/imgs_LHH/pics/sf01.jpg" alt="">
+            </a>
+            <div class="text">
+                  <span class="title">To bear</span>
+                  We did not expect their surface to produce such a carbon powder coat, though
+                  this is the best model so far. I shall have to bear with the inconveniences.
+                  They seem to establish a parallel communication through that carbon coat and
+                  I find myself unable to decodify the signal into anything meaningful.
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+</body>
+</html>

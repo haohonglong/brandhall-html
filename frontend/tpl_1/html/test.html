@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+		<title>案例</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<script type="text/javascript" src="js/loadcommon.js"></script>
+        <script type="text/javascript">
+             window.System.L.load({'js':['jquery-1.7.1',
+                                    'imagesLoaded',
+                                    'fluid',
+                                    'jquery.bxslider',
+                                    'jquery.qqFace',
+                                     'lib.class',
+                                     'Tools.class'],
+                              'css':[
+                                    'bootstrap',
+                                    'jquery.bxslider'
+                                    ]
+                                 });
+        </script>
+		<link href="css/base.css" rel="stylesheet" type="text/css" />
+		<link href="css/case.css"  rel="stylesheet" type="text/css" />
+        <link href="css/loftComment.css" rel="stylesheet" type="text/css" />
+		<script type="text/ecmascript" src="js/nav.js"></script>
+		<script type="text/javascript" src="js/case.js"></script>
+		<script type="text/javascript" src="js/use.js"></script>
+        
+        
+
+<script type="text/javascript">
+     var myTab=new window.System.Tab();
+	//表情
+    $(function(){
+        //查看结果
+        var replace_em=function(str){
+            str = str.replace(/\</g,'&lt;');
+            str = str.replace(/\>/g,'&gt;');
+            str = str.replace(/\n/g,'<br/>');
+            str = str.replace(/\[em_([0-9]*)\]/g,'<img src="'+window.System.L.path+'/arclist/$1.gif" border="0" />');
+            return str;
+        }; 
+        
+        $('.loft-sectionEmotion').qqFace({
+            id : 'facebox', 
+            assign:'saytext', 
+            path:window.System.L.path+'/arclist/'	//表情存放的路径
+        });
+        $(".sub_btn").click(function(){
+            var str = $("#saytext").val();
+            $("#show").html(replace_em(str));
+        });
+ 
+
+    });
+</script>
+
+<script type="text/javascript">
+	$(function(){
+        myTab.run({
+                'list':$('.js_thumbnail li'),
+                'event':'hover',
+                'or':true,
+                'hover':true,
+                'class':'cur'
+                    
+            });
+            
+        $('.js_price').hover(function(){$(this).find('.loft-sectionMessage-A1').show();},function(){$(this).find('.loft-sectionMessage-A1').hide();});
+    });
+    
+    
+    
+    $(function(){
+        var slider_flag=true;
+        var pop1=new System.PopupLayer('.js_loft-sectionPopupLayerA1','.js_loft-sectionTransparentA1','40');
+        pop1.$dom=$(pop1.popLayout);
+        pop1.$mask=$(pop1.mask)
+        pop1.isIE().resize().setCenter().close=function(){
+            pop1.$mask.hide();
+            pop1.$dom.hide();
+        };
+        pop1.closed($('.js_popup_close1'),function(){
+            pop1.close();
+        });
+        $('.pop_start').bind('click',function(){
+            pop1.$dom.show();
+            pop1.$mask.show();
+            if(slider_flag){
+                $('.bxslider').bxSlider({
+                    'auto':true,
+                    'pager':false
+                });
+                slider_flag=false;
+            }
+        });
+        $('.js_saveButton').bind('click',function(){
+            pop1.close();
+            pop1.close();
+        });
+    });
+    
+    
+    $(function(){
+        $('.js_addFavorite').bind('click',function(){
+            window.System.Basis.addFavorite('HTTP://WWWW.baidu.com','百度');
+        });
+        
+        var setHeight=function(){
+            var h=$(window).height();
+            $('.js_content_height').height(h-60);
+        };
+        setHeight();
+        $(window).resize(function(){setHeight();});
+    });
+    
+    $(function(){
+        var w=$(window).width();
+        var pop=$('.js_loft-sectionPopupLayerA1');
+        pop.css({
+                'left':parseInt((w-pop.width()-40)/2)+'px'
+                });
+    });
+    
+</script>
+        
+	</head>
+	<body class="h-percent-of100">
+		<div class="sectionContainer-A1 clear">
+			<div class="sectionSidebar-A1 sectionFixed-A1"  id="sectionSidebar">
+                <div class="p40">
+                    <div class="sectionLogo-A1 mb65"><a href="###"><img class="img" src="images/imgs_LHH/logo.gif" width="" height="105" alt=""/></a></div>
+                    <div class="sectionMenu-A1 sectionList-A2 mb50 js_sectionMenuA1">
+                        <ul>
+                            <li class="cur li-1"><a href="###">首页</a></li>
+                            <li class="li-1"><a href="###">新品上线</a></li>
+                            <li class="li-1"><a href="###">整家方案</a></li>
+                            <li class="li-1">
+                                <a href="###">精品案例</a>
+                                <ul class="ul-2 none">
+                                    <li class="li-2"><a href="###">二级导航</a></li>
+                                    <li class="li-2"><a href="###">二级导航</a></li>
+                                    <li class="li-2"><a href="###">二级导航</a></li>
+                                </ul>
+                            </li>
+                            <li class="li-1">
+                                <a href="###">商品构成</a>
+                                <ul class="ul-2 none">
+                                    <li class="li-2"><a href="###">二级导航</a></li>
+                                    <li class="li-2"><a href="###">二级导航</a></li>
+                                    <li class="li-2"><a href="###">二级导航</a></li>
+                                </ul>
+                            </li>
+                            <li class="li-1"><a href="###">更多城市</a></li>
+                            <li class="li-1"><a href="###">品牌故事</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sectionCompanyInfo-A1 mb45">
+                        <h2 class="mb15">苏雅装饰工程（北京）有限公司</h2>
+                        <p class="sectionIcon-A1 sectionIcon-A1-position mb10">
+                            <i></i>
+                            北京市朝阳区万家丽中路一段318号西子商业中心B、C栋群楼一至三楼
+                        </p>
+                        <p class="sectionIcon-A1 sectionIcon-A1-tel"><i></i>400-863-9988</p>
+                    </div>
+                    
+                    <div class="sectionShare-A1 sectionFloat">
+                        <ul class="clear">
+                            <li class="A mr15"><a href="###"></a></li>
+                            <li class="B mr15"><a href="###"></a></li>
+                            <li class="C mr15"><a href="###"></a></li>
+                            <li class="D mr15"><a href="###"></a></li>
+                            <li class="E mr15"><a href="###"></a></li>
+                            <li class="F"><a href="###"></a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </div>
+			<div class="rightBox">
+				<!--导航-->
+				<div class="nav" id="nav" >
+					<ul>
+						<li>
+							<div class="navType" value=""><span>所有风格</span><div class="arr"></div></div>
+							<div class="pullDown">
+								<a  href="#" value="1">所有风格1</a>
+								<a  href="#" value="2">所有风格2</a>
+								<a  href="#" value="3">所有风格3</a>
+								<a  href="#" value="4">所有风格4</a>
+								<a  href="#" value="5">所有风格5</a>
+							</div>
+						</li>
+						<li>
+							<div class="navType" value=""><span>所有尺寸</span><div class="arr"></div></div>
+							<div class="pullDown">
+								<a  href="#" value="1">所有风格1</a>
+								<a  href="#" value="2">所有风格2</a>
+								<a  href="#" value="3">所有风格3</a>
+								<a  href="#" value="4">所有风格4</a>
+								<a  href="#" value="5">所有风格5</a>
+							</div>
+						</li>
+						<li>
+							<div class="navType" value=""><span>所有空间</span><div class="arr"></div></div>
+							<div class="pullDown">
+								<a  href="#" value="1">所有风格1</a>
+								<a  href="#" value="2">所有风格2</a>
+								<a  href="#" value="3">所有风格3</a>
+								<a  href="#" value="4">所有风格4</a>
+								<a  href="#" value="5">所有风格5</a>
+							</div>
+						</li>
+						<li>
+							<div class="navType" value=""><span>所有户型</span><div class="arr"></div></div>
+							<div class="pullDown">
+								<a  href="#" value="1">所有风格1</a>
+								<a  href="#" value="2">所有风格2</a>
+								<a  href="#" value="3">所有风格3</a>
+								<a  href="#" value="4">所有风格4</a>
+								<a  href="#" value="5">所有风格5</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+				
+				<!-- 瀑布流 -->
+				<div id="fluidBox" class="waterFluid">
+					<div class="item">
+						<a class="share" href="#">
+							<img src="images/imgs_LHH/share.jpg" />
+						</a>
+						<a class="proImg" href="#">
+							<img src="images/imgs_LHH/pics/1.jpg" />
+						</a>
+						<p>
+							此处的标题最多只能显示十七个汉字哦
+							<span class="m markThis pop_start">1024</span>
+						</p>
+					</div>
+					<div class="item">
+						<a class="share" href="#">
+							<img src="images/imgs_LHH/share.jpg" />
+						</a>
+						<a class="proImg" href="#">
+							<img src="images/imgs_LHH/pics/1.jpg" />
+						</a>
+						<p>
+							此处的标题最多只能显示十七个汉字哦
+							<span class="m markThis">1024</span>
+						</p>
+					</div>
+					<div class="item">
+						<a class="share" href="#">
+							<img src="images/imgs_LHH/share.jpg" />
+						</a>
+						<a class="proImg" href="#">
+							<img src="images/imgs_LHH/pics/1.jpg" />
+						</a>
+						<p>
+							此处的标题最多只能显示十七个汉字哦
+							<span class="m markThis">1024</span>
+						</p>
+					</div>
+					<div class="item">
+						<a class="share" href="#">
+							<img src="images/imgs_LHH/share.jpg" />
+						</a>
+						<a class="proImg" href="#">
+							<img src="images/imgs_LHH/pics/1.jpg" />
+						</a>
+						<p>
+							此处的标题最多只能显示十七个汉字哦
+							<span class="m markThis">1024</span>
+						</p>
+					</div>
+				</div>
+				<div id="fluidLoding" ><img src="images/loading.gif" /></div>
+			</div>
+            
+                    
+            <!-- 楼房评论 -->
+            <div class="loft-sectionPopupLayer loft-comment js_loft-sectionPopupLayerA1 border-box none">
+                <div class="loft-sectionAutoTwoLayer loft-sectionAutoTwoLayer-f loft-sectionAutoTwoLayer-fr clear">
+                    <a class="popup-close js_popup_close1" href="javascript:void(0);"></a>
+                    <div class="secondary R js_content_height">
+                        <div class="p20 mb20">
+                            <div class="loft-sectionBox mb20">
+                                <h3 class="mb10">现代简约的98平方米二房二厅餐厅装饰效果图</h3>
+                                <h6 class="mb10">风格：现代风格  户型：二房二厅</h6>
+                                <div class="loft-sectionFont loft-sectionFont-grey loft-sectionCms loft-sectionCms-0">
+                                    不做土豪，要做轻奢一族！轻奢主义，爱细节、重品质、懂得轻度奢侈，摒弃盲目追求奢侈品的虚荣心，学会适度的享乐、宠爱自己，这是当下都市人的主流生活方式。金色是永恒的不变的时尚元素和奢华色彩，巧妙地运用于家居空间，可以打造出一个超凡脱俗的轻奢之家！
+                                </div>
+                            </div>
+                            <div class="loft-sectionBox mb20">
+                                <h6 class="mb5">户型图</h6>
+                                <img src="images/imgs_LHH/pics/hxt_img_1.jpg" width="162" height="102" alt=""/>
+                            </div>
+                            <div class="loft-sectionBox">
+                                <div class="clear mb15">
+                                    <h6 class="L">装修参考价：</h6>
+                                    <div class="price L p-rel h-40 js_price">
+                                        <span class="symbol">￥</span><span class="word">10万</span>
+                                        <div class="loft-sectionMessage-A1 loft-sectionMessage-A1-1 loft-sectionFont none">
+                                            <div class="loft-sectionArrow loft-sectionArrow-A1 loft-sectionArrow-A1-1"><i class="A"></i><i class="B"></i></div>
+                                            全包则是包工包料，即为装修公司按照用户所提出的要求，采购装修工程中所需要的全部材料和施工。
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="loft-sectionAutoButton loft-sectionAutoButton-A1 clear mb15">
+                                    <span class="L">
+                                        <input class="L button" type="button" value="体验DIY搭配方案" />
+                                    </span>
+                                </div>
+                                <div class="loft-sectionFont">
+                                    <a href="###" class="linkBlue">下载这套方案材料清单</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="p20 loft-sectionBorder-b">
+                            <div class="loft-sectionBox">
+                                <h6 class="mb10">热门标签</h6>
+                                <ul class="loft-sectionLabel-A1 loft-sectionFont loft-sectionFont-grey sectionFloat clear">
+                                    <li class=""><a href="###">家庭中式风格</a></li>
+                                    <li class=""><a href="###">家庭客厅隔断</a></li>
+                                    <li class=""><a href="###">家庭客厅吧台</a></li>
+                                    <li class=""><a href="###">中式客厅</a></li>
+                                    <li class=""><a href="###">家庭</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="p20 loft-sectionBorder-tb  loft-sectionBorder-b">
+                            <div class="loft-sectionBox">
+                                <h6 class="mb10">相关图册</h6>
+                                <div class="loft-sectionThumbnail loft-sectionThumbnail-A2">
+                                    <ul class="sectionFloat clear js_thumbnail">
+                                        <li class="cur">
+                                            <a href="###"><img src="images/imgs_LHH/pics/img_6.jpg" width="74" height="74" alt=""/></a>
+                                        </li>
+                                        <li class="">
+                                            <a href="###"><img src="images/imgs_LHH/pics/img_6.jpg" width="74" height="74" alt=""/></a>
+                                        </li>
+                                        <li class="">
+                                            <a href="###"><img src="images/imgs_LHH/pics/img_6.jpg" width="74" height="74" alt=""/></a>
+                                        </li>
+                                        <li class="">
+                                            <a href="###"><img src="images/imgs_LHH/pics/img_6.jpg" width="74" height="74" alt=""/></a>
+                                        </li>
+                                        <li class="">
+                                            <a href="###"><img src="images/imgs_LHH/pics/img_6.jpg" width="74" height="74" alt=""/></a>
+                                        </li>
+                                        <li class="">
+                                            <a href="###"><img src="images/imgs_LHH/pics/img_6.jpg" width="74" height="74" alt=""/></a>
+                                        </li>
+                                        <li class="">
+                                            <a href="###"><img src="images/imgs_LHH/pics/img_6.jpg" width="74" height="74" alt=""/></a>
+                                        </li>
+                                        <li class="">
+                                            <a href="###"><img src="images/imgs_LHH/pics/img_6.jpg" width="74" height="74" alt=""/></a>
+                                        </li>
+                                        <li class="">
+                                            <a href="###"><img src="images/imgs_LHH/pics/img_6.jpg" width="74" height="74" alt=""/></a>
+                                        </li>
+                                        
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <!-- conment  -->
+                        <div class="p20">
+                            <div class="loft-sectionBox loft-sectionComment loft-sectionComment-SchemeDetail">
+                                <div class="loft-sectionForm loft-sectionForm-A1">
+                                    <input type="text" class="text mb10 border-box" value="" id="saytext" name="saytext">
+                                    <div class="loft-sectionButton clear mb10 p-rel">
+                                        <a href="javascript:void(0);" class="loft-sectionEmotion L"></a>
+                                        <button type="submit" class="btn R">评论</button>
+                                    </div>
+                                </div>    
+                                <div class="loft-sectionBorder-b pb10 mb20">
+                                    <div class="clear">
+                                        <div class="L mr12"><img src="" width="32" height="32" alt=""></div>
+                                        <div class="content loft-sectionFont loft-sectionFont-grey loft-sectionCms loft-sectionCms-0 L">
+                                            <a href="###" class="linkBlue">李瑾</a>:
+                                            这就算高档啦？来中国随随便便一个商场，哪有低于这价位的男装？来来来，赶紧的。。。。 (今天 13:52)
+                                            <a href="###" class="linkBlue ml10">回复</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="loft-sectionBorder-b pb10 mb20">
+                                    <div class="clear">
+                                        <div class="L mr12"><img src="" width="32" height="32" alt=""></div>
+                                        <div class="content loft-sectionFont loft-sectionFont-grey loft-sectionCms loft-sectionCms-0 L">
+                                            <a href="###" class="linkBlue">李瑾</a>:
+                                            这就算高档啦？来中国随随便便一个商场，哪有低于这价位的男装？来来来，赶紧的。。。。 (今天 13:52)
+                                            <a href="###" class="linkBlue ml10">回复</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="loft-sectionBorder-b pb10 mb20">
+                                    <div class="clear">
+                                        <div class="L mr12"><img src="" width="32" height="32" alt=""></div>
+                                        <div class="content loft-sectionFont loft-sectionFont-grey loft-sectionCms loft-sectionCms-0 L">
+                                            <a href="###" class="linkBlue">李瑾</a>:
+                                            这就算高档啦？来中国随随便便一个商场，哪有低于这价位的男装？来来来，赶紧的。。。。 (今天 13:52)
+                                            <a href="###" class="linkBlue ml10">回复</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <ul class="loft-sectionPageing-A5 loft-sectionFont loft-sectionFont-grey">
+                                    <li><a href="###">上一页</a></li>
+                                    <li><a href="###">1</a></li>
+                                    <li><a class="selected" href="###">2</a></li>
+                                    <li><a href="###">3</a></li>
+                                    <li><a href="###">4</a></li>
+                                    <li><a href="###" class="mr5">下一页</a></li>
+                                </ul>
+                                    
+                                
+                            </div>
+                        </div>
+                        <!-- /conment  -->
+                        
+                    </div>
+                    <div class="primary border-box js_content_height">
+                        <div class="popup-content">
+                            <!-- 分享 -->
+                            <div class="clear loft-sectionButton-share-wrap" id="bdsharebuttonbox">
+                                <div class="loft-sectionButton-share border loft-sectionFont L mr10 bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"><i class="icon share mr10 L"></i>分享</a></div>
+                                <div class="loft-sectionButton-share border loft-sectionFont L js_addFavorite"><i class="icon collection mr10 L"></i>收藏</div>
+                                <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"tag":'no', "viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+                            </div>
+                            <!-- /分享 -->
+                            
+                            <div class="loft-sectionSlider js_loft-sectionSliderA2 js_content_height">
+                                <ul class="bxslider">
+                                  <li><a href="###"><img src="images/imgs_LHH/pics/img_5.jpg" /></a></li>                      
+                                  <li><a href="###"><img src="images/imgs_LHH/pics/img_5.jpg" /></a></li>                      
+                                  <li><a href="###"><img src="images/imgs_LHH/pics/img_5.jpg" /></a></li>                      
+                                  <li><a href="###"><img src="images/imgs_LHH/pics/img_5.jpg" /></a></li>                      
+                                  <li><a href="###"><img src="images/imgs_LHH/pics/img_5.jpg" /></a></li>                      
+                                  <li><a href="###"><img src="images/imgs_LHH/pics/img_5.jpg" /></a></li>                      
+                                  <li><a href="###"><img src="images/imgs_LHH/pics/img_5.jpg" /></a></li>                      
+                                  
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="loft-sectionTransparent js_loft-sectionTransparentA1 none"></div>
+            <!-- /楼房评论 -->
+
+		</div>
+        
+        
+
+        
+	</body>
+	<script>
+		//ajax模拟瀑布流数据
+		var jsonData = {
+				code:true,
+				items:[
+					{shareLink:"#",proLink:"#",proImg:"1",title:"此处的标题最多只能显示十七个汉字哦",isMark:false,markNum:1024},
+					{shareLink:"#",proLink:"#",proImg:"2",title:"此处的标题最多只能显示十七个汉字哦",isMark:true,markNum:1023},
+					{shareLink:"#",proLink:"#",proImg:"3",title:"此处的标题最多只能显示十七个汉字哦",isMark:false,markNum:1025},
+					{shareLink:"#",proLink:"#",proImg:"4",title:"此处的标题最多只能显示十七个汉字哦",isMark:true,markNum:1026},
+					{shareLink:"#",proLink:"#",proImg:"5",title:"此处的标题最多只能显示十七个汉字哦",isMark:false,markNum:1027},
+					{shareLink:"#",proLink:"#",proImg:"1",title:"此处的标题最多只能显示十七个汉字哦",isMark:false,markNum:1022},
+					{shareLink:"#",proLink:"#",proImg:"2",title:"此处的标题最多只能显示十七个汉字哦",isMark:true,markNum:1021},
+					{shareLink:"#",proLink:"#",proImg:"3",title:"此处的标题最多只能显示十七个汉字哦",isMark:false,markNum:1055},
+					{shareLink:"#",proLink:"#",proImg:"4",title:"此处的标题最多只能显示十七个汉字哦",isMark:true,markNum:1024},
+					{shareLink:"#",proLink:"#",proImg:"5",title:"此处的标题最多只能显示十七个汉字哦",isMark:false,markNum:1824}
+				]
+		};
+		
+		
+		
+		$(function(){
+			
+			var fluidBox = $('#fluidBox');
+				html = c.getJsonHtml(jsonData);
+				
+			fluidBox.append(html);
+			c.proHover();
+			
+			fluidBox.imagesLoaded(function() {
+				fluidBox.masonry({
+					itemSelector : '.item',
+					isFitWidth:true,
+					isAnimated:true,
+					columnWidth : 0
+				});
+			});
+		});
+		
+		var fluidState = true;
+		
+		$(window).scroll(function(){
+			
+			var fluidBox = $('#fluidBox'),
+				scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+	　　			scrollHeight = $(document).height(),
+	　　			windowHeight = $(this).height();
+			
+			if(scrollHeight - windowHeight - scrollTop <=50 && fluidState===true){
+				fluidState = false;
+				$('#fluidLoding').show();//loading显示
+			/*	ajax请求数据及瀑布流动作处理
+				$.ajax({
+					type:"get or post",
+					url:"url?page=xx&num=10",
+					async:false,
+					dataType:'json',                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+					success:function(data){
+						if(data.code==0){ 
+							alert('已没有更多数据');
+						}else{
+							fluidBox.append(c.getJsonHtml(data));
+							c.proHover();
+							c.markPro();
+							fluidBox.imagesLoaded(function() {
+								fluidBox.masonry('reload');
+							});
+						}
+						
+						
+					},
+					complete:function(){
+						$('#fluidLoding').hide();//loading隐藏
+						fluidState = true;
+					}
+				});
+			*/
+				fluidBox.append(c.getJsonHtml(jsonData));
+				c.proHover();
+				fluidBox.imagesLoaded(function() {
+					$('#fluidLoding').hide();//loading隐藏
+					fluidBox.masonry('reload');
+					fluidState = true;
+				});
+			}
+			
+		});
+	</script>
+</html>
+

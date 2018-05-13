@@ -1,0 +1,64 @@
+@charset "utf-8";
+/**
+*自定义滚动条
+*/
+
+.sectionScroll {width: 100%; height: 100%; overflow: hidden;}           
+
+.scroll_container {overflow: hidden; position: relative;}
+
+.scroll_absolute {position: absolute;}
+
+
+/*滚动背景 */
+.scroll_vertical_bar,
+.scroll_horizontal_bar{position:fixed;background:#000;margin:0;padding:0;z-index: 1000000;}
+
+
+/* 竖直滚动背景 */
+.scroll_vertical_bar{top:0;right:0;width:8px;height:100%;}
+/*水平滚动背景*/
+.scroll_horizontal_bar{bottom:0;left:0;width:100%;height:8px;}
+
+.scroll_cap{display:none}
+.scroll_horizontal_bar .scroll_cap{float:left}
+
+.scroll_horizontal_bar .scroll_track,
+.scroll_horizontal_bar .scroll_drag{float:left;height:100%}
+.scroll_arrow{display:block;cursor:pointer}
+
+
+
+/* 滚动槽 */
+.scroll_vertical_bar .scroll_track,
+.scroll_horizontal_bar .scroll_track{position:relative;background:rgba(000,000,000,.3);}
+/* 竖直滚动槽 */
+.scroll_vertical_bar .scroll_track{}
+/* 水平滚动槽 */
+.scroll_horizontal_bar .scroll_track{}
+
+
+/* 滚动条 */
+.scroll_vertical_bar .scroll_drag,
+.scroll_horizontal_bar .scroll_drag{position:relative;left:0;cursor:pointer;background-color:#e74c3c;border-radius:5px;}
+/* 竖直滚动条 */
+.scroll_vertical_bar .scroll_drag{top:0;}
+/* 水平滚动条 */
+.scroll_horizontal_bar .scroll_drag{bottom:0;}
+
+
+/* 箭头 */
+.scroll_vertical_bar .scroll_arrow,
+.scroll_horizontal_bar .scroll_arrow{height:7px;background-color:#000;}
+
+
+/* 竖直箭头 */
+.scroll_vertical_bar .scroll_arrow{}
+/* 水平箭头 */
+.scroll_horizontal_bar .scroll_arrow{float:left;height:100%;}
+/* 交界处 */
+.scroll_corner{float:left;height:100%;background-color:red}
+
+
+/*.sectionScroll .scroll_container,
+.sectionScroll .scroll_absolute{height: 100%;}*/

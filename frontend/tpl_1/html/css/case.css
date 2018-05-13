@@ -1,0 +1,75 @@
+html{overflow:auto;}
+.sectionContainer-A1{height:100%}
+.rightBox{margin-left:250px;background: #F6F6F6;min-height: 100%;min-width:550px;}
+.rightBox a{text-decoration: none;outline: none;}
+.rightBox .nav{height:48px;  background: url(../images/imgs_LHH/title.png) repeat-x 0 0;color: #666;}
+.rightBox .nav ul{margin-left:40px}
+.rightBox .nav ul li{float:left;position: relative;margin:0 10px;}
+
+/*导航*/
+.navType {height:26px;border:1px solid #ccc;padding-left:10px;margin-top:10px;cursor: pointer;}
+.navType span{float:left;line-height:23px;padding:0 20px 0 0}
+.navType:hover{}
+.navType .arr{float:left;width:8px;margin:8px 8px 0 0;height:7px;background: url(../images/arr.png) 0 2px no-repeat;}
+
+/*导航状态*/
+.had{border-bottom-color:#fff;position: relative;z-index: 2;background: #fff;}
+.had .arr{background: url(../images/arr.png) 0 -7px no-repeat;}
+/*导航二级菜单*/
+.pullDown{display:none;position:absolute;z-index:1;top:35px;left:0px;width: 150px;padding:10px;background:#fff;border: 1px solid #ccc;}
+.pullDown a{display: block;height: 35px;border-bottom:1px dashed #dddddd;line-height:35px;color:#a5a5c2;}
+.pullDown a:hover{color:#3d3d3d}
+
+/*瀑布流*/
+.waterFluid{margin-top:5px;margin-left: auto;margin-right: auto;}
+.item{position:relative;width:315px;background: #fff;margin:5px;padding: 8px;font-size: 14px;font-family: "microsoft yahei";}
+.item .share{display:none;position:absolute;top:15px;left:15px;}
+
+.item p{line-height: 30px;padding-top: 5px;}
+.item p span{float:right;padding-left:20px;cursor: pointer;background: url(../images/mark.png) no-repeat;}
+.item p .markThis{background-position: 0 -14px;}
+.item p .marked{background-position: 0 8px;}
+.item p .markThis:hover{background-position: 0 8px;}
+#fluidLoding{margin:20px 0;text-align: center;display: none;}
+
+
+
+/**/
+.proBoxs{
+	position: relative;
+}
+.tier{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	display: none;
+	height: 100%;
+	opacity: 0.4;
+	filter: Alpha(opacity=40);
+	background: #000;
+}
+.tier .desc{
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+	position: relative;
+	top:30%;
+}
+.tier a{
+	color: #fff;
+	display: block;
+	width: 120px;
+	height: 35px;
+	line-height: 35px;
+	border: 1px solid #fff;
+	text-align: center;
+	position: relative;
+	top:30%;
+}
+.tier a:hover{text-decoration: underline;}
+.proBoxs:hover .tier{display: block;}
+
+
+
+
+
