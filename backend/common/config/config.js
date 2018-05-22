@@ -56,10 +56,20 @@
                 ,'CSS':_ROOT_+'/backend/html/css'
                 ,'SCRIPT':_ROOT_+'/backend/html/js'
                 ,'IMAGE':_ROOT_+'/backend/html/images'
-                ,'Moudle':function(){return LAMJS.createDict();}
             },
             'components':{
                 't':function (System) {
+                    var id =0;
+                    System.Moudle = System.createDict();
+                    System.Object.g_key_id=function(){
+                        return System.timestamp()+Math.round(Math.random()*System.random)+'_'+id++;
+                    };
+                    System.listen(function(){
+                        if(System.isFunction(System.import)){
+
+                            return true;
+                        }
+                    },1);
                     return System.timestamp();
                 }
             },
@@ -72,7 +82,7 @@
             },
             'files':[],
             'XHR':{//配置加载xhr 的公共参数
-                'type': 'GET'
+                'type': 'POST'
                 ,'async':false
                 ,'cache':true
                 ,'beforeSend':function(){}
@@ -106,8 +116,8 @@
                 //true : document.createElement(); false :document.write();
                 'create':false,
                 //加载后是否要移除添加过的script 节点
-                'remove':true,
-                'append':'befor',
+                'remove':false,
+                'append':'after',
                 'default':{
                     'script':{
                         'Attribute':{

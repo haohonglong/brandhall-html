@@ -37,6 +37,7 @@
                 .print();
 
             System
+
                 .import([
                         '/use'
                     ],System.SCRIPT,'.js?t='+System.app.t);
@@ -84,16 +85,10 @@
         System.Html.include($('include'));
         System.Html.analysisTpl();
 
-        for(var i =0;i < 2;i++){
-            System.run(function () {
-                var i=0,total=10;
-                this.listen(function () {
-                    i++;
-                    if(i>total){return true;}
-                    console.log(i);
-                });
-            });
-        }
+
+
+
+
 
         var DATE={
             'b_width':0,
