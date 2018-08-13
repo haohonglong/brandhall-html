@@ -1,0 +1,11 @@
+@font-face {
+    font-family:'glyphicons-regular';
+    src: url('../font/glyphicons-regular-webfont.eot?3');
+    src: url('../font/glyphicons-regular-webfont.eot?3?#iefix') format('embedded-opentype'),
+         url('../font/glyphicons-regular-webfont.woff?3') format('woff'),
+         url('../font/glyphicons-regular-webfont.ttf?3') format('truetype'),
+		 url('../font/glyphicons-regular-webfont.svg?3#TradeGothic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+

@@ -8,7 +8,6 @@
     <meta name="description" content="" />
 
     <title></title>
-    <script type="text/javascript" src="config.js"></script>
     <script type="text/javascript">
         LAM.run(function(){
             'use strict';
@@ -57,31 +56,31 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2 sectionSidebar-A1">
-            <include file="{{LAM.BACKEND}}/views/inc_menu.html"></include>
+            <include file="{{ViEWS}}/inc_menu.html"></include>
         </div>
         <div class="col-md-10 sectionWrap-A4">
             <div class="p20">
                 <div class="sectionPhoneTop-A1 clear none mb20">
-                    <img class="L logo" data-var="tpl" src="{{LAM.IMAGE}}/imgs_LHH/logo.png" width="130" height="54" alt="">
+                    <img class="L logo" src="{{IMAGE}}/imgs_LHH/logo.png" width="130" height="54" alt="">
                     <div class="sectionBtn-A2 R mt20 mr15">
                         <span class="mb3"></span>
                         <span class="mb3"></span>
                         <span></span>
                     </div>
-                    <img class="R img" data-var="tpl" src="{{LAM.IMAGE}}/imgs_LHH/pics/img_01.gif" width="20" height="20" alt="">
+                    <img class="R img" data-var="tpl" src="{{IMAGE}}/imgs_LHH/pics/img_01.gif" width="20" height="20" alt="">
                 </div>
-                <include file="{{LAM.BACKEND}}/views/inc_header.html"></include>
-                <include file="{{LAM.BACKEND}}/views/{{LAM.VNAME}}.html" file_404="_404.html"></include>
+                <include file="{{ViEWS}}/inc_header.html"></include>
+                <div id="app"></div>
             </div>
         </div>
     </div>
 </div>
 <script type="text/javascript">
-    LAM.run([jQuery],function($){
+    LAM.run([LAM,jQuery],function(LAM,$){
         'use strict';
         var System = this;
         System.use();
-        System.VNAME = System.get('r') || 'room/list';
+        System.VNAME = System.get('r') || 'shop';
         System.Html.include($('include'));
         System.Html.analysisTpl();
 

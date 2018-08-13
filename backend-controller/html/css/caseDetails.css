@@ -1,0 +1,90 @@
+/* 
+    Created on : 2014-8-9, 9:58:56
+    Author     : leju
+*/
+.sectionNav-A1 li{ z-index: 100;}
+.fl{ float: left;}
+.fr{ float: right;}
+.mr15{ margin-right: 15px;}
+.mt15{ margin-top: 15px;}
+.mb5{ margin-bottom: 5px;}
+.mb20{ margin-bottom: 20px;}
+.mb30{ margin-bottom: 30px;}
+
+
+#content { width: 100%; font: 12px/20px "宋体"; position: relative; top: -10px;}
+.con_l{ width: 60%;}
+.product_img{ position: relative;}
+.product_img img{ width: 100%;}
+.product_img .show { background: #ff0000; cursor: pointer; padding: 2px 5px; display: inline !important; font:bold 12px "宋体"; color: #fff; position: absolute; top: 0; left: 0;}
+
+
+.con_r{ width: 40%;}
+.product h4{ font: bold 16px "宋体"; color: #525252; position: relative;}
+.product h4 .del{ background: url(../images/icons.png)  -232px -32px no-repeat; display: inline-block; width: 14px; height: 16px; position:absolute; top: 0; right: 10px; cursor: pointer;}
+.product p{ color: #808080; line-height: 20px;}
+.product p span{ margin-left: 5px; color: #ff0000;}
+
+
+.designer p b{ color:#525252;}
+.designer p{ font-size: 13px; color:#808080;}
+.con_r p button{ padding: 5px 10px; background: #4a759f; font: bold 14px "宋体"; color:#fff; border: none;}
+.con_r p a{ font: 12px/20px "宋体"; color:#4a759f;}
+.designer p a{}
+
+
+.mask{ width: 100%; background: #9ea2aa; opacity: 0.55; display: none; position:fixed; top: 0; left: 0; z-index: 1000;}
+.sTop{ width: 100%; height: 36px; background: #f4f4f4; font: 13px/36px "宋体"; color: #4e5665; padding-left: 15px; border-bottom: 1px solid #ccced7; position: relative;}
+.sTop i{ background: url(../images/icons.png) no-repeat -157px -5px; display: block; width:14px; height:14px; position:absolute; top: 15px; right: 10px; cursor: pointer;}
+
+
+.bTitle { margin-left: 25px; color: #4e5665;}
+.Bcon { margin-left: 25px; width: 600px;}
+.Bcon li{ float: left; width: 120px; line-height: 30px; color: #4e5665;}
+.Bcon li input{ margin-top: 0;}
+.setBrand .line{ width: 94%; line-height: 1px; height: 1px; background: #e6e6e6; margin: 20px; }
+.save{ width: 100%; height: 40px; background:#f4f4f4; position:absolute; left: 0; bottom: 0;}
+.saveBtn{ display: block; width: 68px; height: 28px; background:#4a759f; font:bold 13px/28px "宋体"; border: none; border-radius: 3px; color: #fff; float: right; margin-right:10px; margin-top: 6px; }
+
+
+
+.addStuff{ width: 785px; height: 610px; background: #fff; position: fixed; left: 50%; top: 50%; margin: -310px -393px; display: none; z-index: 10000;}
+.sTop b{ color: #ff0000;}
+.brandBox{ padding: 20px 20px 0;}
+.addStuff .brandBoxs { height: 540px; overflow-y: auto;}
+.addStuff .line{ width: 100%; margin: 10px 0; line-height: 1px; height: 1px; background: #e6e6e6; }
+.addStuff .brandBox ul li{ cursor: pointer; }
+.brandBox ul li{ width: 112px; height: 170px; border: 1px solid #e6e6e6; border-radius: 3px; float: left; margin-right: 9px; margin-bottom: 12px;}
+.brandBox ul li.sel{ border-color: #ff0000;}
+.listBox{ width: 100px; margin: 5px auto 0;}
+.listBoxImg{ width: 100px; height: 100px; overflow: hidden; position: relative;}
+.listBoxImg img{ width: 100%; height: 100%;}
+.listBoxText{ width: 100%; height: 20px; background:#23272e; position: absolute; left: 0; bottom: 0;}
+.listBoxText p{ color:#808080; padding-left: 5px;}
+.brandBox ul li .mony{ margin: 5px;}
+.brandBox ul li .mony b{ color:#ff0000;}
+
+.countWrap{ position: relative; padding:0 5px;}
+.countBox { position: absolute; left: 35px; top: -1px;}
+.countBox .count input{ border: 1px solid #ccc; padding-left: 5px;}
+.countBtn{ width: 10px; height:18px; display: block; position: absolute; top: 2px; right: 0;}
+.count_up{ border-width: 4px; border-style: solid; border-color: transparent transparent #bcbdbe; display: block; height: 2px; position: absolute; right: 5px; top:-1px; cursor: pointer;}
+.count_down{ border-width: 4px; border-style: solid; border-color: #bcbdbe transparent transparent; display: block; height: 2px; position: absolute; right: 5px; bottom:-1px; cursor: pointer;}
+
+.BOM{ width:785px; height:600px; background: #fff; position: fixed; top: 50%; left: 50%; margin: -310px -392px; z-index: 1000; display: none;}
+.BOM .line{ width: 100%; margin: 10px 0; line-height: 1px; height: 1px; background: #e6e6e6; }
+.BOM .red{ color: #ff0000;}
+.BOM .brandBoxs{ height: 565px; overflow-y: auto;}
+.BOM .addProduct{ color: #4a759f;}
+.BOM .brandBox .count .del{ background: url(../images/icons.png) no-repeat -232px -32px; display: block; width: 14px; height: 16px; position: absolute; top: 3px; right: -20px; cursor: pointer;}
+
+
+.Tabs{ border-bottom: 1px solid #ccc; margin-top: 25px; height: 31px;}
+.Tabs li{ float: left;  line-height: 30px; height: 30px; padding: 0 25px; background: #f4f4f4; margin-left: 5px; }
+.Tabs li a{ color:#9e9e9e;}
+.Tabs li.curr{ border-width: 1px; border-style:solid; border-color:#dfdfdf #dfdfdf #fff #dfdfdf ; margin-left: 10px; background: #fff; height: 31px;}
+.Tabs li.curr a{ font-weight: bold; color: #4e5665; }
+
+
+.BOM .box1, .BOM .box2, .BOM .box3{ height:510px;}
+.BOM .box2, .BOM .box3{ display: none;}

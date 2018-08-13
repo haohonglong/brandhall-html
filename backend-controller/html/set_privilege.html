@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>店铺基本设置</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript">
+    window.System.L.load({
+        'path':path,
+        'js':['jquery-1.7.1','lib.class','Tools.class']
+    });
+</script>
+<script type="text/javascript" src="js/use.js"></script>
+<link href="css/base.css" rel="stylesheet" type="text/css" />
+<link href="css/tree.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(function(){
+        
+        tool.run({
+                'list':$('.sectionTitle-B2 li'),
+                'event':'click',
+                'class':'cur',
+                'or':true,
+                'a':$('.js_sectionA a'),
+                'block':$('.j_sectionBlock'),
+                'fn':function(obj){
+                    
+                    obj.current.block.each(function(i){
+                        if(i==obj.this_index){
+                            $(this).show();
+                        }else{
+                            $(this).hide();
+                        }
+                        
+                        if(0==obj.this_index){
+                            $(obj.current.a[0]).show();
+                            $(obj.current.a[1]).hide();
+                        }
+                        if(1==obj.this_index){
+                            $(obj.current.a[1]).show();
+                            $(obj.current.a[0]).hide();
+                        }
+                        
+                    });
+                }
+
+                
+            }).block.each(function(){
+                    tool.run({
+                            'list':$(this).find('.j_sectionMenuA1 dd'),
+                            'event':'click',
+                            'hover':true,
+                            'class':'cur',
+                            'block':$(this).find('.j_sectionBlockA1'),
+                            'sectionIcon':$(this).find('.sectionIcon-A1-5'),
+                            'fn':function(obj){
+                                obj.current.block.each(function(i){
+                                    if(i==obj.this_index){
+                                        $(this).show();
+                                    }else{
+                                        $(this).hide();
+                                    }
+
+
+
+                                    if('mystorage' == obj.cur_even_this.attr('attr')){
+                                        obj.current.sectionIcon.show();
+                                    }else{
+                                        obj.current.sectionIcon.hide();
+                                    }
+
+                                    var $sectionShowBoxA3=obj.current.list.find('.js_subMenu');
+                                    obj.current.list.find('.sectionIcon-A1-5').hover(function(){
+                                        $sectionShowBoxA3.show();
+                                    });
+                                    //$sectionShowBoxA3.hover(function(){},function(){$(this).hide();}); 
+
+                                    obj.cur_even_this.siblings().hover(function(){$sectionShowBoxA3.hide();},null);
+                                    
+                                    $(document).bind('click',function(){
+                                        if($sectionShowBoxA3) $sectionShowBoxA3.hide();
+                                        
+                                    });
+                                });
+                            }
+                        });
+                });
+        
+        $('.sectionIcon-A1-6').toggle(function(){
+            $(this).addClass('sectionIcon-A1-6-1');
+        },function(){
+            $(this).removeClass('sectionIcon-A1-6-1');
+        });
+        
+        //伪下拉框
+        tools.fake_drop_down_box($('.sectionSelect-A1'),'.js_select1');
+        
+        //新建部门;角色 公共函数
+        var addTitle=function(eve){
+            var text=eve.val();
+            if(text.trim()) {
+                var e=eve;
+                var curdd=e.parent().parent();
+                var dd=curdd.next().clone(true);
+                dd.find('.title').text(text);
+                dd.insertAfter(curdd); 
+            }
+        };
+        //新加部门
+        $('.js_newDepartment').bind('click',function(){
+            var $addDepartment=$('.js_addnewDepartment');
+            $addDepartment.show();
+            $addDepartment.find('input').val('新部门');
+            $addDepartment.find('input')[0].focus();
+            $addDepartment.find('input').unbind('blur');
+            $addDepartment.find('input').bind('blur',function(event){
+                addTitle($(event.target));
+                $addDepartment.hide();
+            });
+        });
+        
+        //新加角色
+        $('.js_newRole').bind('click',function(){
+            var $addnewRole=$('.js_addnewRole');
+            $addnewRole.show();
+            $addnewRole.find('input').val('新角色');
+            $addnewRole.find('input')[0].focus();
+            $addnewRole.find('input').unbind('blur');
+            $addnewRole.find('input').bind('blur',function(event){
+                addTitle($(event.target));
+                 $addnewRole.hide();
+            });
+        });
+        
+        //添加子部门
+        $('.js_newSubDepartment').bind('click',function(){
+            var $addnewSubDepartment=$('.js_addnewSubDepartment');
+            $addnewSubDepartment.show();
+            $addnewSubDepartment.find('input').val('新子部门');
+            $addnewSubDepartment.find('input')[0].focus();
+            $addnewSubDepartment.find('input').unbind('blur');
+            $addnewSubDepartment.find('input').bind('blur',function(event){
+                var eve=$(event.target);
+                var text=eve.val();
+                if(text.trim()) {
+                    var e=eve;
+                    var curli=e.parent();
+                    var li=curli.next().clone(true);
+                    li.find('a').text(text);
+                    li.insertAfter(curli);
+                }
+                $addnewSubDepartment.hide();
+            });
+        });
+        
+        
+        var $menu2=$('.js_menu2');
+        $('.js_menu2_Li').hover(function(){
+            $menu2.show();
+        },null).siblings().hover(function(){$menu2.hide();});
+        
+        
+        
+        
+        $(document).bind('click',function(){
+            if($menu2)$menu2.hide();
+            
+        });
+        
+        
+        //重命名
+        $('.js_rename').bind('click',function(){
+            var $inputWrap=$(this).parents('dd').find('.js_reName_input');
+            var $title=$inputWrap.show().prev();
+            var $input=$inputWrap.find('input');
+                $title.hide();
+                $input[0].focus();
+                $input.unbind('blur');
+                $input.bind('blur',function(event){
+                    $title.text($(this).val()).show();
+                    $inputWrap.hide();
+                    
+                });
+            
+        });
+        
+        
+        //新建员工弹出框
+        var pop1=new System.PopupLayer('.js_sectionPopupLayerA1','.js_sectionTransparentA1','0');
+		pop1.$dom=$(pop1.popLayout);
+		pop1.$mask=$(pop1.mask)
+		pop1.close=function(){
+            pop1.$mask.hide();
+			pop1.$dom.hide();
+        };
+        pop1.isIE().resize().setCenter().closed($('.js_sectionPopupLayerA1Close1'),function(){
+			pop1.close();
+		});
+		$('.js_newEmployee').bind('click',function(){
+			pop1.$dom.show();
+			pop1.$mask.show();
+		});
+        $('.js_saveButton').bind('click',function(){
+			pop1.close();
+            pop1.close();
+		});
+
+            
+        
+        
+        //提示信息弹出框
+        var pop2=new System.PopupLayer('.js_sectionPopupLayerA2','.js_sectionTransparentA2','0');
+		pop2.$dom=$(pop2.popLayout);
+		pop2.$mask=$(pop2.mask)
+		pop2.close=function(){
+            pop2.$mask.hide();
+			pop2.$dom.hide();
+        };
+        pop2.isIE().resize().setCenter().closed($('.js_sectionPopupLayerA1Close2'),function(){
+			pop2.close();
+		});
+		$('.js_notice').bind('click',function(){
+			pop2.$dom.show();
+			pop2.$mask.show();
+		});
+        
+
+        
+
+
+
+        
+    });
+</script>
+
+</head>
+
+<body class="h-percent-of100">
+<div id="hidden_bnt" class="sectionBtn-A2 sectionFixed-A1">
+    <span class="mb3"></span>
+    <span class="mb3"></span>
+    <span></span>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 sectionSidebar-A1">
+            <div class="sectionBox sectionTitle-A2"><h2>喜鹊筑家旗舰店</h2></div>
+            <div class="sectionList-A2 sectionIcon-B1 sectionFont-A1">
+            	<dl>
+            		<dd class="">
+                        <div class="title">
+                        	<i class="I1 a-1"></i><a href="###">我购买的服务</a>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="title">
+                        	<i class="I1 a-2"></i><a href="###">交易管理</a>
+                        </div>
+                        <div class="sectionList-A1 sectionList-A1-3 none">
+                            <ul>
+                                <li><a href="###">卖家地图</a></li>
+                                <li><a href="###">我家要装修</a></li>
+                                <li><a href="###">格致商城</a></li>
+                                <li><a href="###">格致社区</a></li>
+                            </ul>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="title">
+                        	<i class="I1 a-3"></i><a href="###">宝贝管理</a>
+                        </div>
+                         <div class="sectionList-A1 sectionList-A1-3 none">
+                            <ul>
+                                <li><a href="###">卖家地图</a></li>
+                                <li><a href="###">我家要装修</a></li>
+                                <li><a href="###">格致商城</a></li>
+                                <li><a href="###">格致社区</a></li>
+                            </ul>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="title">
+                        	<i class="I1 a-4"></i><a href="###">样板间管理</a>
+                        </div>
+                        <div class="sectionList-A1 sectionList-A1-3 none">
+                            <ul>
+                                <li><a href="###">卖家地图</a></li>
+                                <li><a href="###">我家要装修</a></li>
+                                <li><a href="###">格致商城</a></li>
+                                <li><a href="###">格致社区</a></li>
+                            </ul>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="title">
+                        	<i class="I1 a-5"></i><a href="###">店铺管理</a>
+                        </div>
+                         <div class="sectionList-A1 sectionList-A1-3 none">
+                            <ul>
+                                <li><a href="###">卖家地图</a></li>
+                                <li><a href="###">我家要装修</a></li>
+                                <li><a href="###">格致商城</a></li>
+                                <li><a href="###">格致社区</a></li>
+                            </ul>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="title">
+                        	<i class="I1 a-6"></i><a href="###">消息中心</a>
+                        </div>
+                         <div class="sectionList-A1 sectionList-A1-3 none">
+                            <ul>
+                                <li><a href="###">卖家地图</a></li>
+                                <li><a href="###">我家要装修</a></li>
+                                <li><a href="###">格致商城</a></li>
+                                <li><a href="###">格致社区</a></li>
+                            </ul>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="title">
+                        	<i class="I1 a-7"></i><a href="###">品牌经销商</a>
+                        </div>
+                        <div class="sectionList-A1 sectionList-A1-3 none">
+                            <ul>
+                                <li><a href="###">卖家地图</a></li>
+                                <li><a href="###">我家要装修</a></li>
+                                <li><a href="###">格致商城</a></li>
+                                <li><a href="###">格致社区</a></li>
+                            </ul>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="title">
+                        	<i class="I1 a-8"></i><a href="###">营销中心</a>
+                        </div>
+                        <div class="sectionList-A1 sectionList-A1-3 none">
+                            <ul>
+                                <li><a href="###">卖家地图</a></li>
+                                <li><a href="###">我家要装修</a></li>
+                                <li><a href="###">格致商城</a></li>
+                                <li><a href="###">格致社区</a></li>
+                            </ul>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="title">
+                        	<i class="I1 a-9"></i><a href="###">软件服务</a>
+                        </div>
+                        <div class="sectionList-A1 sectionList-A1-3 none">
+                            <ul>
+                                <li><a href="###">卖家地图</a></li>
+                                <li><a href="###">我家要装修</a></li>
+                                <li><a href="###">格致商城</a></li>
+                                <li><a href="###">格致社区</a></li>
+                            </ul>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="title">
+                        	<i class="I1 a-10"></i><a href="###">客户服务</a>
+                        </div>
+                        <div class="sectionList-A1 sectionList-A1-3 none">
+                            <ul>
+                                <li><a href="###">卖家地图</a></li>
+                                <li><a href="###">我家要装修</a></li>
+                                <li><a href="###">格致商城</a></li>
+                                <li><a href="###">格致社区</a></li>
+                            </ul>
+                        </div>
+                    </dd>
+            		<dd class="last">
+                        <div class="title">
+                        	<i class="I1 a-11"></i><a href="###">友情链接</a>
+                        </div>
+                        <div class="sectionList-A1 sectionList-A1-3">
+                            <ul>
+                                <li><a href="###">卖家地图</a></li>
+                                <li><a href="###">我家要装修</a></li>
+                                <li><a href="###">格致商城</a></li>
+                                <li><a href="###">格致社区</a></li>
+                            </ul>
+                        </div>
+                    </dd>
+            	</dl>
+            </div>
+        </div>
+        <div class="col-md-10 sectionWrap-A4">
+            <div class="p20">
+                <div class="sectionPhoneTop-A1 clear none mb20">
+                    <img class="L logo" src="images/imgs_LHH/logo.png" width="130" height="54" alt="">
+                    <div class="sectionBtn-A2 R mt20 mr15">
+                        <span class="mb3"></span>
+                        <span class="mb3"></span>
+                        <span></span>
+                    </div>
+                    <img class="R img" src="images/imgs_LHH/pics/img_01.gif" width="20" height="20" alt="">
+                </div>
+                <div class="sectionTop-A2 clear mb10 p-rel">
+                    <div class="L">
+                        <div class="sectionNav-A1 sectionFloat-A1 top8 pl5 sectionFont-A2">
+                            <ul class="clear">
+                            	<li class="A I1 b-1 mr20">
+                                    <i>3</i>
+                                </li>
+                            	<li class="B I1 b-2 mr20">
+                                    <div class="sectionShowBox-A1 none">
+                                        <div class="sectionArrow-A1 sectionArrow-double-A1 sectionArrow-double-A1-1"><i class="A"></i><i class="B"></i></div>
+                                        <div class="sectionBox sectionTitle-A sectionTitle-A1 sectionTitle-A1-1 sectionTitle-A1-5">
+                                            <span class="mr10 ml10 cur myli">收件箱</span>
+                                            <span class="myli">其他（2）</span>
+                                            <div class="more">
+                                                <a href="###" class="linkBlue">发送新信息</a>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="js_Block_A1">
+                                        	<div class="sectionBorder-A1 sectionBorder-pb0">
+                                        	    <div class="sectionBox-A3 sectionBox-A3-1">
+                                        	        <div class="p10 clear">
+                                        	            <div class="L mr12"><img src="" width="50" height="50" alt=""></div>
+                                        	            <div class="sectionBox-A2">
+                                        	                <div class="sectionBox sectionTitle-A sectionTitle-A1 sectionTitle-A1-3">
+                                        	                    <h2>乌鸦-lucian</h2>
+                                        	                    <div class="more sectionIcon-A1 sectionIcon-A2">
+                                        	                        <i></i>
+                                        	                    </div>
+                                        	                    <div class="sectionMessage-A2 none">
+                                        	                        <div class="sectionArrow-A1 sectionArrow-A1-2"><i class="down"></i></div>
+                                        	                        <p>标记为未读</p>
+                                        	                    </div>
+                                        	                </div>
+                                        	                <p>恭喜你获得免费洗20张照片的机会...</p>
+                                        	                <p class="date">2014-06-20 17:25</p>
+                                        	            </div>
+                                        	        </div>
+                                        	    </div>
+                                        	</div>
+                                            <div class="sectionBorder-A1 sectionBorder-pb0">
+                                        	    <div class="sectionBox-A3 sectionBox-A3-1">
+                                        	        <div class="p10 clear">
+                                        	            <div class="L mr12"><img src="" width="50" height="50" alt=""></div>
+                                        	            <div class="sectionBox-A2">
+                                        	                <div class="sectionBox sectionTitle-A sectionTitle-A1 sectionTitle-A1-3">
+                                        	                    <h2>乌鸦-lucian</h2>
+                                        	                    <div class="more sectionIcon-A1 sectionIcon-A2">
+                                        	                        <i></i>
+                                        	                    </div>
+                                        	                    <div class="sectionMessage-A2 none">
+                                        	                        <div class="sectionArrow-A1 sectionArrow-A1-2"><i class="down"></i></div>
+                                        	                        <p>标记为未读</p>
+                                        	                    </div>
+                                        	                </div>
+                                        	                <p>恭喜你获得免费洗20张照片的机会...</p>
+                                        	                <p class="date">2014-06-20 17:25</p>
+                                        	            </div>
+                                        	        </div>
+                                        	    </div>
+                                        	</div>
+                                            <div class="sectionBorder-A1 sectionBorder-pb0">
+                                        	    <div class="sectionBox-A3 sectionBox-A3-1">
+                                        	        <div class="p10 clear">
+                                        	            <div class="L mr12"><img src="" width="50" height="50" alt=""></div>
+                                        	            <div class="sectionBox-A2">
+                                        	                <div class="sectionBox sectionTitle-A sectionTitle-A1 sectionTitle-A1-3">
+                                        	                    <h2>乌鸦-lucian</h2>
+                                        	                    <div class="more sectionIcon-A1 sectionIcon-A2">
+                                        	                        <i></i>
+                                        	                    </div>
+                                        	                    <div class="sectionMessage-A2 none">
+                                        	                        <div class="sectionArrow-A1 sectionArrow-A1-2"><i class="down"></i></div>
+                                        	                        <p>标记为未读</p>
+                                        	                    </div>
+                                        	                </div>
+                                        	                <p>恭喜你获得免费洗20张照片的机会...</p>
+                                        	                <p class="date">2014-06-20 17:25</p>
+                                        	            </div>
+                                        	        </div>
+                                        	    </div>
+                                        	</div>
+                                            
+                                        </div>
+                                        <div class="js_Block_A1 none">
+                                        	<div class="sectionBorder-A1 sectionBorder-pb0">
+                                        	    <div class="sectionBox-A3 sectionBox-A3-1">
+                                        	        <div class="p10 clear">
+                                        	            <div class="L mr12"><img src="" width="50" height="50" alt=""></div>
+                                        	            <div class="sectionBox-A2">
+                                        	                <div class="sectionBox sectionTitle-A sectionTitle-A1 sectionTitle-A1-3">
+                                        	                    <h2>乌鸦-lucian</h2>
+                                        	                    <div class="more sectionIcon-A1 sectionIcon-A2">
+                                        	                        <i></i>
+                                        	                    </div>
+                                        	                    <div class="sectionMessage-A2 none">
+                                        	                        <div class="sectionArrow-A1 sectionArrow-A1-2"><i class="down"></i></div>
+                                        	                        <p>标记为未读</p>
+                                        	                    </div>
+                                        	                </div>
+                                        	                <p>恭喜你获得免费洗20张照片的机会...</p>
+                                        	                <p class="date">2014-06-20 17:25</p>
+                                        	            </div>
+                                        	        </div>
+                                        	    </div>
+                                        	</div>
+                                        </div>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        <div class="sectionBorder-A1 sectionBorder-A1-1 sectionText-A2 sectionText-A2-1">
+                                            <a href="###" class="linkGrey">没有新信息</a>
+                                        </div>
+                                        <div class="sectionText-A2 bg-grey">
+                                        	<a href="###" class="linkBlue">查看全部信息</a>
+                                        </div>
+                                        
+                                    </div>
+                                </li>
+                            	<li class="C I1 b-3">
+                                    <div class="sectionShowBox-A1 none">
+                                        <div class="sectionArrow-A1 sectionArrow-double-A1 sectionArrow-double-A1-1"><i class="A"></i><i class="B"></i></div>
+                                        <div class="sectionBox sectionTitle-A sectionTitle-A1 sectionTitle-A1-1">
+                                            <h2>通知</h2>
+                                            <div class="more">
+                                                <a href="###" class="linkBlue mr10">设置</a>
+                                                <a href="###" class="linkBlue">清除全部通知</a>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="sectionBorder-A1">
+                                            <div class="p10">
+                                            	<div class="sectionBox sectionTitle-A sectionTitle-A1 sectionTitle-A1-2">
+                                            	    <h2>店铺公告</h2>
+                                            	    <div class="more sectionIcon-A1 sectionIcon-A1-4">
+                                            	        <a href="###" class="icon"></a>
+                                            	    </div>
+                                            	</div>
+                                            	<div class="sectionCms sectionCms-0 sectionCms-A2">
+                                            	    新旺铺新功能，店铺实验室上线通知！ 通过A/B测试、定投的功能帮助卖家进行旺铺装修展示，帮助卖家决策、提升转化率。 只要你是旺铺专业版并且你使用了新模板，
+                                            	那么亲，还等什么，快来研究一下吧。
+                                            	2014-06-20 17:25
+                                            	</div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="sectionBorder-A1 sectionBorder-A1-1 sectionText-A2 sectionText-A2-1">
+                                            <a href="###" class="linkGrey">没有新信息</a>
+                                        </div>
+                                        <div class="sectionText-A2 bg-grey">
+                                        	<a href="###" class="linkBlue">所有通知</a>
+                                        </div>
+                                        
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="R">
+                        <div class="sectionSearch-A1 sectionForm-A2">
+                            <input type="text" class="text bg none pl35" placeholder="">
+                            <i title="click here"></i>
+                        </div>
+                        <div class="L sectionBox-A1 mr10 p-rel z1 js_showBoxA1">
+                        	<div class="p5">
+                        		<img class="mr5" src="images/imgs_LHH/pics/img_01.gif" width="20" height="20" alt=""><span>刘关张</span>
+                        	</div>
+                            <div class="sectionShowBox-A1 sectionShowBox-A1-1 none">
+                                <div class="sectionArrow-A1 sectionArrow-double-A1 sectionArrow-double-A1-1 sectionArrow-double-A1-1-1"><i class="A"></i><i class="B"></i></div>
+                                <div class="sectionBox sectionTitle-A sectionTitle-A3">
+                                    <h2>更改登录帐号：</h2>
+                                </div>
+                                <div class="sectionBox-A4 clear mb2">
+                                    <div class="L mr12"><img src="" width="18" height="18" alt=""></div>
+                                    <div class="sectionBox-A2 over-h">
+                                        <p>喜鹊筑家旗舰店</p>
+                                    </div>
+                                </div>
+                                <div class="sectionBox-A4 clear mb2">
+                                    <div class="L mr12"><img src="" width="18" height="18" alt=""></div>
+                                    <div class="sectionBox-A2 over-h">
+                                        <p>喜鹊筑家旗舰店</p>
+                                    </div>
+                                </div>
+                                <div class="sectionBox-A4 clear mb2">
+                                    <div class="L mr12"><img src="" width="18" height="18" alt=""></div>
+                                    <div class="sectionBox-A2 over-h">
+                                        <p>喜鹊筑家旗舰店</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="sectionList-A1 sectionList-A1-1">
+                                    <div class="p10">
+                                    	<ul class="mb5">
+                                    		<li><a href="###">创建新店铺</a></li>
+                                    		<li><a href="###">管理店铺</a></li>
+                                    	</ul>
+                                        <ul class="mb5">
+                                    		<li><a href="###">个人中心</a></li>
+                                    		<li><a href="###">设置</a></li>
+                                    		<li><a href="###">退出</a></li>
+                                    	</ul>
+                                        <ul class="mb5">
+                                    		<li><a href="###">帮助中心</a></li>
+                                    		<li><a href="###">报告问题</a></li>
+                                    	</ul>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="L sectionText-A1 sectionText-A1-1">
+                        	<a href="###">浏览我的店铺</a>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="sectionCrumb-A1 mb20">
+                	<ul class="clear">
+                		<li><a title="" href="" class="linkBlue">喜鹊筑家旗舰店</a>&nbsp;&gt;&nbsp;</li>
+                		<li><a title="" href="" class="linkBlue">店铺管理</a>&nbsp;&gt;&nbsp;</li>
+                		<li><a title="" href="" class="linkBlue">店铺职责</a>&nbsp;&gt;&nbsp;</li>
+                        <li><strong>设置店铺职责权限</strong></li>
+                	</ul>
+                </div>
+                
+               
+                
+                
+                <div class="sectionBox clear mb15">
+                	<div class="sectionTitle-B2 sectionFloat-A1 L">
+                	    <ul class="clear">
+                	        <li class="cur first">部门结构</li>
+                	        <li class="">角色权限</li>
+                	        <li class="">应用管理</li>
+                	    </ul>
+                	</div>
+                    <div class="L ml15 h-25 js_sectionA">
+                        <a href="###" class="linkBlue js_newDepartment"><strong>+新建部门</strong></a>
+                        <a href="###" class="linkBlue none js_newRole"><strong>+新建角色</strong></a>
+                    </div>
+                    <div class="more"><a href="###" class="linkBlue">返回子账号管理</a></div>
+                </div>
+                
+                <div class="j_sectionBlock">
+                    <div class="sectionWrap-A7 p-rel">
+                		<div class="sectionMenu-A1 sectionMenu-A1-2 sectionMenu-A1-2-2 j_sectionMenuA1">
+                            <dl class="border">
+                                <dd class="cur"><div class="title">喜鹊筑家</div></dd>
+                                <dd class="sectionForm-A2 sectionForm-A2-2 js_addnewDepartment none">
+                                    <div class="title">
+                                    	<input type="text" class="text block" value="新部门">
+                                    </div>
+                                </dd>
+                                <dd><div class="title">运营中心</div></dd>
+                                <dd attr="mystorage">
+                                    <div class="title ">客服中心</div>
+                                    <div class="title js_reName_input none">
+                                    	<div class="sectionForm-A2 sectionForm-A2-2 ">
+                                    		<input type="text" class="text block" value="新部门">
+                                    	</div>
+                                    </div>
+                                    <div class="sectionIcon-A1 sectionIcon-A1-5 sectionIcon-A1-5-1 none"><i></i></div>
+                                    <div class="sectionShowBox-A3 sectionShowBox-A3-1 sectionList-A3 none js_subMenu">
+                                        <ul class="border">
+                                            <li class="js_newSubDepartment"><a href="###">新建子部门</a></li>
+                                            <li class="js_rename"><a href="###">重命名</a></li>
+                                            <li class="js_menu2_Li">
+                                                <a href="###">移动到</a>
+                                                <div class="sectionIcon-A1"><i></i></div>
+                                                <div class="sectionShowBox-A3 sectionShowBox-A3-3 sectionShowBox-A3-3-1 sectionList-A3 sectionList-A3-2 js_menu2 none">
+                                                    <ul class="border">
+                                                        <li>喜鹊筑家</li>
+                                                        <li>运营中心</li>
+                                                        <li>客服中心</li>
+                                                        <li class="pl25">售前客服</li>
+                                                        <li class="pl25">售后客服</li>
+                                                        <li>设计部</li>
+                                                        <li>财务</li>
+                                                        <li>仓储</li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li><a href="###">删除</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="sectionList-A1 sectionList-A1-3">
+                                        <ul class="none">
+                                            <li class="sectionForm-A2 sectionForm-A2-2 js_addnewSubDepartment none">
+                                                <input type="text" class="text block" value="新子部门">
+                                            </li>
+                                            <li class="li"><a href="###">售前客服</a></li>
+                                            <li class="li"><a href="###">售后客服</a></li>
+                                        </ul>
+                                    </div>
+                                    
+                                </dd>
+                                <dd><div class="title">设计部</div></dd>
+                                <dd><div class="title">财务</div></dd>
+                                <dd><div class="title">仓储</div></dd>
+                            </dl>
+                            
+                        </div>
+                		<div class="sectionWrap-A6">
+                	        <div class="j_sectionBlockA1 p-rel sectionBorder-A4 ">
+                	            <div class="p30">
+                	                <div class="sectionFloat-A1 mb20">
+                	                	<ul class="clear">
+                                            <li class="sectionForm-A1 sectionForm-A2 sectionForm-A2-3 sectionForm-A2-3-1 mr10">
+                                                 <button type="submit" class="btn save js_newEmployee">新建员工</button>
+                                            </li>
+                                            <li class="p-rel">
+                                                <div class="sectionSelect-A1">
+                                                    <input type="hidden" value="" name="">
+                                                    <span>更换部门至</span>
+                                                    <div class="sectionArrow-A1 sectionArrow-A1-3 sectionArrow-A1-3-2"><i class="down"></i></div>
+                                                </div>
+                                                <div class="sectionShowBox-A3 sectionShowBox-A3-3 sectionList-A3 sectionList-A3-2 js_select1 none">
+                                                    <ul class="border">
+                                                        <li>喜鹊筑家</li>
+                                                        <li>运营中心</a></li>
+                                                        <li>客服中心</li>
+                                                        <li class="pl25">售前客服</li>
+                                                        <li class="pl25">售后客服</li>
+                                                        <li>设计部</li>
+                                                        <li>财务</li>
+                                                        <li>仓储</li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                	                </div>
+                                    
+                                    <div class="sectionBorder-A3 sectionTable-B2 mb15 pb330">
+                                        <div class="sectionTitle-A4 sectionTitle-A4-1 sectionFloat-A1">
+                                            <ul class="clear">
+                                                <li class="first col-1">账号名</li>
+                                                <li class="col-2 p-rel sectionArrow-A1 sectionArrow-A1-3 sectionArrow-A1-3-1">
+                                                    部门
+                                                    <i class="down"></i>
+                                                    
+                                                </li>
+                                                <li class="col-3 p-rel sectionArrow-A1 sectionArrow-A1-3 sectionArrow-A1-3-1">
+                                                    全部角色
+                                                    <i class="down"></i>
+                                                </li>
+                                                <li class="col-4 p-rel sectionArrow-A1 sectionArrow-A1-3 sectionArrow-A1-3-1">
+                                                    全部状态
+                                                    <i class="down"></i>
+                                                </li>
+                                                
+                                            </ul>
+                                        </div>
+                                        <div class="sectionBox-A10 sectionBox-A10-1 sectionFloat-A1">
+                                            <ul class="p10 clear">
+                                                <li class="col-1">
+                                                    <span class="L mr15"><input class="v-negative3" type="checkbox"></span>
+                                                    <div class="clear sectionBox-A3 L">
+                                                        <div class="sectionBox-A2 sectionBox-A2-2">
+                                                            <a href="###" class="linkBlue">杀卷机器人</a>
+                                                            <p>张健</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="col-2">运营中心</li>
+                                                <li class="col-3">仓储物流,活动推广,售前客服,装修美工,店铺运营,售后客服</li>
+                                                <li class="col-4 clear">
+                                                    使用中...
+                                                    <div class="sectionIcon-A1 sectionIcon-A1-6 R">
+                                                        <i></i>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="sectionBox-A10 sectionBox-A10-1 sectionFloat-A1">
+                                            <ul class="p10 clear">
+                                                <li class="col-1">
+                                                    <span class="L mr15"><input class="v-negative3" type="checkbox"></span>
+                                                    <div class="clear sectionBox-A3 L">
+                                                        <div class="sectionBox-A2 sectionBox-A2-2">
+                                                            <a href="###" class="linkBlue">杀卷机器人</a>
+                                                            <p>张健</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="col-2">运营中心</li>
+                                                <li class="col-3">仓储物流,活动推广,售前客服,装修美工,店铺运营,售后客服</li>
+                                                <li class="col-4 clear">
+                                                    使用中...
+                                                    <div class="sectionIcon-A1 sectionIcon-A1-6 R">
+                                                        <i></i>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="sectionBox-A10 sectionBox-A10-1 sectionFloat-A1">
+                                            <ul class="p10 clear">
+                                                <li class="col-1">
+                                                    <span class="L mr15"><input class="v-negative3" type="checkbox"></span>
+                                                    <div class="clear sectionBox-A3 L">
+                                                        <div class="sectionBox-A2 sectionBox-A2-2">
+                                                            <a href="###" class="linkBlue">杀卷机器人</a>
+                                                            <p>张健</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="col-2">运营中心</li>
+                                                <li class="col-3">仓储物流,活动推广,售前客服,装修美工,店铺运营,售后客服</li>
+                                                <li class="col-4 clear">
+                                                    使用中...
+                                                    <div class="sectionIcon-A1 sectionIcon-A1-6 R">
+                                                        <i></i>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        
+                                    </div>
+                	                
+                                    <div class="sectionPageing-A2 clear">
+                                        <div class="R">
+                                            <span class="mr10">共1页</span>到第<span class="sectionForm-A2 mr5 ml5"><input type="text" class="text w-38"></span>页
+                                            <span class="sectionForm-A3 ml5"><input class="" type="submit" value="确定"></span>
+                                        </div>
+                                    </div>
+                	            </div>
+                	        </div>
+                	    </div>
+                	</div>
+                </div>
+                
+                <div class="j_sectionBlock none">
+                	<div class="sectionWrap-A7 p-rel">
+                		<div class="sectionMenu-A1 sectionMenu-A1-2 sectionMenu-A1-2-2 j_sectionMenuA1">
+                            <dl class="border">
+                                <dd class="cur"><div class="title">管理员</div></dd>
+                                <dd class="sectionForm-A2 sectionForm-A2-2 js_addnewRole none">
+                                    <div class="title">
+                                    	<input type="text" class="text block" value="新角色">
+                                    </div>
+                                </dd>
+                                <dd><div class="title">设计师</div></dd>
+                                <dd attr="mystorage">
+                                    <div class="title">仓储物流</div>
+                                    <div class="title js_reName_input none">
+                                    	<div class="sectionForm-A2 sectionForm-A2-2 ">
+                                    		<input type="text" class="text block" value="仓储物流">
+                                    	</div>
+                                    </div>
+                                    <div class="sectionIcon-A1 sectionIcon-A1-5 sectionIcon-A1-5-1 none"><i></i></div>
+                                    <div class="sectionShowBox-A3 sectionShowBox-A3-1 sectionList-A3 none js_subMenu">
+                                        <ul class="border">
+                                            <li class="js_rename"><a href="###">重命名</a></li>
+                	                        <li><a href="###">编辑角色描述</a></li>
+                	                        <li><a href="###">删除</a></li>
+                                        </ul>
+                                    </div>
+                                    
+                                </dd>
+                                <dd><div class="title">活动推广</div></dd>
+                                <dd><div class="title">售前客服</div></dd>
+                                <dd><div class="title">装修美工</div></dd>
+                                <dd><div class="title">店铺运营</div></dd>
+                                <dd><div class="title">售后客服</div></dd>
+                            </dl>
+                            
+                        </div>
+                        <div class="sectionWrap-A6">
+                	        <div class="j_sectionBlockA1 p-rel sectionBorder-A4 "></div>
+                	        <div class="j_sectionBlockA1 p-rel sectionBorder-A4 none"></div>
+                	        <div class="j_sectionBlockA1 p-rel sectionBorder-A4 none"></div>
+                	        <div class="j_sectionBlockA1 p-rel sectionBorder-A4 none">
+                	            <div class="sectionMenu-A1 sectionMenu-A1-1 sectionFixed-A2">
+                	                <dl class="border">
+                	                    <dd><a href="###">宝贝管理</a></dd>
+                	                    <dd><a href="###">样板间管理</a></dd>
+                	                    <dd><a href="###">子账号管理</a></dd>
+                	                    <dd><a href="###">交易管理</a></dd>
+                	                    <dd><a href="###">店铺管理</a></dd>
+                	                    <dd><a href="###">营销中心</a></dd>
+                	                    <dd><a href="###">手机店铺</a></dd>
+                	                    <dd><a href="###">品牌经销商</a></dd>
+                	                    <dd><a href="###">客户服务</a></dd>
+                	                </dl>
+                	            </div>
+                	            <div class="p30">
+                	                <div class="sectionBox-A11 sectionForm-A1 sectionForm-A1-3">
+                	                	<div class="p10 textarea clear p-rel">
+                	                        <label>仓储物流</label> 
+                	                        <textarea class="L js_edit"> 能够管理店铺的各方各面，包括以店铺名义发送消息和发布帖子、创建广告、查看哪位管理员创建了帖子或评论、查看洞察报告，以及分配店铺职责。</textarea>
+                	                        
+                	                    </div>
+                	                </div>
+                	                
+                	                <div class="sectionList-B1">
+                	                    <ul class="tree-dir mt10">
+                	                        <li class="level1">
+                	                            <span class="chk-wrap bold">
+                	                                <input id="100" class="check-box" type="checkbox" value="100">
+                	                                <label for="100">宝贝管理</label>
+                	                            </span>
+                	                            <ul>
+                	                                <li class="level2 ">
+                	                                    <input id="107" class="check-box" type="checkbox" value="107">
+                	                                    <label for="107">宝贝操作权限</label>
+                	                                    <ul>
+                	                                        <li class="level3  level3-end ">
+                	                                            <span class="chk-wrap">
+                	                                                <input id="111" class="check-box" type="checkbox" value="111">
+                	                                                <label for="111">编辑宝贝</label>
+                	                                            </span>
+                	                                            <span class="chk-wrap">
+                	                                                <input id="109" class="check-box" type="checkbox" value="109">
+                	                                                <label for="109">上下架(改库存)</label>
+                	                                            </span>
+                	                                            <span class="chk-wrap">
+                	                                                <b class="J_tooltip_trigger tree-disabled-chk"></b>
+                	                                                <label class="J_tooltip_trigger disabled">删除宝贝</label>
+                	                                                <div class="J_tooltip J_tooltip_con pop-layer"></div>
+                	                                            </span>
+                	                                            <span class="chk-wrap">
+                	                                                <input id="112" class="check-box" type="checkbox" value="112">
+                	                                                <label for="112">修改/删除邮费</label>
+                	                                            </span>
+                	                                        </li>
+                	                                    </ul>
+                	                                </li>
+                	                                <li class="level2 level2-nochild">
+                	                                    <b class="J_tooltip_trigger tree-disabled-chk"></b>
+                	                                    <label class="J_tooltip_trigger disabled">发布宝贝</label>
+                	                                    <div class="J_tooltip J_tooltip_con pop-layer"></div>
+                	                                </li>
+                	                                <li class="level2 level2-nochild">
+                	                                    <input id="103" class="check-box" type="checkbox" value="103">
+                	                                    <label for="103">出售中的宝贝</label>
+                	                                </li>
+                	                                <li class="level2 level2-nochild">
+                	                                    <input id="2348" class="check-box" type="checkbox" value="2348">
+                	                                    <label for="2348">宝贝体检中心</label>
+                	                                </li>
+                	                                <li class="level2 level2-nochild">
+                	                                    <input id="104" class="check-box" type="checkbox" value="104">
+                	                                    <label for="104">橱窗推荐</label>
+                	                                </li>
+                	                                <li class="level2 level2-nochild">
+                	                                    <input id="105" class="check-box" type="checkbox" value="105">
+                	                                    <label for="105">仓库中的宝贝</label>
+                	                                </li>
+                	                                <li class="level2 level2-nochild">
+                	                                    <input id="2408" class="check-box" type="checkbox" value="2408">
+                	                                    <label for="2408">尺码模板管理</label>
+                	                                </li>
+                	                            </ul>
+                	                        </li>
+                	                    </ul>
+                	                </div>
+                	                <div class="sectionList-B1">
+                	                    <ul class="tree-dir mt10">
+                	                        <li class="level1">
+                	                            <span class="chk-wrap bold">
+                	                                <input id="100" class="check-box" type="checkbox" value="100">
+                	                                <label for="100">宝贝管理</label>
+                	                            </span>
+                	                            <ul>
+                	                                <li class="level2 ">
+                	                                    <input id="107" class="check-box" type="checkbox" value="107">
+                	                                    <label for="107">宝贝操作权限</label>
+                	                                    <ul>
+                	                                        <li class="level3  level3-end ">
+                	                                            <span class="chk-wrap">
+                	                                                <input id="111" class="check-box" type="checkbox" value="111">
+                	                                                <label for="111">编辑宝贝</label>
+                	                                            </span>
+                	                                            <span class="chk-wrap">
+                	                                                <input id="109" class="check-box" type="checkbox" value="109">
+                	                                                <label for="109">上下架(改库存)</label>
+                	                                            </span>
+                	                                            <span class="chk-wrap">
+                	                                                <b class="J_tooltip_trigger tree-disabled-chk"></b>
+                	                                                <label class="J_tooltip_trigger disabled">删除宝贝</label>
+                	                                                <div class="J_tooltip J_tooltip_con pop-layer"></div>
+                	                                            </span>
+                	                                            <span class="chk-wrap">
+                	                                                <input id="112" class="check-box" type="checkbox" value="112">
+                	                                                <label for="112">修改/删除邮费</label>
+                	                                            </span>
+                	                                        </li>
+                	                                    </ul>
+                	                                </li>
+                	                                <li class="level2 level2-nochild">
+                	                                    <b class="J_tooltip_trigger tree-disabled-chk"></b>
+                	                                    <label class="J_tooltip_trigger disabled">发布宝贝</label>
+                	                                    <div class="J_tooltip J_tooltip_con pop-layer"></div>
+                	                                </li>
+                	                                <li class="level2 level2-nochild">
+                	                                    <input id="103" class="check-box" type="checkbox" value="103">
+                	                                    <label for="103">出售中的宝贝</label>
+                	                                </li>
+                	                                <li class="level2 level2-nochild">
+                	                                    <input id="2348" class="check-box" type="checkbox" value="2348">
+                	                                    <label for="2348">宝贝体检中心</label>
+                	                                </li>
+                	                                <li class="level2 level2-nochild">
+                	                                    <input id="104" class="check-box" type="checkbox" value="104">
+                	                                    <label for="104">橱窗推荐</label>
+                	                                </li>
+                	                                <li class="level2 level2-nochild">
+                	                                    <input id="105" class="check-box" type="checkbox" value="105">
+                	                                    <label for="105">仓库中的宝贝</label>
+                	                                </li>
+                	                                <li class="level2 level2-nochild">
+                	                                    <input id="2408" class="check-box" type="checkbox" value="2408">
+                	                                    <label for="2408">尺码模板管理</label>
+                	                                </li>
+                	                            </ul>
+                	                        </li>
+                	                    </ul>
+                	                </div>
+                	                
+                	            </div>
+                	        </div>
+                            <div class="j_sectionBlockA1 p-rel sectionBorder-A4 none"></div>
+                            <div class="j_sectionBlockA1 p-rel sectionBorder-A4 none"></div>
+                	    </div>
+                	</div>
+                </div>
+                
+                
+                <!--popupLayer1 begin-->
+                <!-- ============================================================================ -->
+                <div class="sectionPopupLayer-A1 sectionPopupLayer-A1-3 js_sectionPopupLayerA1 border sectionShadow-A4 none">
+                    <div class="sectionBox sectionTitle-A sectionTitle-A11 sectionTitle-A11-1">
+                        <div class="more sectionIcon-A4">
+                            <i class="myclose js_sectionPopupLayerA1Close1"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="content">
+                        <div class="p30 pt0 pb0">
+                            <div class="sectionBox sectionTitle-A sectionTitle-A8 sectionTitle-A8-2 mb5">
+                                <h2>新建员工</h2>
+                            </div>
+                            <div class="sectionWrap-A13 sectionText-A3">
+                                <div class="sectionForm-A1 sectionForm-A1-1 mb15">
+                                    <ul>
+                                        <li class="mb5">
+                                            <div class="">邮件地址<span class="">*</span></div>
+                                            <input type="text" class="text size1of1 h-28" placeholder="指定某个邮件地址" value=""> 
+                                        </li>
+                                        <li class="mb5">
+                                            <div class="">姓名</div>
+                                            <input type="text" class="text size1of1 h-28" value=""> 
+                                        </li>
+                                        <li class="mb5">
+                                            <div class="">用户名</div>
+                                            <input type="text" class="text size1of1 h-28" value=""> 
+                                        </li>
+                                        <li class="mb5">
+                                            <div class="">直接上级</div>
+                                            <input type="text" class="text size1of1 h-28" value=""> 
+                                        </li>
+                                        <li class="mb5">
+                                            <div class="">职务</div>
+                                            <input type="text" class="text size1of1 h-28" value=""> 
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="sectionBox sectionTitle-A sectionTitle-A18 clear">
+                                    <h2 class="L">角色</h2>
+                                    <i class="L ml5"></i>
+                                </div>
+                                <ul class="sectionForm-A1 sectionForm-A1-label-m0 mb15 sectionFloat-A1 sectionText-A4 clear">
+                                    <li class="mr20">
+                                        <label><input class="v-negative3" type="checkbox"></label>
+                                        <span>管理员</span>
+                                    </li>
+                                    <li class="mr20">
+                                        <label><input class="v-negative3" type="checkbox"></label>
+                                        <span>运营中心</span>
+                                    </li>
+                                    <li class="mr20">
+                                        <label><input class="v-negative3" type="checkbox"></label>
+                                        <span>售前客服</span>
+                                    </li>
+                                    <li class="mr20">
+                                        <label><input class="v-negative3" type="checkbox"></label>
+                                        <span>售后客服</span>
+                                    </li>
+                                    <li class="mr20">
+                                        <label><input class="v-negative3" type="checkbox"></label>
+                                        <span>会计部</span>
+                                    </li>
+                                    <li class="mr20">
+                                        <label><input class="v-negative3" type="checkbox"></label>
+                                        <span>财务部</span>
+                                    </li>
+                                    <li class="mr20">
+                                        <label><input class="v-negative3" type="checkbox"></label>
+                                        <span>仓储</span>
+                                    </li>
+                                </ul>
+                                
+                                <div class="clear mb30">
+                                	<div class="sectionForm-A1 sectionForm-A2 R">
+                                	    <button type="submit" class="btn save L mr15 js_saveButton">确认创建</button>
+                                	    <button type="submit" class="btn btn-cancel L js_saveButton">取消</button>
+                                	</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="sectionTransparent-A1 js_sectionTransparentA1 none"></div>
+                <!-- ============================================================================ -->
+                <!--popupLayer1 end-->
+                
+                <!--popupLayer2 提示框 begin-->
+                <!-- ============================================================================ -->
+                <div class="sectionPopupLayer-A1 sectionPopupLayer-A1-3 js_sectionPopupLayerA2 border sectionShadow-A4 none">
+                    <div class="sectionBox sectionTitle-A sectionTitle-A11 sectionTitle-A11-1">
+                        <div class="more sectionIcon-A4">
+                            <i class="myclose js_sectionPopupLayerA1Close2"></i>
+                        </div>
+                    </div>
+                    <div class="p100 t-C font-14">
+                        <p>请您先选择您要操作的子账号</p>
+                    
+                    </div>
+                </div>
+
+                <div class="sectionTransparent-A1 js_sectionTransparentA2 none"></div>
+                <!-- ============================================================================ -->
+                <!--popupLayer2 end-->
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -15,9 +15,11 @@
     'use strict';
     var ROOT="",_ROOT_="",System={},Config={},namespace="";
     //check
-    if(window.GRN_LHH && window[window.GRN_LHH] != undefined){return;}
-
-    window.GRN_LHH='System';
+    if(window.GRN_LHH && window[window.GRN_LHH] != undefined){
+        return;
+    }else{
+        window.GRN_LHH='System';
+    }
     namespace = window.GRN_LHH;
     //js获取项目根路径，如： http://localhost:8083/uimcardprj
     function getRootPath(){
@@ -49,7 +51,7 @@
             'LAM_DEBUG':true,
             'LAM_ENV':'dev',
             'Public':(function(){
-                var ROOT = _ROOT_+'/backend';
+                var ROOT = _ROOT_+'/backend-controller';
                 return {
                     'ROOT':_ROOT_
                     ,'BACKEND':ROOT
@@ -58,6 +60,7 @@
                     ,'CSS':ROOT+'/html/css'
                     ,'SCRIPT':ROOT+'/html/js'
                     ,'IMAGE':ROOT+'/html/images'
+                    ,'CONTROLLERS':ROOT+'/controllers'
                     ,'ViEWS':ROOT+'/views'
                 };
             })(),
@@ -78,7 +81,7 @@
                 }
             },
             //hashcode 随机种子
-            'random':999,
+            'random':10000,
             //定义模版标签
             'templat':{
                 'custom_attr':'[data-var=tpl]',
@@ -86,7 +89,7 @@
             },
             'files':[],
             'XHR':{//配置加载xhr 的公共参数
-                'type': 'POST'
+                'type': 'GET'
                 ,'async':false
                 ,'cache':true
                 ,'beforeSend':function(){}
@@ -94,23 +97,30 @@
             //配置基础文件
             'autoLoadFile':function(){
                 ROOT = this.Public.ROOT;
+                var PLUGINS = this.Public.PLUGINS;
+                var CONTROLLERS = this.Public.CONTROLLERS;
                 var classPath=this.getClassPath();
                 return [
                     classPath+'/jQuery/jquery.js'
-                    // ,classPath+'/build/base.min.js'
-                    ,classPath+'/base/System.js'
-                    ,classPath+'/base/Base.class.js'
-                    ,classPath+'/base/Object.class.js'
-                    ,classPath+'/base/Component.class.js'
-                    ,classPath+'/base/Helper.class.js'
-                    ,classPath+'/base/Browser.class.js'
-                    ,classPath+'/base/Event.class.js'
-                    ,classPath+'/base/Dom.class.js'
-                    ,classPath+'/base/Template.class.js'
-                    ,classPath+'/base/Html.class.js'
-                    ,classPath+'/base/Loader.class.js'
+                    ,classPath+'/build/base.min.js'
+                    ,classPath+'/base/Controller.class.js'
+                    ,CONTROLLERS+'/SuperController.class.js'
+                    ,classPath+'/base/Router.class.js'
+                    // ,classPath+'/base/System.js'
+                    // ,classPath+'/base/Base.class.js'
+                    // ,classPath+'/base/Object.class.js'
+                    // ,classPath+'/base/Component.class.js'
+                    // ,classPath+'/base/Helper.class.js'
+                    // ,classPath+'/base/Browser.class.js'
+                    // ,classPath+'/base/Event.class.js'
+                    // ,classPath+'/base/Dom.class.js'
+                    // ,classPath+'/base/Template.class.js'
+                    // ,classPath+'/base/Html.class.js'
+                    // ,classPath+'/base/Loader.class.js'
+                    // ,PLUGINS+'/vue/vue.js'
                 ];
             },
+
             //标签的渲染方式
             'render':{
                 //加载文件的后缀名称
@@ -120,13 +130,13 @@
                 //true : document.createElement(); false :document.write();
                 'create':false,
                 //加载后是否要移除添加过的script 节点
-                'remove':false,
-                'append':'after',
+                'remove':true,
+                'append':'befor',
                 'default':{
                     'script':{
                         'Attribute':{
                             'type':'text/javascript',
-                            //'async':true,
+                            //'async':'async',
                             //'defer':'defer',
                             'charset':'utf-8'
                         }
@@ -145,25 +155,36 @@
                         'body'    : document.getElementsByTagName('body')[0],
                         'meta'    : document.getElementsByTagName('meta')[0],
                         'script'  : document.getElementsByTagName('script')[0],
-                        'link'    : document.getElementsByTagName('link')[0]
+                        'link'    : document.getElementsByTagName('link')[0],
+                        'div'    : document.getElementsByTagName('div')[0]
                     };
                 },
                 'bulid':function(tag,D){
                     tag = tag || "script";
                     var node;
                     var k;
+                    var fragment;
                     node=document.createElement(tag);
-                    for(k in D){node[k] = D[k];}
-                    if(!Config.render.fragment){Config.render.fragment = window.document.createDocumentFragment();}
+
+                    for(k in D){
+                        node[k] = D[k];
+                    }
+
+                    if(!Config.render.fragment){
+                        Config.render.fragment = document.createDocumentFragment();
+                    }
+                    fragment = Config.render.fragment;
+
                     Config.render.fragment.appendChild(node);
-                    return node.outerHTML;
+
+                    return fragment;
                 },
                 /**
                  * 用createElement 创建标签并且设为异步
                  */
                 'use':function(){
                     this.create=true;
-                    this.default.script.Attribute.async=true;
+                    this.default.script.Attribute.async='async';
                     this.default.script.Attribute.defer='defer';
                 },
                 /**
@@ -223,10 +244,18 @@
             if(Config.render.create){
                 Config.render.H().body.appendChild(Config.render.fragment);
             }else{
-                var document=System.open();
+                // var document=System.open();
                 document.write(S);
-                System.close(document);
+                // System.close(document);
             }
+        };
+        /**
+         *
+         * @param s
+         * @returns {boolean}
+         */
+        System.isset=function(s){
+            return (typeof s !== "undefined" &&  s !== null);
         };
         /**
          * @author: lhh
@@ -253,13 +282,14 @@
         Config.files = Config.files || [];
         var tag = "script";
         var scriptAttribute = Config.render.default.script.Attribute;
-        var i = 0;
+        var i = 0,body;
         var len;
         var data = scriptAttribute;
         var classPath=Config.getClassPath();
         var files=[];
         //加载基础类
         var srcs =Config.autoLoadFile();
+        body = Config.render.H().body;
         if(typeof requirejs != 'undefined'){
             requirejs.config({
                 baseUrl: ''
@@ -287,22 +317,35 @@
                 System.print(files.join(''));
             }
             //=================================================================================================================================
-            //3分钟之后检测lamborghiniJS基础类文件是否加载成功
+            //检测lamborghiniJS基础类文件是否加载成功
             //=================================================================================================================================
-            System.wait(function(){
-                if(!LAMJS){
-                    throw new Error("does't find the lamborghiniJS's path of  Basis classes , now the path is :{"+classPath+"}");
-                }else{
-                    LAMJS.run(function() {
-                        'use strict';
-                        var System=this;
-                    });
+            i =0;
+            var timer = setInterval(function(){
+                i++;
+                body = Config.render.H().body;
+                console.log(i);
+                if(body){
+                    console.log(body);
+                    if(!LAMJS){
+                        throw new Error("does't find the lamborghiniJS's path of  Basis classes , now the path is :{"+classPath+"}");
+                    }else{
+                        LAMJS.main=function() {
+                            'use strict';
+                            var System=this;
+                        };
+
+
+                    }
+                    clearInterval(timer);
                 }
-            },30000);
+            },1);
             //=================================================================================================================================
         }
     })(System);
 })(this);
+
+
+
 
 
 
