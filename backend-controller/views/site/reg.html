@@ -145,6 +145,7 @@
             reg=new System.PopupLayer({
                 '$popLayout':$('.sectionWrap-A1')
             });
+            reg.$popLayout.appendTo($('bdoy'));
             reg.setCenter();
 
             $("form").each(function(){
@@ -192,7 +193,6 @@
 
             $(window).resize(function() {
                 reg.resize();
-                reg.scroll();
             });
             $(window).scroll(function() {
                 reg.scroll();
