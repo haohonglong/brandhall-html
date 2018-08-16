@@ -2,6 +2,7 @@
     LAM.run([jQuery],function($){
         'use strict';
         var System = this;
+        LAM.use();
         System.Loader
             .load({
                 'baseUrl':System.CSS,
@@ -13,9 +14,14 @@
             })
             .print();
 
-        System.import([
-            '/PopupLayer.class'
-        ],System.classPath);
+        System
+            .import([
+                '/PopupLayer.class'
+            ],System.classPath)
+            .import([
+                '/layer-v3.1.1/layer/layer.js'
+            ],System.PLUGINS,null,{xhr:false});
+
     });
 </script>
 <div class="row">
@@ -518,9 +524,9 @@
                 'padding':2,
                 'animate':null
             });
-            pop.$popLayout.appendTo($('body'));
-            pop.$mask.appendTo($('body'));
-            pop.setCenter();
+            // pop.$popLayout.appendTo($('body'));
+            // pop.$mask.appendTo($('body'));
+            // pop.setCenter();
 
 
             $('.js_sectionPopupLayerA1Close,.js_sectionTransparentA1').on('click',function(){
@@ -528,7 +534,14 @@
             });
 
             $('.js_addChangeStruct').on('click',function(){
-                pop.show(function(){console.log(1)});
+                layer.open({
+                    title: ''
+                    ,type:1
+                    ,fixed:false
+                    ,resize:false
+                    ,area:['50%','80%']
+                    ,content: pop.$popLayout.find('.content').html()
+                });
             });
 
 
@@ -536,7 +549,7 @@
 
 
 
-            //第二个弹出框
+            // //第二个弹出框
             var pop2=new System.PopupLayer({
                 '$popLayout':$('.js_sectionPopupLayerA2'),
                 '$mask':$('.js_sectionTransparentA2'),
@@ -557,7 +570,7 @@
 
 
             $('.js_saveButton').bind('click',function(){
-                pop.hide();
+                // pop.hide();
                 pop2.hide();
             });
 
@@ -572,12 +585,12 @@
             });
 
             $(window).scroll(function() {
-                pop.scroll();
-                pop2.scroll();
+                // pop.scroll();
+                // pop2.scroll();
             });
             $(window).resize(function() {
-                pop.resize();
-                pop2.resize();
+                // pop.resize();
+                // pop2.resize();
             });
 
 

@@ -16,14 +16,10 @@
 LAM.run([jQuery],function($){
     'use strict';
     var System = this;
-    System
-        .import([
-             '/Tools.class'
-            ,'/Tab.class'
-        ],System.classPath,'.js?t='+System.app.t);
 
 
-    var tools=new System.Tools();
+
+
 
 
 
@@ -56,77 +52,13 @@ LAM.run([jQuery],function($){
 
 
 
-        /**
-         *头部分区域
-         *
-         */
-        new System.Tab({
-            'list':$('.sectionTitle-A1-5 .myli'),
-            'event':'click',
-            'class':'cur',
-            'block':$('.js_Block_A1'),
-            'fn':function(obj){
-                obj.current.block.each(function(i){
-                    if(obj.this_index==i){
-                        $(this).show();
-                    }else{
-                        $(this).hide();
-                    }
-                });
-
-            }
-        }).run();
 
 
-        $('.sectionTitle-A1-3 .sectionIcon-A2 i').hover(function(){
-            $(this).addClass('hover');
-            $(this).parents('.sectionTitle-A1-3').find('.sectionMessage-A2').show();
-        },function(){
-            $(this).removeClass('hover');
-            $(this).parents('.sectionTitle-A1-3').find('.sectionMessage-A2').hide();
-        }).toggle(function(){
-            $(this).addClass('cur');
-            $(this).parents('.sectionTitle-A1-3').find('.sectionMessage-A2 p').text('标记为已读');
-        },function(){
-            $(this).removeClass('cur');
-            $(this).parents('.sectionTitle-A1-3').find('.sectionMessage-A2 p').text('标记为未读');
-        });
-
-        /**
-         *头部分搜索框的滑动交互效果
-         *
-         */
-
-        $('.sectionSearch-A1 i').on('click',function(){
-            if(!this.flag){
-                $(this).parent().find('.bg').animate({"width":"200px"}).show();
-                $(this).addClass('B').animate({"right":"170px"});
-                this.flag = true;
-            }else{
-                $(this).parent().find('.bg').css({"width":0}).hide();
-                $(this).removeClass('B').css({"right":"12px"});
-                this.flag = false;
-
-            }
 
 
-        });
 
 
-        /**
-         *   鼠标hover时下面的隐藏模块显示,鼠标移除隐藏模块时模块恢复隐藏
-         *
-         */
-        tools.hover_next_box_show('.js_showBoxA1','.sectionShowBox-A1');
 
-
-        tools.set_whole_screen_size({
-            '$div':$('.js_mapWrap'),
-            'h':true,
-            'w':true,
-            'wSize':$('.sectionTitle-A12').length,
-            'hSize':200
-        });
 
     });
 

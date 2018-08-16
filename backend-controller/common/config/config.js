@@ -103,9 +103,7 @@
                 return [
                     classPath+'/jQuery/jquery.js'
                     ,classPath+'/build/base.min.js'
-                    ,classPath+'/base/Controller.class.js'
-                    ,CONTROLLERS+'/SuperController.class.js'
-                    ,classPath+'/base/Router.class.js'
+
                     // ,classPath+'/base/System.js'
                     // ,classPath+'/base/Base.class.js'
                     // ,classPath+'/base/Object.class.js'
@@ -117,7 +115,11 @@
                     // ,classPath+'/base/Template.class.js'
                     // ,classPath+'/base/Html.class.js'
                     // ,classPath+'/base/Loader.class.js'
-                    // ,PLUGINS+'/vue/vue.js'
+
+                    ,classPath+'/base/Controller.class.js'
+                    ,CONTROLLERS+'/SuperController.class.js'
+                    ,classPath+'/base/Router.class.js'
+                    // ,PLUGINS+'/layer-v3.1.1/layer/layer.js'
                 ];
             },
 
@@ -130,8 +132,8 @@
                 //true : document.createElement(); false :document.write();
                 'create':false,
                 //加载后是否要移除添加过的script 节点
-                'remove':true,
-                'append':'befor',
+                'remove':false,
+                'append':'after',
                 'default':{
                     'script':{
                         'Attribute':{
@@ -246,7 +248,7 @@
             }else{
                 // var document=System.open();
                 document.write(S);
-                // System.close(document);
+                System.close(document);
             }
         };
         /**

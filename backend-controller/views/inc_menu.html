@@ -139,3 +139,19 @@
         </dd>
     </dl>
 </div>
+
+<script type="text/javascript">
+    LAM.run([LAM,jQuery],function(LAM,$) {
+        'use strict';
+        var System = this;
+
+        System.setMenuSelectedStatus=function(href){
+            $('.sectionList-A1-3 li a[href*="'+href+'"]')
+                .closest('li').addClass('cur')
+                .closest('.sectionList-A1-3').show()
+                .closest('dd').addClass('hover');
+        };
+
+        System.setMenuSelectedStatus(LAM.VNAME);
+    });
+</script>

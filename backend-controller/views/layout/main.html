@@ -1,18 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="keywords" content="" />
     <meta name="description" content="" />
 
-    <title></title>
+    <title>main</title>
     <script type="text/javascript">
-        LAM.run(function(){
+        LAM.run([LAM],function(LAM){
             'use strict';
             var System = this;
-
             System.Loader
 
                 .load({
@@ -38,8 +36,9 @@
             System
 
                 .import([
-                        '/use'
-                    ],System.SCRIPT,'.js?t='+System.app.t);
+                    '/Tools.class'
+                    ,'/Tab.class'
+                ],System.classPath,'.js?t='+System.app.t);
         });
     </script>
 
@@ -76,14 +75,13 @@
     </div>
 </div>
 <script type="text/javascript">
-    LAM.run([LAM,jQuery],function(LAM,$){
+    LAM.wait([LAM,jQuery],function(LAM,$){
         'use strict';
         var System = this;
-        System.use();
-        System.VNAME = System.get('r') || 'shop';
+        LAM.use();
+        LAM.VNAME = System.get('r') || 'shop';
         System.Html.include($('include'));
         System.Html.analysisTpl();
-
 
 
 
@@ -107,16 +105,11 @@
 
         };
 
-        System.setMenuSelectedStatus=function(href){
-            $('.sectionList-A1-3 li a[href*="'+href+'"]')
-                .closest('li').addClass('cur')
-                .closest('.sectionList-A1-3').show()
-                .closest('dd').addClass('hover');
-        };
+
 
         $(function(){
 
-            System.setMenuSelectedStatus(System.VNAME);
+
 
 
             $('title').text(System.TITLE || 'title');
@@ -154,7 +147,7 @@
 
 
 
-    });
+    },1);
 </script>
 </body>
 </html>
