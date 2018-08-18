@@ -48,17 +48,20 @@
             'vendorPath':'http://127.0.0.1/lamborghiniJS/LAM2/lamborghiniJS',
             'LAM_DEBUG':true,
             'LAM_ENV':'dev',
-            'Public':{
-                'ROOT':_ROOT_
-                ,'CUR':_ROOT_+'/frontend/tpl_1/'
-                ,'VIEWS':_ROOT_+'/frontend/tpl_1/views'
-                ,'COMMON':_ROOT_+'/common'
-                ,'PLUGINS':_ROOT_+'/common/plugins'
-                ,'CSS':_ROOT_+'/frontend/tpl_1/html/css'
-                ,'SCRIPT':_ROOT_+'/frontend/tpl_1/html/js'
-                ,'IMAGE':_ROOT_+'/frontend/tpl_1/html/images'
-                ,'Moudle':function(){return LAMJS.createDict();}
-            },
+            'Public':(function(){
+                var ROOT = _ROOT_+'/frontend/tpl_1';
+                return {
+                    'ROOT':ROOT
+                    ,'CUR':ROOT
+                    ,'VIEWS':ROOT+'/views'
+                    ,'COMMON':_ROOT_+'/common'
+                    ,'PLUGINS':_ROOT_+'/common/plugins'
+                    ,'CSS':ROOT+'/html/css'
+                    ,'SCRIPT':ROOT+'/html/js'
+                    ,'IMAGE':ROOT+'/html/images'
+                    ,'Moudle':function(){return LAMJS.createDict();}
+                };
+            })(),
             'components':{
                 't':function (System) {
                     return System.timestamp();

@@ -81,11 +81,11 @@
     </div>
 </div>
 <script type="text/javascript">
-    LAM.run([jQuery],function($){
+    LAM.run([LAM,jQuery],function(LAM,$){
         'use strict';
         var System = this;
         System.use();
-        System.VNAME = System.get('r') || 'index/index';
+        LAM.VNAME = System.VNAME = System.get('r') || 'index/index';
         if('index/detail' == System.VNAME){$('#top').remove();}
         System.Html.include($('include'));
         System.Html.analysisTpl();

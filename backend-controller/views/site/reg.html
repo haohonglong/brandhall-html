@@ -85,7 +85,7 @@
                   
                  <div class="sectionWrap-A3 clear mb10">
                       <button type="submit" class="btn L">注册</button>
-                      <p class="sectionText-A1 R">已经有了账号？<a href="login.html">点击这里登录</a></p>
+                      <p class="sectionText-A1 R">已经有了账号？<a href="index.html?r=site/login">点击这里登录</a></p>
                   </div>
                 </form>
             </div>
@@ -112,7 +112,7 @@
                   
                   <div class="sectionWrap-A3 clear mb10">
                       <button type="submit" class="btn L">注册</button>
-                      <p class="sectionText-A1 R">已经有了账号？<a href="login.html">点击这里登录</a></p>
+                      <p class="sectionText-A1 R">已经有了账号？<a href="index.html?r=site/login">点击这里登录</a></p>
                   </div>
                 </form>
             </div>
@@ -192,7 +192,7 @@
 
 
             $(window).resize(function() {
-                reg.resize();
+                reg.resize().scroll();
             });
             $(window).scroll(function() {
                 reg.scroll();
