@@ -70,7 +70,7 @@
                     </div>
                     <img class="R img" data-var="tpl" src="{{LAM.IMAGE}}/imgs_LHH/pics/img_01.gif" width="20" height="20" alt="">
                 </div>
-                <include file="{{LAM.ViEWS}}/inc_header.html"></include>
+                <include tp-data="{'name':'李明'}" file="{{LAM.ViEWS}}/inc_header.html"></include>
                 <include file="{{LAM.ViEWS}}/{{LAM.VNAME}}.html"  file_404="_404.html"></include>
             </div>
         </div>
@@ -81,6 +81,7 @@
         'use strict';
         var System = this;
         System.use();
+
         System.VNAME = LAM.VNAME = System.get('r') || 'room/list';
         System.Html.include($('include'));
         System.Html.analysisTpl();

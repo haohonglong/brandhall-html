@@ -524,9 +524,7 @@
                 'padding':2,
                 'animate':null
             });
-            pop.$popLayout.appendTo($('body'));
-            pop.$mask.appendTo($('body'));
-            pop.setCenter();
+            pop.create().setCenter();
 
 
             $('.js_sectionPopupLayerA1Close,.js_sectionTransparentA1').on('click',function(){
@@ -558,9 +556,7 @@
                 'padding':0,
                 'animate':{}
             });
-            pop2.$popLayout.appendTo($('body'));
-            pop2.$mask.appendTo($('body'));
-            pop2.setCenter();
+            pop2.create().setCenter();
 
             $('.js_sectionPopupLayerA1Close,.js_sectionTransparentA2').on('click',function(){
 

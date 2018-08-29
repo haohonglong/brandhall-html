@@ -490,7 +490,7 @@
     LAM.TITLE = '楼盘详细';
 
 
-    LAM.wait(function(){
+    LAM.run(function(){
         'use strict';
         var System = this;
 
@@ -521,7 +521,8 @@
                 '$mask':$('.js_sectionTransparentA1'),
                 'padding':2,
                 'animate':null
-            }).setCenter();
+            });
+            pop.create().setCenter();
 
 
             $('.js_sectionPopupLayerA1Close,.js_sectionTransparentA1').on('click',function(){
@@ -529,7 +530,7 @@
             });
 
             $('.js_addChangeStruct').on('click',function(){
-                pop.show(function(){console.log(1)});
+                pop.show().scroll();
             });
 
 
@@ -543,14 +544,15 @@
                 '$mask':$('.js_sectionTransparentA2'),
                 'padding':0,
                 'animate':{}
-            }).setCenter();
+            });
+            pop2.create().setCenter();
 
             $('.js_sectionPopupLayerA1Close,.js_sectionTransparentA2').on('click',function(){
                 pop2.hide();
             });
 
             $('.js_addChangeStruct2').on('click',function(){
-                pop2.show();
+                pop2.show().scroll();
             });
 
 
@@ -574,8 +576,8 @@
                 pop2.scroll();
             });
             $(window).resize(function() {
-                pop.resize();
-                pop2.resize();
+                pop.resize().scroll();
+                pop2.resize().scroll();
             });
 
 

@@ -109,6 +109,7 @@
                     ,classPath+'/base/Template.class.js'
                     ,classPath+'/base/Html.class.js'
                     ,classPath+'/base/Loader.class.js'
+                    ,'http://127.0.0.1/lamborghiniJS/LAM2/common/plugins/vue/vue.js'
                 ];
             },
             //标签的渲染方式

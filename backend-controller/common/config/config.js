@@ -120,6 +120,7 @@
                     ,CONTROLLERS+'/SuperController.class.js'
                     ,classPath+'/base/Router.class.js'
                     // ,PLUGINS+'/layer-v3.1.1/layer/layer.js'
+                    ,'http://127.0.0.1/lamborghiniJS/LAM2/common/plugins/vue/vue.js'
                 ];
             },
 
