@@ -20,7 +20,7 @@
         constructor: function (init){
             this.base(init || {});
             __this__=this;
-            this.layout = 'main';
+            this.init();
 
         },
         '_className':'SuperController',
