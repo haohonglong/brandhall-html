@@ -15,16 +15,16 @@
     var __this__=null;
     System.is(System,'Controller','SiteController',System.classPath+'/base');
     var ROOT  = System.BACKEND;
-    var views = System.ViEWS+'/site';
     var SiteController = System.Controller.extend({
         constructor: function (init){
             this.base(init || {});
             __this__=this;
+            this.viewpath = System.VIEWS+'/site';
 
         },
         '_className':'SiteController',
         'loginAction':function(){
-            new System.Template().render(views+'/login.html',{
+            this.render('login',{
                 'COMMON':System.COMMON,
                 'ROOT':ROOT,
                 'D':{
@@ -32,17 +32,11 @@
                     'content':'This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.'
                 }
 
-            },function(content){
-                System.print(content);
-            },{
-                beforeSend:function(a,b){
-                    this.async=true;
-                }
             });
         },
 
         'regAction':function(){
-            new System.Template().render(views+'/reg.html',{
+            this.render('reg',{
                 'COMMON':System.COMMON,
                 'ROOT':ROOT,
                 'D':{
@@ -50,12 +44,6 @@
                     'content':'This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.'
                 }
 
-            },function(content){
-                System.print(content);
-            },{
-                beforeSend:function(a,b){
-                    this.async=true;
-                }
             });
         },
 

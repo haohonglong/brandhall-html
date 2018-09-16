@@ -15,17 +15,18 @@
     var __this__=null;
     System.is(System,'SuperController','ShopController',System.CONTROLLERS);
     var ROOT  = System.BACKEND;
-    var views = System.ViEWS+'/shop';
+    var views = System.VIEWS+'/shop';
     var ShopController = System.SuperController.extend({
         constructor: function (init){
             this.base(init || {});
             __this__=this;
+            this.viewpath = System.VIEWS+'/shop';
 
         },
         '_className':'ShopController',
         'choiceTemplateAction':function(){
-            new System.Template().render(views+'/choiceTemplate.html',{
-                'ViEWS':System.ViEWS,
+            this.render('choiceTemplate',{
+                'VIEWS':System.VIEWS,
                 'IMAGE':System.IMAGE,
                 'ROOT':ROOT,
                 'D':{
@@ -38,8 +39,8 @@
             });
         },
         'empowerAction':function(){
-            new System.Template().render(views+'/empower.html',{
-                'ViEWS':System.ViEWS,
+            this.render('empower',{
+                'VIEWS':System.VIEWS,
                 'IMAGE':System.IMAGE,
                 'ROOT':ROOT,
                 'D':{
@@ -52,8 +53,8 @@
             });
         },
         'loftAction':function(){
-            new System.Template().render(views+'/loft.html',{
-                'ViEWS':System.ViEWS,
+            this.render('loft',{
+                'VIEWS':System.VIEWS,
                 'IMAGE':System.IMAGE,
                 'ROOT':ROOT,
                 'D':{
@@ -66,8 +67,8 @@
             });
         },
         'newRoomAction':function(){
-            new System.Template().render(views+'/newRoom.html',{
-                'ViEWS':System.ViEWS,
+            this.render('newRoom',{
+                'VIEWS':System.VIEWS,
                 'IMAGE':System.IMAGE,
                 'ROOT':ROOT,
                 'D':{
@@ -80,8 +81,8 @@
             });
         },
         'shopListAction':function(){
-            new System.Template().render(views+'/shopList.html',{
-                'ViEWS':System.ViEWS,
+            this.render('shopList',{
+                'VIEWS':System.VIEWS,
                 'IMAGE':System.IMAGE,
                 'ROOT':ROOT,
                 'D':{
@@ -93,15 +94,6 @@
                 $('#app').after(content).remove();
             });
         },
-
-
-
-
-
-
-
-
-
 
 
         /**

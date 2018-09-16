@@ -61,7 +61,8 @@
                     ,'SCRIPT':ROOT+'/html/js'
                     ,'IMAGE':ROOT+'/html/images'
                     ,'CONTROLLERS':ROOT+'/controllers'
-                    ,'ViEWS':ROOT+'/views'
+                    ,'VIEWS':ROOT+'/views'
+                    ,'ERROR_404':ROOT+'/views/404.html'
                 };
             })(),
             'components':{

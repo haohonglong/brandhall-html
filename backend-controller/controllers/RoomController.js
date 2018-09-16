@@ -15,18 +15,20 @@
     var __this__=null;
     System.is(System,'SuperController','RoomController',System.CONTROLLERS);
     var ROOT  = System.BACKEND;
-    var views = System.ViEWS+'/room';
+    var views = System.VIEWS+'/room';
+    var E = {file_404:System.ERROR_404};
     var RoomController = System.SuperController.extend({
         constructor: function (init){
             this.base(init || {});
             __this__=this;
+            this.viewpath = System.VIEWS+'/room';
 
 
         },
         '_className':'RoomController',
         'listAction':function(){
-            new System.Template().render(views+'/list.html',{
-                'ViEWS':System.ViEWS,
+            this.render('list',{
+                'VIEWS':System.VIEWS,
                 'IMAGE':System.IMAGE,
                 'ROOT':ROOT,
                 'D':{
@@ -36,11 +38,11 @@
 
             },function(content){
                 $('#app').after(content).remove();
-            });
+            },E);
         },
         'detailAction':function(){
-            new System.Template().render(views+'/detail.html',{
-                'ViEWS':System.ViEWS,
+            this.render('detail',{
+                'VIEWS':System.VIEWS,
                 'IMAGE':System.IMAGE,
                 'ROOT':ROOT,
                 'D':{
@@ -50,11 +52,11 @@
 
             },function(content){
                 $('#app').after(content).remove();
-            });
+            },E);
         },
         'releaseAction':function(){
-            new System.Template().render(views+'/release.html',{
-                'ViEWS':System.ViEWS,
+            this.render('release',{
+                'VIEWS':System.VIEWS,
                 'IMAGE':System.IMAGE,
                 'ROOT':ROOT,
                 'D':{
@@ -64,7 +66,7 @@
 
             },function(content){
                 $('#app').after(content).remove();
-            });
+            },E);
         },
 
 
