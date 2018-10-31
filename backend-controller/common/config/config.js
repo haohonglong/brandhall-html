@@ -57,15 +57,16 @@
                     ,'BACKEND':ROOT
                     ,'COMMON':_ROOT_+'/common'
                     ,'PLUGINS':_ROOT_+'/common/plugins'
-                    ,'CSS':ROOT+'/html/css'
-                    ,'SCRIPT':ROOT+'/html/js'
-                    ,'IMAGE':ROOT+'/html/images'
+                    ,'CSS':ROOT+'/css'
+                    ,'SCRIPT':ROOT+'/js'
+                    ,'IMAGE':ROOT+'/images'
                     ,'CONTROLLERS':ROOT+'/controllers'
                     ,'VIEWS':ROOT+'/views'
                     ,'ERROR_404':ROOT+'/views/404.html'
                 };
             })(),
             'components':{
+                'routeName':'r',
                 't':function (System) {
                     var id =0;
                     System.Moudle = System.createDict();
@@ -109,6 +110,7 @@
                     ,classPath+'/base/Base.class.js'
                     ,classPath+'/base/Object.class.js'
                     ,classPath+'/base/Component.class.js'
+                    ,classPath+'/base/HttpRequest.class.js'
                     ,classPath+'/base/Helper.class.js'
                     ,classPath+'/base/Browser.class.js'
                     ,classPath+'/base/Event.class.js'
@@ -118,7 +120,6 @@
                     ,classPath+'/base/Loader.class.js'
 
                     ,classPath+'/base/Controller.class.js'
-                    ,CONTROLLERS+'/SuperController.class.js'
                     ,classPath+'/base/Router.class.js'
                     // ,PLUGINS+'/layer-v3.1.1/layer/layer.js'
                     ,'http://127.0.0.1/lamborghiniJS/LAM2/common/plugins/vue/vue.js'
