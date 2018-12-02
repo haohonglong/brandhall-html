@@ -1,0 +1,16 @@
+
+<div id="components-demo">
+    <span class="mr10">共${paage}页</span>到第${paage}
+    <span class="sectionForm-A2 mr5 ml5">
+        <input v-model="paage" type="text" class="text w-38" value="paage"></span>页
+    <span class="sectionForm-A3 ml5"><input class="" type="submit" value="确定"></span>
+</div>
+<script type="text/javascript">
+    new Vue({
+        delimiters:['${','}'],
+        el: '#components-demo',
+        data: {
+            paage: '{{ num }}'
+        }
+    })
+</script>

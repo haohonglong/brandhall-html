@@ -11,27 +11,9 @@
         LAM.run(function(){
             'use strict';
             var System = this;
-            System.Loader
-                .load({
-                    'baseUrl':System.COMMON,
-                    'suffix':'.css',
-                    'rel':'stylesheet',
-                    'css':[
-                        '/css/bootstrap'
-                        ,'/css/global'
-                    ]
-                })
-                .load({
-                    'baseUrl':System.CSS,
-                    'suffix':'.css',
-                    'rel':'stylesheet',
-                    'css':[
-                        '/lib'
-                    ]
-                })
-                .print();
-
-            System.import([
+            System
+                .import(['/common'],System.MYCOMMON)
+                .import([
                  '/Tab.class'
                 ,'/PopupLayer.class'
                 ,'/Validation.class'

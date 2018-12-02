@@ -11,30 +11,10 @@
         LAM.run([LAM],function(LAM){
             'use strict';
             var System = this;
-            System.Loader
 
-                .load({
-                    'baseUrl':System.COMMON,
-                    'suffix':'.css',
-                    'rel':'stylesheet',
-                    'css':[
-                         '/css/bootstrap'
-                        ,'/css/global'
-                    ]
-                })
-                .load({
-                    'baseUrl':System.CSS,
-                    'suffix':'.css',
-                    'rel':'stylesheet',
-                    'css':[
-                        '/lib'
-                    ]
-                })
-
-                .print();
 
             System
-
+                .import(['/common'],System.MYCOMMON)
                 .import([
                     '/Tools.class'
                     ,'/Tab.class'
@@ -68,7 +48,7 @@
                     </div>
                     <img class="R img" data-var="tpl" src="{{IMAGE}}/imgs_LHH/pics/img_01.gif" width="20" height="20" alt="">
                 </div>
-                <include repeat="0" tp-data="{'name':'小安子33'}" delimiters="{#,#}"  file="{{VIEWS}}/inc_header.html"></include>
+                <#include repeat="0" tp-data="{'name':'小安子33'}" delimiters="['{#','#}']"  file="{{LAM.VIEWS}}/inc_header.html" />
                 {{content}}
             </div>
         </div>
@@ -81,7 +61,6 @@
         LAM.use();
         LAM.VNAME = System.get('r') || 'shop';
         System.Html.include($('include'));
-        System.Html.analysisTpl();
 
 
 
